@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/chess.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Chess</title>
+
+    <script src="js/base/short.js"></script>
+    <script src="js/chess/chess.js"></script>
+  </head>
+  <body>
+    <div class="topBanner topBanner--wide">
+        <h1 class="leftTitle">crgowen.github.io</h1>
+        <ul class="navBar">
+           <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+           <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+           <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+           <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+        </ul>
+      </div>
+
+      <div class="chessApp" id="chessAppCon"><div class="chessApp__msgBox" id="chessMsgBox"></div></div>
+
+      <div class="chessBtnRow">
+        <div class="chessBtnRow__flexContainer">
+         <div class='chessBtnRow__btn' id='chessLeftBtn' onclick="ChessController.leftBtn()">player vs. player</div>
+         <div class='chessBtnRow__btn' id='chessMidBtn'  onclick="ChessController.middleBtn()">player vs. CPU</div>
+         <div class='chessBtnRow__btn' id='chessRightBtn' onclick="ChessController.rightBtn()">CPU vs. CPU</div>
+        </div>      
+     </div>
+
+     <script>ChessController.initApp();</script>
+  </body>
+ </html>

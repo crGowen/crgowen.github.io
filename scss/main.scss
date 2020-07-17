@@ -1,0 +1,159 @@
+@use 'predef';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: predef.$accentColour;
+
+    &:hover {
+        color: predef.$accentHover;
+    }
+
+    &:active {
+        color: predef.$accentActive;
+    }
+}
+
+body {
+    background-color: predef.$behindPageColour;
+}
+
+.topBanner {
+    display: flex;
+    width: 100%;
+    min-width: 50rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: predef.$accentColour; 
+    color: predef.$invertedTextColour;
+}
+
+.topBanner--wide {
+    min-width: 74rem;
+}
+
+.leftTitle {
+    display: inline-block;
+    width: 14rem;
+    height: inherit;
+    line-height: inherit;
+    vertical-align: middle; 
+    font-family: predef.$fontTitle;       
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-align: left;
+    color: inherit;
+    background-color: transparent;
+    @include predef.noSelect();
+}
+
+.navBar {
+    width: 36rem;
+    height: inherit;
+    line-height: inherit;
+    list-style-type: none;
+
+    @include predef.flexRow();
+
+}
+
+.navBar__link {
+    display: inline-block;
+    width: 25%;
+    height: inherit;
+    line-height: inherit;
+    vertical-align: middle;
+    text-align: center;
+    font-family: predef.$fontHeader;
+    color: inherit;
+    font-size: 1.3rem;
+    cursor: pointer;
+    @include predef.noSelect();
+
+    &:hover {
+        background-color: predef.$accentHover;
+    }
+
+    &:active {
+        background-color: predef.$accentActive;
+    }
+}
+
+.pageItem {
+    display: block;
+    width: 48rem;
+    min-height: 3rem;
+    margin: 0.5rem auto;
+    padding: 0.8rem 1rem;
+    border-radius: 0.2rem;
+    background-color: predef.$pageColour;
+    color: predef.$primaryTextColour;
+
+    font-family: predef.$fontBody;
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 0.05rem;
+    line-height: 1.2rem;
+}
+
+.pageItem--wide {
+    width: 72rem;
+}
+
+.pageItem__header {
+    display: block;
+    line-height: 1.7rem;
+    text-align: left;
+    font-family: predef.$fontHeader;
+    font-size: 1.7rem;
+    font-weight: normal;    
+    letter-spacing: 0.005rem;
+    text-decoration: none;
+    
+    color: inherit;
+}
+
+.pageItem__subHeader {
+    display: block;
+    line-height: 1.4rem;
+    padding-top: 4rem;
+    text-align: left;
+    font-family: predef.$fontHeader;
+    font-size: 1.4rem;
+    font-weight: normal;    
+    letter-spacing: 0.005rem;
+    text-decoration: none;
+    
+    color: inherit;
+}
+
+.pageItem__paragraph {
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    line-height: inherit;
+    text-align: justify;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    
+    color: inherit;
+}
+
+.pageItem__img {
+    display: block;
+    width: 65%;
+    height: auto;
+    margin: 2rem auto;
+}
+
+.pageItem__img--render {
+    width: 100%;
+    margin: 0;
+}

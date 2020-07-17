@@ -1,0 +1,101 @@
+.golApp {
+  position: relative;
+  display: block;
+  background-color: #EDEDED;
+  width: calc(1.8rem * 41);
+  height: calc(1.8rem * 30);
+  line-height: 0;
+  font-size: 0;
+  margin: 0.5rem auto;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: steelblue;
+  border-radius: 0.4rem;
+}
+
+.golApp__cell {
+  display: inline-block;
+  width: calc( 1.8rem * 0.75);
+  height: calc( 1.8rem * 0.75);
+  margin: calc( 1.8rem * 0.125) calc( 1.8rem * 0.125);
+  border-radius: 0.25rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.1s;
+}
+
+.golApp__cell--inactive {
+  background-color: #DADADA;
+}
+
+.golApp__cell--active {
+  background-color: steelblue;
+}
+
+.golApp__cell--hoverEnabled {
+  cursor: pointer;
+}
+.golApp__cell--hoverEnabled:hover {
+  background-color: #AFDAFF;
+}
+
+.golBtnRow {
+  width: 74rem;
+  height: 4rem;
+  margin: 0 auto;
+  border-style: none;
+  margin-bottom: 1rem;
+}
+
+.golBtnRow__flexContainer {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.golBtnRow__btn {
+  display: inline-block;
+  width: 19.6rem;
+  height: 3.8rem;
+  line-height: 3.8rem;
+  background-color: #EDEDED;
+  border-radius: 0.6rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: steelblue;
+  color: #252525;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.golBtnRow__btn:hover {
+  background-color: steelblue;
+  color: snow;
+}
+.golBtnRow__btn:active {
+  background-color: snow;
+  color: snow;
+}
+
+.golBtnRow__btn--disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+.golBtnRow__btn--disabled:hover {
+  background-color: #EDEDED;
+  color: #252525;
+}
+
+/*# sourceMappingURL=gol.css.map */

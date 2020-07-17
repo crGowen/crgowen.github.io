@@ -1,0 +1,72 @@
+// basic predefines
+$behindPageColour: #DADADA;
+$pageColour: #EDEDED;
+
+$accentColour: steelblue;
+$accentHover: #3F75AA;
+$accentActive: #5F95BA;
+
+$primaryTextColour: #252525;
+$invertedTextColour: snow;
+
+$fontBody: 'Raleway', sans-serif;
+$fontTitle: 'Saira Extra Condensed', sans-serif;
+$fontHeader: 'Helvetica', sans-serif;
+
+@mixin noSelect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin flexRow($justify: center) {
+    display: inline-flex; 
+
+    justify-content: $justify;
+
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+// IPT predefines
+$iptElemHoverColour: #CCCCDD;
+$iptSolidColour: $primaryTextColour;
+$iptSolidColourSelected: $invertedTextColour;
+$iptGasColour: #BB0000;
+$iptGasColourSelected: $iptGasColour; 
+$iptLiquidColour: #6666FF;
+$iptLiquidColourSelected: $iptLiquidColour; 
+$iptRadioactiveColour: #00EE00;
+$iptLegendColour: $accentColour; //#BB88FF;
+
+$iptTableElemSize: 2.56rem;
+
+// GOL predefines
+$golCellInactiveColour: $behindPageColour;
+$golCellHoverColour: #AFDAFF;
+$golCellActiveColour: $accentColour;
+
+$golCellSize: 1.8rem;
+$golCellLengthsW: 41;
+$golCellLengthsH: 30; // golCellLengthsW * golCellLengthsH = total number of golCells
+
+// Chess predefines
+$chessSquareSize: 7.5rem;
+$chessDarkSquareColour: $primaryTextColour;
+$chessLightSquareColour: $behindPageColour;
+$chessSquareHoverColour: #DDDDDD;
+$chessSquareSelectedColour: #88AA88;
+$chessSquarePM: #AACC88;
+$chessSquarePMHover: #66BB44;
+$chessSquareMoving: #66BB44;
+$chessMsgBoxColour:snow;
+
+//OB predefines
+
+$obSpaceColour: #0d0d0d;
+$obBarBackground: #00000088;
+$obToolTip: #151515BB;
+$obDestPane: #0A0A0AAA;

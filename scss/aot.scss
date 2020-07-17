@@ -1,0 +1,102 @@
+.aotContainer {
+    height: 45rem;
+    width: 80rem;
+ }
+
+ .topBanner--aotWidth {
+   min-width: 80rem;
+ }
+
+ .pageItem--aotWidth {
+    width: 78rem;
+}
+
+.webgl-content {
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    padding: 0;
+    height: 45rem;
+    width: 80rem;
+    z-index: 5;
+ }
+ 
+ .webgl-content .logo, .progress {
+    margin: 0 auto;
+    margin-top: 0;
+    padding: 0;
+    display: none;
+ }
+ 
+ .webgl-content .logo {
+    background: url('./TemplateData/progressLogo.Light.png') no-repeat center / contain;
+    width: 0;
+    height: 2rem;
+ }
+ 
+ .webgl-content .progress {
+    height: 2rem;
+    width: 0;
+ }
+ 
+ .webgl-content .progress .empty {
+    background: url('./TemplateData/progressEmpty.Light.png') no-repeat right / cover;
+    float: right;
+    width: 100%;
+    height: 50%;
+ }
+ 
+ .webgl-content .progress .full {
+    background: url('./TemplateData/progressFull.Light.png') no-repeat left / cover;
+    float: left;
+    width: 0%;
+    height: 0%;
+ }
+ 
+ .webgl-content .logo.Dark {
+    background-image: url('./TemplateData/progressLogo.Dark.png');
+ }
+ 
+ .webgl-content .progress.Dark .empty {
+    background-image: url('./TemplateData/progressEmpty.Dark.png');
+ }
+ 
+ .webgl-content .progress.Dark .full {
+    background-image: url('./TemplateData/progressFull.Dark.png');
+ }
+ 
+ .webgl-content .footer {
+    position: relative;
+    display: block;
+    height: 0rem;
+    z-index: 6;
+ }
+ 
+ .webgl-content .footer .webgl-logo, .title, .fullscreen {
+    height: 100%;
+    display: none;
+    background: transparent center no-repeat;
+ }
+ 
+ .webgl-content .footer .webgl-logo {
+    background-image: url('./TemplateData/webgl-logo.png');
+    width: 204px;
+    float: left;
+    display: none;
+ }
+ 
+ .webgl-content .footer .title {
+    margin-right: 10px;
+    float: right;
+    display: none;
+ }
+ 
+ .webgl-content .footer .fullscreen {
+    background-image: url('./TemplateData/fullscreen.png');
+    height: 3rem;
+    width: 3rem;
+    display: inline-block;
+    position: absolute;
+    top: -3.3rem;
+    right: 0.2rem;
+    cursor: pointer;
+ }

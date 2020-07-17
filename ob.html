@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/ob.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Outward and Beyond</title>
+
+    <script src="js/base/short.js"></script>
+    <script src="js/ob/ob.js"></script>
+    <script src="js/ob/nation.js"></script>
+    <script src="js/ob/character.js"></script>
+    <script src="js/ob/star.js"></script>
+    <script src="js/ob/view.js"></script>
+  </head>
+  <body>
+    <div class="topBanner topBanner--obWidth">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+
+    <div class="obApp" id="obAppCon">
+
+      <!-- star sprites -->
+      <img id='spriteWhiteMs' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/white_ms.png'>
+      <img id='spriteBlueMs' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/blue_ms.png'>
+      <img id='spriteYellowMs' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/yellow_ms.png'>
+      <img id='spriteOrangeMs' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/orange_ms.png'>
+      <img id='spriteBlackHole' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/black_hole.png'>
+      <img id='spriteNeutron' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/neutron.png'>
+      <img id='spriteWolfRayet' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/wolfrayet.png'>
+      <img id='spriteBrownDwarf' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/brown_dwarf.png'>
+      <img id='spriteWhiteDwarf' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/white_dwarf.png'>
+      <img id='spriteCarbon' class='obApp__sprite--invisible' width='39' height='39' src='/img/ob/carbon.png'>
+
+      <!-- planet sprites -->
+      <img id='spritePlanet0' class='obApp__sprite--invisible' width='60' height='60' src='/img/ob/planet0.png'>
+      <img id='spritePlanet1' class='obApp__sprite--invisible' width='60' height='60' src='/img/ob/planet1.png'>
+      <img id='spritePlanet2' class='obApp__sprite--invisible' width='60' height='60' src='/img/ob/planet2.png'>
+      <img id='spritePlanet3' class='obApp__sprite--invisible' width='60' height='60' src='/img/ob/planet3.png'>
+      <img id='spritePlanet0Hq' class='obApp__sprite--invisible' width='500' height='500' src='/img/ob/planet0_HQ.png'>
+      <img id='spritePlanet1Hq' class='obApp__sprite--invisible' width='500' height='500' src='/img/ob/planet1_HQ.png'>
+      <img id='spritePlanet2Hq' class='obApp__sprite--invisible' width='500' height='500' src='/img/ob/planet2_HQ.png'>
+      <img id='spritePlanet3Hq' class='obApp__sprite--invisible' width='500' height='500' src='/img/ob/planet3_HQ.png'>
+
+      <!-- player sprite -->
+      <img id='spritePlayerMarker' class='obApp__sprite--invisible' width='38' height='60' src='/img/ob/player_marker.png'>
+
+
+      <canvas id="obCanv" class="obCanvas" width="1280" height="720"></canvas>
+        
+    </div>
+
+    <script>
+      if (short.checkForMobile()) window.alert("Warning: this application was not designed for mobile. It may not work properly on your device.");
+      ObController.initOb() 
+    </script>
+
+  </body>
+ </html>

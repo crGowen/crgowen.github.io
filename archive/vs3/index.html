@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="vredact-styles.css">
+    <script src="src/util/core.js"></script>
+    <script src="src/util/mic_plugin.js"></script>
+    <script src="src/util/cursor_plugin.js"></script>
+    <script src="src/util/recorder.js"></script>
+    <script src="src/util/mobilecheck.js"></script>
+    <script src="src/formapp.js"></script>
+    <title>tredact Talk</title>
+  </head>
+  <body onload="initVS()">
+     <input type="text" id="url-box"></input>
+     <div id="vredact-app-content">
+        <div id="vredact-app-header">
+           <!--<img src="img/tredact-logo.svg" ondragstart="return false">
+           <h1>tredact</h1>-->
+        </div>
+
+        <div id="vredact-app-page">
+        </div>
+
+        <div class="vredact-app-divider"></div>
+
+        <div id="vredact-app-footer">
+        </div>
+       <audio id="silent-play">
+         <source src="./silence.wav" type="audio/wav">
+       </audio>
+
+       <div id="vredact-app-popup"></div>
+     </div>
+ </body>
+</html>

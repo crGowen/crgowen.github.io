@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/aot.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Aliens Out There</title>
+
+    <script src="js/base/short.js"></script>
+    <script src="/js/aot/TemplateData/UnityProgress.js"></script>
+    <script src="/js/aot/Build/UnityLoader.js"></script>
+  </head>
+  <body>
+    <div class="topBanner topBanner--aotWidth">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+    
+    <!-- don't rename -->
+    <div class="webgl-content">
+      <div id="aotCon" class="aotContainer"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" title="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title"> </div>
+      </div>
+    </div>
+
+    <div class="pageItem pageItem--aotWidth">
+      <h1 class="pageItem__header">Info</h1>
+      <p class="pageItem__paragraph">Upon loading, a randomised galaxy of 2500 stars is created, roughly a tenth of which are generated as late stage stars (and have a good chance of going supernova), and somewhere amongst the 2500 stars are 14 civilisations.
+      All civilisations will begin their own version of SETI and will occassionally beam a very narrow but long range beam across the galaxy, if the beam hits another civilisation they may begin a process of establishing contact, the closer a civilisation is, the more likely they are to detect the beam.
+      It typically takes 1000s years for anybody to establish contact with another civilisation, but since it's all randomly generated it's all about probability and could go very differently.</p>
+   </div>
+   <div class="pageItem pageItem--aotWidth">
+      <h1 class="pageItem__header"> Controls </h1>
+      Mute supernova booms : M <br />
+      Reset view : R <br />
+      Generate new galaxy : F5 <br />
+      Change speed : , and . <br />
+      View civilisation : LMB click on one of the civilisation list <br />
+      View star : LMB click on star <br />
+      Rotate view : LMB click and drag <br />
+      Zoom in or out : W and S (combine with Left Shift to speed up); alternatively use mouse scroll wheel <br />
+      Move view sidewards : A and D (combine with Left Shift to speed up) <br />
+      Roll view : Q and E (combine with Left Shift to speed up) <br />
+      Move "vertically" : Z and X (combine with Left Shift to speed up)
+   </div>
+   <div class="pageItem pageItem--aotWidth">
+     <h1 class="pageItem__header">Credit</h1>
+     <p class="pageItem__paragraph">Created by me (C R Gowen), using the Unity game engine for its WebGL capabilities.</p>
+ </div>
+
+  <script>
+    if (short.checkForMobile()) window.alert("Warning: this application was not designed for mobile. It may not work properly on your device.");
+
+    var gameInstance = UnityLoader.instantiate("aotCon", "/js/aot/Build/aot.json", {onProgress: UnityProgress});
+  </script>
+  </body>
+</html>

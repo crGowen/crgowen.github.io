@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="./formappstyles.css">
+    <script src="src/pages.js"></script>
+    <script src="src/formapp.js"></script>
+    <title>ivredacted App</title>
+  </head>
+  <body>
+     <div id="page-header">
+        <img src="img/logo-white.png" id="logo">
+        <img src="img/telefonnummer.png" id="nummer">
+     </div>
+
+     <div id="form-app-content">
+        <div class="form-app-header">
+          <h1>Was ist meine Immobilie wert?</h1>
+          <p>Jetzt kostenlose Bewertung für den Verkauf sichern!<p>
+        </div>
+
+        <div class="form-app-tagline">100% KOSTENLOS</div>
+
+        <div class="form-app-page" id="tick">
+          <div class="form-app-question">Was für eine Immobilie möchten Sie eventuell verkaufen?</div>
+
+          <div class="form-app-selection-set">
+             <div class="form-app-option-card" onclick="(function () {
+                loadPageGsf();
+                propType = 'Grundstück';
+                nextPageAnim();
+                currentPage = '#1000';
+                window.location.hash = '1000';
+             }());">
+                <img src="img/25.png">
+                <h2>Grundstück</h2>
+             </div>
+             <div class="form-app-option-card" onclick="(function () {
+                loadPageHk();
+                propType = 'Haus';
+                nextPageAnim();
+                currentPage = '#2000';
+                window.location.hash = '2000';
+             }());">
+                <img src="img/26.png">
+                <h2>Haus</h2>
+             </div>
+             <div class="form-app-option-card" onclick="(function () {
+                loadPageWf();
+                propType = 'Wohnung';
+                nextPageAnim();
+                currentPage = '#3000';
+                window.location.hash = '3000';
+             }());">
+                <img src="img/27.png">
+                <h2>Wohnung</h2>
+             </div>
+             <div class="form-app-option-card" onclick="(function () {
+                loadPageGk();
+                propType = 'Gewerbe';
+                nextPageAnim();
+                currentPage = '#4000';
+                window.location.hash = '4000';
+             }());">
+                <img src="img/28.png">
+                <h2>Gewerbe</h2>
+             </div>
+          </div>
+
+          <div class="form-app-progress">
+             <div class="current-page"></div>
+             <hr class="grey-bar"/>
+             <div class="uncompleted-page"></div>
+             <hr class="grey-bar"/>
+             <div class="uncompleted-page"></div>
+             <hr class="grey-bar"/>
+             <div class="uncompleted-page"></div>
+             <hr class="grey-bar"/>
+             <div class="uncompleted-page"></div>
+          </div>
+       </div>
+
+        <div class="form-app-page" id="tock">
+           ja
+        </div>
+
+       <div class="form-app-footer">
+          <img src="img/app-footer.png">
+       </div>
+     </div>
+
+     <div id="page-footer">
+        <p id="links">AGB&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Impressum&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Datenschutzerklärung</p>
+        <p id="copyright">IMAGES AND BRAND IDENTIFIERS REMOVED! App may not function exactly correct!</p>
+     </div>
+
+ </body>
+</html>

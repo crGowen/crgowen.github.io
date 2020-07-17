@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+a {
+   color: inherit;
+   text-decoration: inherit;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background-color: #444;
+   background-image: url("img/background.jpg");
+   background-position: center;
+   background-size: 100% 60rem;
+   background-repeat: no-repeat;
+}
+
+h2 {
+   width: 100%;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+   font-size: 1rem;
+   font-weight: normal;
+   padding: 1rem 0;
+   padding-top: 0;
+   color: #222;
+}
+
+h1 {
+   width: 100%;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+   font-size: 1.5rem;
+   font-weight: bold;
+   padding: 1rem 0;
+   padding-top: 0;
+   color: #222;
+}
+
+#page-header{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   width: 100%;
+   height: 4rem;
+   background-color: #d81;
+   margin-bottom: 1.5rem;
+
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+#page-header #logo{
+   display: block;
+   position: static;
+   height: 2rem;
+   width: auto;
+   padding: 1rem 0;
+   padding-right: 30rem;
+}
+
+#page-header #nummer{
+   display: block;
+   position: static;
+   height: 4rem;
+   width: auto;
+}
+
+#form-app-content{
+   display: block;
+   position: static;
+   background-color: #ffffff;
+   width: 60rem;
+   height: 46.1rem;
+   margin: 0 auto;
+   margin-bottom: 6rem;
+   overflow: hidden;
+}
+
+#page-footer{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+   position: static;
+   bottom: 0;
+   width: 100%;
+   min-width: 60rem;
+   height: 4rem;
+   background-color: #d81;
+}
+
+#page-footer #links{
+   display: block;
+   position: static;
+   height: 4rem;
+   width: auto;
+   font-family: 'Roboto', sans-serif;
+   font-size: 0.8rem;
+   font-weight: normal;
+   color: white;
+   vertical-align: bottom;
+   line-height: 4rem;
+}
+
+#page-footer #copyright{
+   display: block;
+   position: static;
+   height: 4rem;
+   line-height: 4rem;
+   width: auto;
+   font-family: 'Roboto', sans-serif;
+   font-size: 0.7rem;
+   font-weight: normal;
+   color: white;
+   vertical-align: bottom;
+   text-align: right;
+}
+
+#tick{
+   top: 0rem;
+   left: 0rem;
+}
+
+#tock{
+   top: -32rem;
+   left: 70rem;
+}
+
+.form-app-header{
+   display: block;
+   position: static;
+   width: 100%;
+   height: 10rem;
+   margin: 0 auto;
+   background-image: url("img/header_bg.png");
+   background-repeat: repeat-x;
+   background-position: center;
+   background-size: contain;
+
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.form-app-header h1{
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+   font-size: 2.2rem;
+   color: #d81;
+   text-decoration: none;
+   padding-top: 1.5rem;
+}
+
+.form-app-header p{
+   text-align: center;
+   margin-top: 0rem;
+   font-family: 'Nunito', sans-serif;
+   font-size: 1.5rem;
+   color: #222;
+   font-weight: normal;
+   line-height: 2.8rem;
+   vertical-align: middle;
+}
+
+.form-app-tagline{
+   display: block;
+   position: static;
+   background-color: transparent;
+   width: auto;
+   height: 2rem;
+   margin: 0 auto;
+   border-radius: 0.2rem;
+
+   text-align: center;
+   color: #d81;
+   font-family: 'Nunito', sans-serif;
+   font-size: 0.9rem;
+   line-height: 1.5rem;
+   font-weight: bolder;
+}
+
+.form-app-page{
+   width: 60rem;
+   height: 32rem;
+   display: inline-block;
+   position: relative;
+   transition: 0.3s;
+
+   background-color: #fff;
+}
+
+.form-app-page p{
+   width: 80%;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+   font-size: 1.1rem;
+   font-weight: normal;
+   padding: 1rem 0;
+   padding-top: 0;
+   color: #222;
+   margin: 0 auto;
+}
+
+.form-app-page hr{
+   display: block;
+    height: 0.95rem;
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 0.05rem;
+    width: 95%;
+    margin: 0 auto;
+    color: #d81;
+}
+
+.form-app-question{
+   display: block;
+   position: static;
+   background-color: transparent;
+   width: auto;
+   height: 3rem;
+   margin: 0 auto;
+   border-radius: 0.2rem;
+
+   text-align: center;
+   color: #222;
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.3rem;
+   line-height: 3rem;
+   font-weight: bolder;
+
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.form-app-selection-set{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   position: static;
+   width: 100%;
+   height: 18rem;
+   margin: 0 auto;
+   margin-bottom: 1rem;
+   padding: 0 0;
+   padding-top: 2rem;
+}
+
+.form-app-option-card{
+   cursor: pointer;
+   display: block;
+   position: static;
+   border-width: 0.1rem;
+   border-bottom-width: 0.5rem;
+   border-style: solid;
+   background-color: #fff;
+   border-radius: 0.4rem;
+   border-color: #aaa;
+   width: 20%;
+   height: 17.4rem;
+   margin: 0 0.5%;
+   transition: 0.3s;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.form-app-option-card:hover{
+   border-bottom-color: #d81;
+   box-shadow: 0 0 1rem #0003;
+}
+
+.form-app-option-card img{
+   display: block;
+   position: static;
+   width: 75%;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 2rem;
+   padding-bottom: 0.5rem;
+   border-style: solid;
+   border-width: 0;
+   border-bottom-width: 0.075rem;
+}
+
+.form-app-option-card h2{
+   display: block;
+   position: static;
+   width: 75%;
+   margin: 0 auto;
+   padding-top: 0.75rem;
+   line-height: 1.5rem;
+   vertical-align: middle;
+   font-family: 'Nunito', sans-serif;
+   font-size: 1rem;
+   font-weight: normal;
+   text-align: center;
+   color: #222;
+}
+
+.form-app-option-card:hover h2{
+   color: #d81;
+}
+
+.form-app-progress{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+   position: static;
+
+   width: 50%;
+   height: 3rem;
+   margin: 0 auto;
+   margin-bottom: 0.5rem;
+   padding: 1rem 0;
+
+   user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.form-app-progress .current-page{
+   height: 3rem;
+   width: 3rem;
+   background-image: url("img/current_page.png");
+   background-repeat: repeat-x;
+   background-position: center;
+   background-size: contain;
+
+   line-height: 3rem;
+   font-family: 'Nunito', sans-serif;
+   vertical-align: middle;
+   text-align: center;
+   color: #d81;
+   font-size: 1rem;
+}
+
+.form-app-progress .uncompleted-page{
+   height: 3rem;
+   width: 3rem;
+   background-image: url("img/uncompleted_page.png");
+   background-repeat: repeat-x;
+   background-position: center;
+   background-size: contain;
+
+   line-height: 3rem;
+   font-family: 'Nunito', sans-serif;
+   vertical-align: middle;
+   text-align: center;
+   color: #e7e7e7;
+   font-size: 1rem;
+}
+
+.form-app-progress .completed-page{
+   height: 3rem;
+   width: 3rem;
+   background-image: url("img/completed_page.png");
+   background-repeat: repeat-x;
+   background-position: center;
+   background-size: contain;
+
+   line-height: 3rem;
+   font-family: 'Nunito', sans-serif;
+   vertical-align: middle;
+   text-align: center;
+   color: #fff;
+   font-size: 1rem;
+}
+
+.form-app-progress hr{
+   display: block;
+    height: 1.4rem;
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 0.1rem;
+    width: 2.5rem;
+}
+
+.form-app-footer{
+   position: relative;
+   top: -33.5rem;
+   width: 60rem;
+   height: 4rem;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.form-app-footer img{
+   position: static;
+   display: block;
+   width: 40rem;
+   height: auto;
+   margin: 0 auto;
+}
+
+.form-app-footer-flexbox{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   position: static;
+   width: 60%;
+   float: left;
+   height: 2rem;
+}
+
+.form-app-footer-flexbox hr{
+   display: block;
+    height: 0.95rem;
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 0.05rem;
+    width: 0.6rem;
+    color: #555;
+}
+
+.form-app-footer p{
+   float:right;
+   font-family: 'Nunito', sans-serif;
+   vertical-align: bottom;
+   text-align: center;
+   font-size: 0.5rem;
+   line-height: 2rem;
+   height: 2rem;
+   font-weight: normal;
+   width: 40%;
+}
+
+.form-app-footer-flexbox h2{
+   width: auto;
+   font-size: 0.8rem;
+   line-height: 2rem;
+   vertical-align: middle;
+   margin: 0 3rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+   text-align: center;
+}
+
+.form-app-footer-flexbox h2 a{
+   text-decoration: underline;
+}
+
+.form-app-footer-flexbox h2 a:hover{
+   color: #d81;
+}
+
+.grey-bar{
+   border-color: #ddd;
+}
+
+.orange-bar{
+   border-color: #d81;
+}
+
+.form-app-input-field{
+   color: #333;
+   display: block;
+   height: 1.2rem;
+   width: 35%;
+   padding: 1% 2%;
+   font-size: 1rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+   border-radius: 0.25rem;
+   border-style: solid;
+   border-color: #ddd;
+   margin: 0 auto;
+   margin-top: 1rem;
+   text-align: center;
+   outline: none;
+}
+
+.details-2{
+   font-size: 0.9rem;
+   width: 90%;
+}
+
+.half-w{
+   width: 40.8%;
+   display: inline-block;
+   margin-left: 2.5%;
+}
+
+.form-app-radio{
+margin-right: 1.5rem;
+display: inline-block;
+border-radius: 0.3rem;
+border-width: 0.05rem;
+border-color: #ccc;
+border-style: solid;
+width: 1rem;
+height: 1rem;
+float: left;
+cursor: pointer;
+color: white;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 0.75rem;
+line-height: 1rem;
+vertical-align: middle;
+text-align: center;
+
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+
+.form-app-label{
+   font-size: 1rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+   line-height: 1rem;
+   margin-right: 0.5rem;
+   vertical-align: middle;
+   float: left;
+}
+
+#pflichtfeld{
+   font-size: 0.9rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+   line-height: 1rem;
+   margin-right: 0.5rem;
+   vertical-align: middle;
+   float: right;
+   font-style: italic;
+}
+
+#gender-select{
+   width: 90%;
+   margin: 0 auto;
+   padding-top: 2.5rem;
+   height: 1.2rem;
+}
+
+#form-app-details-page{
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.1rem;
+   width: 40%;
+   margin: 0 auto;
+}
+
+#checkbox-container{
+   width: 95%;
+   margin: 0 auto;
+   margin-top: 0.5rem;
+   font-size: 0.7rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+}
+
+#checkbox-container a{
+   color: inherit;
+   text-decoration: underline;
+}
+
+.submit-btn{
+   width: 30%;
+   margin: 0 auto;
+   margin-top: 1.5rem;
+   font-size: 1rem;
+   font-family: 'Roboto', sans-serif;
+   font-weight: normal;
+   background-color: #222;
+   border-style: none;
+   color: #fff;
+   height: 2rem;
+   display: block;
+   cursor:pointer;
+   border-radius: 0.25rem;
+
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+.submit-btn:hover{
+   background-color: #d81;
+   color: #fff;
+}
+
+#final-btn{
+   width: 95%;
+   height: 4rem;
+   word-wrap: normal;
+   white-space: normal;
+   font-size: 0.9rem;
+   line-height: 1.5rem;
+   border-radius: 0.8rem;
+}
+
+.loadingBar{
+   margin: 0 auto;
+   width: 75%;
+   display:block;
+   height: 1.5rem;
+   background-color: #ddd;
+   border-radius: 1rem;
+
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+#prog{
+   background-color: #d81;
+   width: 0%;
+   float: left;
+}
+
+#selectedM{
+   background-color: #d81;
+}
+
+#selectedF{
+   background-color: #d81;
+}
+
+#selectedC{
+   background-color: #d81;
+}

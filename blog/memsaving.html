@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Tutorial: Saving Memory</title>
+  </head>
+  <body>
+   <div class="topBanner topBanner--wide">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+        <div class="pageItem pageItem--wide">
+           <h1 class="pageItem__header">Computer memory: Padding, byte-size booleans, and memory addresses</h1>
+          <p class="pageItem__paragraph">
+          Memory management is a lost art in a world where nearly everybody has 1GB more RAM than they’ll ever need, when I went to university it was barely discussed besides the obvious ‘don’t use a large type if a smaller size will do the job’, and while it might seem like that is the be all and end all, it’s far far from it. Self-taught programmers and YouTube gurus even tend to completely omit learning about some of the less obvious tips for memory efficiency.
+          </p>
+          <h1 class="pageItem__subHeader">Memory padding and byte alignment</h1>
+          <p class="pageItem__paragraph">
+          First let’s talk about padding. Here’s a question: how much memory does an object of class Example require?
+          </p>
+          <pre>
+             class Example
+             {
+                char y; //char = 1 byte
+                int x; //int = 4 bytes
+                short z; //short = 2 bytes
+
+                /* This is C++ code and these type sizes are accurate for C++ and my compiler,
+                but of course may vary language to language and compiler to compiler
+                (but generally won’t, these are pretty standard types) */
+             };
+
+             int main()
+             {
+                Example ex;
+                std::cout << "Size = " << sizeof(ex) << " bytes.\n";
+             }
+
+          </pre>
+          <p class="pageItem__paragraph">
+             So, intuitively its size is 1+4+2 = 7 bytes. But it’s not, it’s 12 bytes - copy, paste, and run this code and see for yourself. The cause of this is data structure padding. In computer memory (for reasons of performance that I’m not going to elaborate on here) variables get stored on an aligned boundary. What does that mean? Well, it basically means that if you have a series of memory addresses:
+          </p>
+          <pre>
+             0, 1, 2, 3, 4, 5, 6, 7, 8,..., N.
+          </pre>
+          <p class="pageItem__paragraph">
+             A 1 byte variable can go anywhere.<br />
+             A 2 byte variable will only go on the addresses where the operation [address] modulo 2 = 0, so: 0, 2, 4, and so on…<br />
+             A 4 byte variable will only go on the addresses where [address] modulo 4 = 0, so: 0, 4, 8 and so on...<br />
+             A 8 byte variable will only go on addresses 0, 8, 16 and so on....<br />
+          </p>
+          <p class="pageItem__paragraph">
+             And you can apply this exact rule to data structures, so in our “Example” class the char is a single byte, so it can go at the first memory address available (which we’ll call 0), but the int can’t go to the next address in memory, it needs to be on the next aligned boundary, which is 4. The int is four bytes in size so it takes up 4 addresses in memory. The next available slot is 8 which is aligned for the 2 byte short, so 8 and 9 are occupied by the short.
+          </p>
+          <pre>
+
+             0: char
+             1:
+             2:
+             3:
+             4: int
+             5: int
+             6: int
+             7: int
+             8: short
+             9: short
+          </pre>
+          <p class="pageItem__paragraph">
+             So address 1, 2, 3 are padded, which is to say they are skipped over in the data structure so that the int can go to the aligned boundary at memory address 4. But wait, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 is only 10 bytes, and we know an object of class Example is 12 bytes. So the 2 extra bytes actually occur because the class object itself has to be padded, not just the variables within it. This padding is just padding up to (but not including) the next byte aligned boundary for the largest type size in the object, for example: the largest type size here is 4 bytes (because of the int), so we need to pad up to (again, but not including) the next address on which [address] modulo 4 = 0, which is 12. Hence memory addresses 10, 11 are now padded, therefore objects of class Example are 12 bytes.
+          </p>
+          <p class="pageItem__paragraph">
+             What you might have already realised is that padding is completely dependent on the order in which the class’s variables are defined, and as such we can reduce the size of this object without taking away any variables.
+             <br />
+             If we define it like so, changing the order of variable definitions:
+          </p>
+          <pre>
+             class Example
+             {
+                short z; //short = 2 bytes
+                char y; //char = 1 byte
+                int x; //int = 4 bytes
+             };
+          </pre>
+          <p class="pageItem__paragraph"> Memory allocation would look like this: </p>
+          <pre>
+             0: short
+             1: short
+             2: char
+             3:
+             4: int
+             5: int
+             6: int
+             7: int
+             8: -
+          </pre>
+          <p class="pageItem__paragraph">
+             So we start on a short, then the char which can go anywhere goes to address 2, then 3 is padded so that the int can start at 4, and the class object overall does not need any extra padding because the definition ends just before address 8 which is an aligned boundary for the 4-byte int. Therefore, objects of class Example are now only 8 bytes! We’ve cut a ⅓ of memory usage this way without losing any actual information, if you were storing a large array of Example objects, that would be a huge deal. On top of this, we may as well either upgrade the char to a short or slot in a second char at memory address 3, it’s basically free considering it’s 8 bytes either way.
+          </p>
+          <p class="pageItem__paragraph">
+             Be aware that you can turn on ‘packing’ for your compiler to avoid padding and store the class objects as 7 bytes regardless of the order of the class, which would save 1 byte of memory in this case, however you generally shouldn’t force the compiler to pack, because padding exists for performance reasons: object members on aligned boundaries are quicker to read and write for the OS.
+          </p>
+          <h1 class="pageItem__subHeader">Byte size booleans</h1>
+          <p class="pageItem__paragraph">
+             Moving on to the next tip, a char is a byte, and a char can represent a number from 0 to 255.
+          </p>
+          <p class="pageItem__paragraph">
+             As an aside: the beginners among you reading might be wondering “wait but a char is a letter not a number?”, well actually a char is a number but you can think of it as similar to enumeration, each letter (e.g. ‘a’) is actually just aliasing the numerical value, and you can directly assign chars numerical values and use them in mathematical operations just fine - or you could even use the aliases in mathematical operations (e.g. char x = ‘c’ - ‘a’; would be valid operation with a real answer).
+          </p>
+          <p class="pageItem__paragraph">
+             But wait, a bool is ALSO 1 byte and it can only be 0 or 1 (true or false). So why is the char type capable of storing 256 states, and another type is only capable of storing 2 states, when they are both the exact size in memory?
+          </p>
+          <p class="pageItem__paragraph">
+             A byte is 8 bits. A bit is just a <strong>B</strong>inary dig<strong>IT</strong>. So a byte can be represented as (e.g.) 01101011. 8 bits allow for 2 to the power of 8 (256) unique values. A true bool would only be 1 bit because it only needs to deal with 2 values: true or false, 1 or 0. However, your modern operating system (regardless of which one you’re using) cannot address anything less than 1 byte. Which means: although a bool in a perfect world is a bit, in our imperfect world where the operating system will only address in bytes we will have to address a minimum of 1 byte. So a bool is a byte, though it really shouldn’t be.
+          </p>
+          <p class="pageItem__paragraph">
+             As such, when I’m programming I almost always just use chars in place of bools, it’s all the same to your memory bus. But you might be wondering why the OS can’t address anything smaller than a byte, and, well, I don’t know. What I can tell you is that this has some interesting effects, such as for my project <a href="/stenor/stenor.html" target="_blank" rel="noopener noreferrer">Stenor</a>: the whole reason why steganography like in Stenor is even possible is because the byte is the minimum. As I mention in the description through that link, for an image you only really need 6 bits per colour channel because any higher level of detail isn’t noticeable, but since the minimum is a byte... it has to be 8 bits per channel, so we can use those last 2 bits to secretly store data and the differences caused by changing the last 2 bits aren’t noticeable. In a perfect world with a perfect OS we would use image formats with only 6 bits per channel and therefore images would be 25% smaller on your hard drive, and this kind of steganography wouldn’t be possible, but we live in an imperfect world (which is more interesting anyway).
+          </p>
+          <h1 class="pageItem__subHeader">Addressing memory, and how big is a pointer?</h1>
+          <p class="pageItem__paragraph">
+             I’ve written “addressing memory” a few times so far, but what exactly does it mean? Well you can think of how the OS deals with memory as a large array - this is a little oversimplified, but it gets the point across - anyway, the smallest amount of memory addressable is a byte, so it’s a byte array (basically a char array then).
+          </p>
+          <p class="pageItem__paragraph">
+             An index of this array is a memory address, and addressing memory more or less means allocating or pointing to bytes from this “byte array” by specifying the index. The index (memory address, to be proper) is a binary number. In a 32bit system, it’s a binary number that can be up to 32 bits long. 2³² is 4294967296, so it stands to reason that a 32bit system can index up to 4294967296 bytes (which is 4GB) - this is the reason why 32bit operating systems don’t benefit from having more than 4GB of RAM - the index just doesn’t go higher than 4GB, so a 32bit system can’t allocate memory up there. In a 64bit system, the limit 2⁶⁴, or 1.8 * 10¹⁹ bytes, or about 17 billion GB.
+          </p>
+          <p class="pageItem__paragraph">
+             But if this index (memory address) is a number itself, and a pointer has to be able to record a memory address, then therefore, in a 32bit system the pointer has to be 32 bits long in order to be able to address the entire possible byte array, or 64 bits to be able to address the entire byte array on a 64bit system. So to the question “how big is a pointer?”, the answer is ‘the same size as the memory address’: 32 bits (4 bytes) on a 32bit system and 64 bits (8 bytes) on a 64bit system.
+          </p>
+          <h1 class="pageItem__subHeader">How files are read by text editors, and endianness</h1>
+          <p class="pageItem__paragraph">
+             When we write data to a file (regardless of what that data is) and then open the file in a text editor, the text editor reads the file as a series of bytes (or chars). As per mentioned in the section “byte size booleans”, a char is just a numerical value and when chars are parsed (either by the terminal output or by the text editor), it just uses an encoding table to find out what ‘letter’ each numerical value represents.
+          </p>
+          <p class="pageItem__paragraph">
+             You have to take this encoding table it into account when you’re writing data to a file that the user should be able to open and read in a text editor (this is called Human-Readable format). Encoding is everything in readable data for computing, and it is incredibly important for the internet that everybody follows a standard.
+          </p>
+          <p class="pageItem__paragraph">
+             An encoding like ASCII is fairly simple, it just checks the value of each byte against the encoding table, but other encodings can be more complex, such as a letter being 2 bytes, where every 2 bytes is parsed by the text editor and checked against an encoding table with 2¹⁶ (~65,000) possible aliases. Using 2 bytes would therefore allow for many more different letters to be used, but also takes up twice as much disk space, and even still 2 bytes isn’t even really enough to cover all of the special ©ℏǡɌɅςτϵɌŠ that one might encounter whilst, say, browsing the internet (for those of you using some kind of weird device/browser that doesn’t have the de facto standard UTF-8 encoding, you’re probably seeing a bunch of squares in the middle of this sentence - or otherwise error characters - so all in all it’s a successful lesson in why standard character encoding is important).
+          </p>
+          <p class="pageItem__paragraph">
+             UTF-8 is the defacto standard for a reason. I’m not going to talk much about it (look it up if interested), but UTF-8 encoding is special because it allows a letter to be encoded as 4, 3, 2, or 1 bytes long. And of course, to be efficient the most common characters are encoded as 1 byte, the less common characters are 2 or 3 bytes, and the rare characters that you probably aren’t going to encounter once in 10 years are 4 bytes. With up to 4 bytes per character UTF-8 therefore has space for all the characters needed so that you don’t have to worry about seeing missing-character squares in place of exotic letters, but since the most common characters are only 1 byte it still manages to be memory efficient: the best of both worlds.
+          </p>
+          <p class="pageItem__paragraph">
+             Now consider (and feel free to compile and try) the following code:
+          </p>
+          <pre>
+             int main()
+             {
+                int num = 1685221239;
+                std::ofstream foutstream;
+                foutstream.open("./output.txt", std::ios::binary);
+                foutstream.write((char*)&num, sizeof(int));
+                foutstream.close();
+             }
+          </pre>
+          <p class="pageItem__paragraph">
+             If you use it and go read the .txt file you’ll notice it says “word” despite the fact that the code  outputted an int to the file. So what’s going on? Well the text editor (as I wrote above) interprets the contents of every file as if it was just full of chars, a char is just a byte and an int is 4 bytes long, so it’s not a coincidence that we see four letters (= four chars) when we open the .txt file with our text editor.
+          </p>
+          <p class="pageItem__paragraph">
+             The int represents a value of 1685221239, If we interpret this in binary (as the 32 bits) we get:
+          </p>
+          <pre>
+             01100100011100100110111101110111
+          </pre>
+          <p class="pageItem__paragraph"> Which we can just space out into 4 separate bytes (8 bits each):</p>
+          <pre>
+             01100100 01110010 01101111 01110111
+          </pre>
+          <p class="pageItem__paragraph">
+             And these 8 bit strings have values of 100, 114, 111, 119 respectively, which as per the <a href="https://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=dec&unicodeinhtml=dec&htmlent=1" target="_blank" rel="noopener noreferrer">UTF-8 encoding table</a> comes to d,r,o,w (we’ll get to why it’s backwards for ‘word’ in a moment).
+          </p>
+          <p class="pageItem__paragraph">
+             Whether we write an int, 4 chars, or 2 shorts to a file doesn’t matter, because the text editor has no way of knowing what format you wrote the data in, it only knows there are 4 bytes, and it will treat them as chars. So as shown above, you can write a string to a file without using chars (but honestly, why would you? That’s just massively overcomplicated). Of course, if you want to write an int to a file that the user can read actually as the number that the int represents, then you just convert the int to string and output the string. Conversion of an int to string just grabs the int as decimal format like '453', and foreach number in the decimal value creates a char with the corresponding encoding value, e.g. the first position char will need a value of 52 (which is ‘4’ in the UTF-8 encoding table). When you output an int to the terminal with std::cout, the cout function does this conversion of numeric variables to strings automatically (but the terminal doesn’t use UTF-8 encoding; the encoding in the terminal depends on the language of your OS, e.g. if you’re in American English it’s probably ASCII encoding).
+          </p>
+          <p class="pageItem__paragraph">
+             But why is it backwards? Why is the above example d,r,o,w as we convert each byte of the int, but ‘word’ in the text editor? Because if you’re using any modern consumer/home OS, your OS is ‘little endian’.
+          </p>
+          <p class="pageItem__paragraph">
+             Endianness is the order in which bytes are written to memory/storage, big endian order is essentially the order you would expect, but little endian order writes bytes backwards. Note that only bytes are written backwards, the variable order is the same and the bits within each byte are the same.
+          </p>
+          <p class="pageItem__paragraph">
+             For example, say we have 3 variables, A B and C of 2 bytes (or 16 bits) each.
+          </p>
+          <pre>
+             A = 11010100 11110100
+             B = 11111100 00011010
+             C = 00100000 10101010
+          </pre>
+          <p class="pageItem__paragraph">
+             With these variables in a struct or class object in this order (A, B, C), and then we write this object to a file, it will be written in that same order A,B,C, because endianness does not affect the order of variables.
+          </p>
+          <p class="pageItem__paragraph">
+             And the contents of each variable are not simply reversed, only the bytes within each variable are in reverse order, the bits within each byte stay the same, so A does NOT get written as:
+          </p>
+          <pre>
+             00101111 00101011
+          </pre>
+          <p class="pageItem__paragraph"> But instead as...</p>
+          <pre>
+             11110100 11010100
+          </pre>
+          <p class="pageItem__paragraph">Overall, writing the object containing A,B,C to a file would result in this order in the file:</p>
+          <pre>
+             A = 11110100 11010100
+             B = 00011010 11111100
+             C = 10101010 00100000
+          </pre>
+          <p class="pageItem__paragraph"> The order of variables is conserved, the order of bytes is reversed, the order of bits within each byte is conserved.
+          </p>
+          <p class="pageItem__paragraph">
+             And that’s why I defined the int with a value equivalent to “drow”, knowing it would be “word” when opened in a text editor. It’s worth mentioning that in practice, endianness is not something you should ever have to worry about, because if you are storing human-readable data you will store it as a string. A string is just a series of chars, so you are really storing just chars. If you are storing or sending data as just chars, endianness does not matter; firstly, as you just read 3 sentences ago, the order of the variables (chars) won’t change; and secondly, a char is 1 byte, and you can’t change the byte order of a variable that only has 1 byte in it, so a string is completely unaffected by endianness.
+          </p>
+          <p class="pageItem__paragraph">
+             And even if you aren’t storing string data, then endianness still doesn’t matter, because if you’re writing raw non-human readable data, the only point of raw data is for it to be read by a program later on… and when the program reads the data, if you’re on a little-endian OS it will expect the data to be stored in little endian (therefore it will automatically put it into the order you would expect as it reads the data).
+          </p>
+          <p class="pageItem__paragraph">
+             The only time endianness becomes an issue is transmitting data over the internet, where the recipient might be using a big-endian OS (data centers often use big-endian OS’s for performance reasons that I’m not gonna go into here). This problem is dealt with by just sending data over in a string format (as already discussed strings are not affected by endianness), and for exactly that purpose, data sent over the internet is converted to strings and handled by formats like XML and JSON.
+          </p>
+          <h1 class="pageItem__subHeader">Storing a char instead of 8 booleans</h1>
+          <p class="pageItem__paragraph">
+             Above I wrote that a char contains 1 byte, or 8 bits, and a bit is a true boolean with only two values, but the bool type is also 1 byte. Well let’s say for whatever reason you are storing a very large array, and each element of the array contains many booleans. A case for this could be a video game, where you are storing the rules and properties for every item in the game in a file that doesn’t need to human-readable. Let’s say your game has 2000 different items, and there are 8 true/false properties for each item (e.g. bool isQuestItem = true;). When loaded into memory it is ideal to have those true/false properties as bools, so that they can be immediately referred to in conditionals for true/false, however when storing these items in a file on the disk, they can be stored in compressed format that reduces the game’s disk size. There are many ways to compress, and one way to compress booleans is to group up to 8 booleans together into a char variable.
+          </p>
+          <p class="pageItem__paragraph">
+             The logic is simple: a char is 8 bits, and we can consider that each bit can be 1 for true, 0 for false, so with that specified we can go ahead and store our 8 bools in a single char, which results in storing 1 byte instead of 8.
+          </p>
+          <p class="pageItem__paragraph">
+             The process for doing so is trivial, and can either be done purely mathematically with powers-of-2 and modulo operations on a char value, or by converting a char to a bitset and then the manipulating the bits, and converting the bits back to a char. An inverse function would naturally be chosen for reading our ‘booleans-char’ from files. The function wouldn’t exactly be great for time complexity, but the function need only be called when loading items from file (so basically, on a loading screen), and in a game of 2000 items at 8 bools per item, storing 8 bools in 1 char would save roughly 13.7 kilobytes.
+          </p>
+          <p class="pageItem__paragraph">
+             In this example, that’s not all that much memory today, so you can see why in the modern world of terabyte hard drives and 8GBs of RAM, thrifty memory and storage techniques are a lost art. Yet, such techniques can come in handy for programmers in edge cases, so all should be aware of them.
+          </p>
+          <h1 class="pageItem__subHeader">Conclusion</h1>
+          <p class="pageItem__paragraph">
+             So that’s all my memory tips and bits (heh) for self-taught programmers. Thanks for reading and hopefully you learned a few things here  (and hopefully a few of you even stopped mid way through to reorder your class variables for more efficient padding). I think I managed to explain the tips relatively simply without rambling too much.
+          </p>
+        </div>
+  </body>
+ </html>

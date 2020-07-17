@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/gol.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Conway's Game of Life</title>
+
+    <script src="js/base/short.js"></script>
+    <script src="js/gol/gol.js"></script>
+  </head>
+  <body>
+    <div class="topBanner topBanner--wide">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+
+     <div class="golApp" id="golAppCon"></div>
+
+     <div class="golBtnRow">
+       <div class="golBtnRow__flexContainer">
+        <div class='golBtnRow__btn' id='golPlayBtn' onclick="GolController.play()">play</div>
+        <div class='golBtnRow__btn' id='golClrBtn'  onclick="GolController.clear()">clear</div>
+        <div class='golBtnRow__btn' id='golRandBtn' onclick="GolController.randomise()">randomise</div>
+       </div>      
+    </div>
+
+    <div class="pageItem pageItem--wide">
+      <h1 class="pageItem__header">How to play</h1>
+      <p class="pageItem__paragraph">Click on some cells to draw a pattern, then click 'play' and watch it evolve over time. Press 'stop' to pause the simulation and whilst it is not playing you can then press 'clear' to clear all cells, or 'randomise' to generate an entirely new map of cells.</p>
+    </div>
+
+    <div class="pageItem pageItem--wide">
+      <h1 class="pageItem__header">Conway's Game of Life</h1>
+      <p class="pageItem__paragraph">The 'Game of Life' is a cellular evolution simulation created by John Horton Conway in 1970. The rules are simple: each cell can either be alive or dead; at the end of each iteration (or generation): a live cell will remain alive only if it has 2 or 3 live neighbours - no more and no less, whilst a dead cell can only become alive if it has exactly 3 live neighbours. A cell's neighbours are any other cells that border it (including diagonally), so all cells - except for edge-cells - have 8 neighbours. Technically the Game of Life should have an infinite grid, but for a web application like this, that would be... impractical.</p>
+      <p class="pageItem__paragraph">Read more on Wikipedia <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">here</a>.</p>
+      <p class="pageItem__paragraph">Update: On 11 April 2020, John Horton Conway passed away from complications due to COVID-19 at the age of 82. His legacy includes not just the Game of Life, but great contributions into various areas of mathematics: group theory, number theory, knot theory; as well as philosophy in metaphysics. With his broad impact, it's easy to see why Conway was known as a 'magical genius'.</p>
+    </div>   
+
+    <script>GolController.loadApp(41, 30);</script>
+  </body>
+ </html>

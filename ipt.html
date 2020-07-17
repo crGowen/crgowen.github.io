@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/ipt.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Interactive Periodic Table</title>
+
+    <script src="js/base/short.js"></script>
+    <script src="js/ipt/periods.js"></script>
+    <script src="js/ipt/ipt.js"></script>
+  </head>
+  <body>
+   <div class="topBanner topBanner--wide">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+     <div class="ptApp">
+        <div class="ptApp__legend">
+           <div class="ptApp__legendContent ptApp__legendContent--head">
+             LEGEND :
+          </div>
+           <div class="ptApp__legendContent">
+             Solid
+          </div>
+           <div class="ptApp__legendContent ptApp__legendContent--liquid">
+             Liquid
+          </div>
+           <div class="ptApp__legendContent ptApp__legendContent--gas">
+             Gas
+          </div>
+           <div class="ptApp__legendContent ptApp__legendContent--radioactive">
+             Radioactive
+          </div>
+        </div>
+
+        <div class="ptApp__infoPane">
+           <div class="ptApp__infoHeader" id="infoName"></div>
+           <div class="ptApp__infoSubHeader" id="infoMass"></div>
+           <div class="ptApp__infoSubHeader" id="infoState"></div>
+           <div class="ptApp__infoSubHeader" id="infoHL"></div>
+           <div class="ptApp__infoSubHeader" id="infoZ"></div>
+            
+            <div class="ptApp__infoParagraph" id="infoP1">              
+           </div>
+
+           <div class="ptApp__infoParagraph" id="infoP2">
+              Click an element to view its information.
+           </div>
+
+           <div class="ptApp__infoParagraph" id="infoP3">
+              
+           </div>
+        </div>
+
+        <div class="ptApp__table" id="elementsTable">
+        </div>
+     </div>
+     <script> IptController.loadTable(); </script>
+  </body>
+ </html>

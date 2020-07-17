@@ -1,0 +1,273 @@
+@use 'predef';
+
+.topBanner--obWidth {
+   min-width: 1280px;
+ }
+
+ .pageItem--obWidth {
+    width: calc(1280px - 2rem);
+}
+
+.obApp {
+   color: predef.$invertedTextColour;
+   font-family: predef.$fontBody;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 1280px;
+    height: 720px;
+    margin-top: 0.5rem;
+    padding: 0;
+    background-color: predef.$obSpaceColour;
+    z-index: 2;
+ }
+
+.obApp__canvas {
+    position: static;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 3;
+    color: inherit;
+    font-family: inherit;
+ }
+
+.obApp__topBar {
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    width: 1260px;
+    height: 40px;
+    padding: 0 10px;
+    background-color: predef.$obBarBackground;
+    line-height: 40px;
+    color: inherit;
+    font-family: inherit;
+    text-align: center;
+    top: 0;
+    @include predef.noSelect();
+   z-index: 4;
+ }
+
+ .obApp__bottomBar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1260px;
+    height: 80px;
+    padding: 0 10px;
+    background-color: predef.$obBarBackground;
+    line-height: 80px;
+    color: inherit;
+    font-family: inherit;
+    text-align: center;
+    bottom: 0;
+    z-index: 4;
+ }
+
+ .obApp__mainMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1260px;
+    height: 500px;
+    padding: 0 10px;
+    line-height: 80px;
+    color: inherit;
+    font-family: inherit;
+    text-align: center;
+    top: 50px;
+    z-index: 5;
+ }
+
+ .obApp__menuLogo {
+    display: block;
+    height: 200px;
+    width: 600px;
+    padding: 5px;
+    margin: 13px auto;
+    margin-bottom: 60px;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    line-height: 100px;
+    font-size: 50px;
+    text-align: center;
+    @include predef.noSelect();
+ }
+
+ .obApp__btn {
+   color: inherit;
+   font-family: inherit;
+   display: block;
+   height: 40px;
+   padding: 5px;
+   border-width: 2px;
+   line-height: 40px;
+   border-radius: 5px;
+   border-color: predef.$invertedTextColour;
+   border-style: solid;
+   text-align: center;
+   cursor: pointer;
+   background-color: transparent;
+   @include predef.noSelect();
+   transition: 0.1s;
+
+   &:hover {
+      background-color: predef.$invertedTextColour;
+      color: predef.$primaryTextColour;
+     }
+ }
+
+ .obApp__btn--menu {
+    width: 400px;
+    margin: 13px auto;
+ }
+
+ .obApp__btn--uiBottom {
+   width: 130px;
+   margin: 13px 5px;
+  }
+
+ .obApp__loadingText {
+    position: absolute;
+    display: block;
+    height: 150px;
+    width: 600px;
+    padding: 5px;
+    margin: 13px auto;
+    margin-bottom: 60px;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    line-height: 100px;
+    font-size: 50px;
+    text-align: center;
+    @include predef.noSelect();
+   top: 50px;
+   left: 335px;
+ }
+
+ .obApp__loadingBar {
+    margin: 0 auto;
+    padding: 0;
+    width: 796px;
+    position: absolute;
+    display: block;
+    height: 40px;
+    background-color: transparent;
+    border-width: 2px;
+    border-color: predef.$invertedTextColour;
+    border-style: solid;
+    border-radius: 20px;
+    top: 320px;
+    left: 240px;
+ 
+ 
+    @include predef.noSelect();
+ }
+
+ .obApp__loadingBar--progress{
+    position: static;
+    background-color: predef.$invertedTextColour;
+    width: 0%;
+    border-radius: 16px;
+    border-width: 0;
+    height: 100%;
+    float: left;
+ }
+
+ .obApp__locationTip {
+   color: inherit;
+   font-family: inherit;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    z-index: 8;
+    background-color: predef.$obToolTip;
+    width: 175px;
+    height: 60px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: predef.$invertedTextColour;
+    border-width: 1px;
+    @include predef.noSelect();  
+ }
+
+ .obApp__locationTip--invisible {
+     display: none;
+ }
+
+ .obApp__locationTipHeader{
+   color: inherit;
+   font-family: inherit;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;
+    font-weight: normal;
+ }
+
+ .obApp__locationTipSubHeader{
+   color: inherit;
+   font-family: inherit;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: normal;
+ }
+
+ .obApp__destInfoPane {
+     position: absolute;
+    display: block;
+    color: inherit;
+    font-family: inherit;
+    right: 50px;
+    top: 50px;
+    z-index: 8;
+    background-color: predef.$obDestPane;
+    width: 600px;
+    height: 550px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: predef.$invertedTextColour;
+    border-width: 1px;
+    @include predef.noSelect();
+ }
+
+ .obApp__destInfoHeader {
+    color: inherit;
+    font-family: inherit;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 2px;
+ }
+
+ .obApp__destInfoSubHeader {
+   color: inherit;
+   font-family: inherit;
+    font-size: 16px;
+    text-align: center;
+    line-height: 18px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    width: 80%;
+    margin: 0 auto;
+ }
+
+ .obApp__sprite--invisible {
+   display: none;
+ }

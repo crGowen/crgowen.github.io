@@ -1,0 +1,793 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap');
+
+*{
+   margin: 0;
+   padding: 0;
+}
+
+a{
+   text-decoration: none;
+}
+
+#url-box{
+   position: fixed;
+   visibility: none;
+   width: 0;
+   height: 0;
+}
+
+#vredact-app-content{
+   display: block;
+   position: relative;
+   width: 55rem;
+   height: 80rem;
+   background-color: #fff;
+   margin: 2rem auto;
+   border-radius: 0.4rem;
+   border-style: none;
+   border-width: 0.1rem;
+   border-color: #ddd;
+   box-shadow: 0 0 20px 1rem rgba(30, 30, 30, 0.1);
+}
+
+#vredact-app-popup{
+   font-family: 'Montserrat', sans-serif;
+   display: block;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   width: 38rem;
+   height: 46rem;
+   padding: 2rem;
+   background-color: #fff;
+   border-radius: 0.4rem;
+   border-style: none;
+   border-width: 0.1rem;
+   border-color: #ddd;
+   font-size: 1.6rem;
+   visibility: hidden;
+   box-shadow: 0 0 20px 1rem rgba(30, 30, 30, 0.1);
+}
+
+#vredact-app-popup h2{
+   margin-bottom: 2rem;
+   text-align: center;
+   font-size: 1.7rem;
+   font-weight: bold;
+}
+
+#vredact-app-popup p{
+   margin-bottom: 2rem;
+   text-align: center;
+}
+
+#vredact-app-popup img{
+   display: block;
+   position: static;
+   margin: 0 auto;
+   width: 10rem;
+   height: auto;
+}
+
+#vredact-app-popup #QR{
+   position: absolute;
+   bottom: 3rem;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   width: 15rem;
+   height: auto;
+}
+
+#vredact-app-header{
+   width: 100%;
+   height: 19.0%;
+   border-top-right-radius: 9px;
+   border-top-left-radius: 9px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+
+   background-image: url("img/ta-logo.png");
+   background-position: center;
+   background-size: cover;
+}
+
+#vredact-app-header img{
+   display: inline-block;
+   position: static;
+   width: 6rem;
+   height: auto;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-header h1{
+   display: inline-block;
+   position: static;
+   width: auto;
+   height: auto;
+   font-family: 'Montserrat Alternates', sans-serif;
+   font-weight: lighter;
+   font-size: 5rem;
+   padding-left: 1rem;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-footer{
+   position:relative;
+   width: 100%;
+   height: 2.8%;
+   border-bottom-right-radius: 9px;
+   border-bottom-left-radius: 9px;
+}
+
+.vredact-app-divider{
+   width: 90%;
+   height: 0.1%;
+   margin: 0 auto;
+   background-color: #ddd;
+}
+
+#vredact-app-page{
+   position: relative;
+   height: 75.85%;
+   width: 100%;
+   text-align: center;
+}
+
+#vredact-app-page h2{
+   margin: 0 auto;
+   width: 90%;
+   font-family: sans-serif;
+   font-weight: normal;
+   font-size: 3.2rem;
+   padding: 1rem 5%;
+   padding-top: 2.5rem;
+   font-family: 'Montserrat', sans-serif;
+   color: #222;
+}
+
+#vredact-app-page p{
+   margin: 0 auto;
+   width: 90%;
+   height: auto;
+   font-family: sans-serif;
+   font-weight: lighter;
+   font-size: 2.2rem;
+   line-height: 3rem;
+   padding: 0.5rem 5%;
+   font-family: 'Montserrat', sans-serif;
+   color: #222;
+}
+
+#vredact-app-page img{
+   position: absolute;
+   bottom: 9rem;
+   left: 4px;
+   right: 0;
+   margin: 0 auto;
+
+   height: 12rem;
+   width: auto;
+   display: inline;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-page p img{
+   position: static;
+   display: inline-block;
+   width: auto;
+   height: 2rem;
+   line-height: 2rem;
+   vertical-align: middle;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-page h2 img{
+   position: static;
+   display: inline-block;
+   width: auto;
+   height: 2.5rem;
+   vertical-align: middle;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-page #button-line{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   position: absolute;
+   bottom: 3rem;
+   width: 100%;
+   height: 8rem;
+   left: 0;
+   right: 0;
+   margin: 0;
+}
+
+#vredact-app-page #button-line img{
+   position: static;
+   height: 8rem;
+   width: auto;
+   display: inline-block;
+   margin: 0 1.5rem;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#vredact-app-page #button-line .no-pointer{
+   cursor: default;
+}
+
+#vredact-app-footer p{
+   font-family: sans-serif;
+   font-weight: lighter;
+   font-size: 1.5rem;
+   padding: 0.8rem 3rem;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   color: #222;
+}
+
+#vredact-app-footer p a{
+   font-weight: normal;
+   text-decoration: none;
+   font-family: 'Montserrat Alternates', sans-serif;
+   color: #222;
+}
+
+#vredact-app-footer p a img{
+   display: inline-block;
+   position: static;
+   width: auto;
+   height: 2rem;
+   margin: 0 0.5rem;
+   vertical-align: bottom;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#waveform{
+   position: absolute;
+   display: block;
+   width: 88%;
+   height: 380px;
+   margin: 0 auto;
+   left: 0;
+   right: 0;
+   bottom: 16.5rem;
+   visibility: hidden;
+}
+
+#progress-bar{
+   position: absolute;
+   display: block;
+   margin: 0 auto;
+   width: 90%;
+   height: 1rem;
+   background-color: #ddd;
+   border-radius: 1rem;
+   visibility: hidden;
+   left:0;
+   right: 0;
+   bottom: 41rem;
+}
+
+#max-recording-length{
+   font-family: 'Montserrat', sans-serif;
+   position: absolute;
+   display: block;
+   margin: 0 auto;
+   width: 90%;
+   height: 2rem;
+   visibility: hidden;
+   left:0;
+   right: 0;
+   bottom: 43rem;
+   font-size: 1.4rem;
+   color: #888;
+}
+
+#progress-bar #progress-fill{
+   display: block;
+   float: left;
+   width: 0%;
+   height: 100%;
+   border-radius: 1rem;
+}
+
+.app-input-field{
+   display: block;
+   width: 70%;
+   height: 5.5rem;
+   background-color: white;
+   margin: 0 auto;
+   padding-left: 3%;
+   border-style: solid;
+   border-width: 0.1rem;
+   border-color: #dcdcdc;
+   outline: none;
+   font-family: 'Montserrat', sans-serif;
+   color: #222;
+   font-size: 2rem;
+   border-radius: 0.4rem;;
+   transition: 0.25s;
+}
+
+.app-input-field:focus{
+   border-color: #72b4e2;
+   box-shadow: 0 0 0 0.25rem rgba(119, 184, 230, 0.2);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #555;
+  opacity: 1; /* Firefox */
+}
+
+#name-input{
+   margin-top: 3.5rem;
+   margin-bottom: 1rem;
+}
+
+#email-input{
+   margin-bottom: 1rem;
+}
+
+#phone-input{
+   margin-bottom: 2rem;
+}
+
+#submit-btn{
+   border-style: none;
+   outline: none;
+   display: block;
+   width: 35.5%;
+   height: 4.4rem;
+   background-color: #F39200;
+   margin: 0 auto;
+   border-radius: 0.4rem;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #f4f4f4;
+   font-size: 1.4rem;
+   cursor: pointer;
+}
+
+#submit-btn:hover{
+   background-color: #da8300;
+}
+
+.center{
+   text-align: center;
+}
+
+#final-msgbar{
+   position: relative;
+   display: block;
+   width: 60%;
+   padding: 0%;
+   padding-left: 3%;
+   height: 2rem;
+   margin: 0rem auto;
+   margin-top:5rem;
+   border-radius: 0.4rem;
+   border-style: none;
+   border-color: #ddd;
+   border-width: 0.05rem;
+   text-align: center;
+   line-height: 2rem;
+   cursor: pointer;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: normal;
+   color: #222;
+   font-size: 1.2rem;
+
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#msgbar-text{
+   display: inline;
+   font-size: 1.5rem;
+}
+
+#timestamp{
+   font-size: 1.5rem;
+   width: 18%;
+   display: inline;
+   height: 3rem;
+   line-height: 3rem;
+   margin: 0.5rem 2%;
+   font-weight: bold;
+   color: #fefcfe;
+   background-color: #ddd;
+   border-radius: 0.3rem;
+   text-align: center;
+   float: right;
+   vertical-align: middle;
+}
+
+#def-player{
+   display: block;
+   position: static;
+   margin: 0 auto;
+   width: 55%;
+   height: 3rem;
+}
+
+#vredact-app-page #countdown-text{
+   font-size: 10rem;
+   font-family: 'Montserrat', sans-serif;
+}
+
+#vredact-app-page #checkbox-container{
+   width: 65%;
+   margin: 0 auto;
+   margin-bottom: 4rem;
+   font-size: 2rem;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: normal;
+   text-align: center;
+   height: 3rem;
+   vertical-align: middle;
+   line-height: 3rem;
+}
+
+#vredact-app-page #checkbox-container .form-app-radio{
+display: inline-block;
+border-radius: 0.3rem;
+border-width: 0.05rem;
+border-color: #999;
+border-style: solid;
+width: 3rem;
+height: 3rem;
+float: left;
+cursor: pointer;
+color: white;
+font-family: 'Montserrat', sans-serif;
+font-weight: lighter;
+font-size: 1.5rem;
+line-height: 3rem;
+vertical-align: middle;
+text-align: center;
+
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+#vredact-app-page #selectedC{
+   background-color: #F39200;
+}
+
+#vredact-app-page .v-smallprint{
+   line-height: 2rem;
+   font-size: 1.1rem;
+   width: 70%;
+   margin: 0 auto;
+   margin-top: 1rem;
+}
+
+#vredact-app-page #final-btn{
+   border-style: none;
+   outline: none;
+   display: block;
+   width: 38.5%;
+   height: 4.4rem;
+   background-color: #F39200;
+   margin: 0 auto;
+   margin-top: 18rem;
+   border-radius: 0.4rem;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #f4f4f4;
+   font-size: 1.5rem;
+   cursor: pointer;
+}
+
+#vredact-app-page #final-btn:hover{
+   background-color: #da8300;
+}
+
+#iOS-btn{
+   border-style: none;
+   outline: none;
+   display: block;
+   position: absolute;
+   width: 70.5%;
+   height: 4.4rem;
+   background-color: #F39200;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   border-radius: 0.4rem;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #f4f4f4;
+   font-size: 1.2rem;
+   cursor: pointer;
+
+   bottom: 10rem;
+}
+
+#vredact-app-page #final-tick{
+   position: static;
+   display: block;
+}
+
+#vredact-app-page .kill-wspace{
+   margin-top: 0rem;
+   padding-top: 0rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Desktop (and landscape devices too, i guess) */
+@media only screen and (orientation:landscape) {
+   #vredact-app-content{
+      display: block;
+      position: relative;
+      width: 27.5rem;
+      height: 35.2rem;
+   }
+
+   #vredact-app-header{
+height: 21.0%;
+   }
+
+
+   #vredact-app-page{
+height: 74.75%;
+   }
+
+   #vredact-app-footer{
+      height: 1.8%;
+   }
+
+   #vredact-app-page h2{
+      padding-top: 0.9rem;
+      font-size: 1.2rem;
+   }
+
+   #vredact-app-page h2 img{
+      height: 1rem;
+      vertical-align: middle;
+   }
+
+   #vredact-app-page p{
+      padding-top: 0.2rem;
+      font-size: 0.8rem;
+      line-height: 1rem;
+   }
+
+   #vredact-app-page p img{
+      height: 0.7rem;
+      vertical-align: middle;
+   }
+
+   #vredact-app-page img{
+      height: 5rem;
+      bottom: 4rem;
+      left: 3px;
+   }
+
+   #vredact-app-page #button-line{
+      height: 3rem;
+      bottom: 1.5rem;
+   }
+
+   #vredact-app-page #button-line img{
+      height: 3rem;
+      margin: 0 0.5rem;
+   }
+
+   #vredact-app-footer p{
+      line-height: 1rem;
+      font-size: 0.6rem;
+      vertical-align: middle;
+      padding: 0.1rem 3rem;
+   }
+
+   #vredact-app-footer p a img{
+      height: 0.8rem;
+      vertical-align: middle;
+   }
+
+   #waveform{
+      height: 120px;
+      bottom: 6.5rem;
+      width: 88%;
+   }
+
+   #progress-bar{
+      width: 70%;
+      height: 0.5rem;
+      bottom: 16rem;
+   }
+
+   #max-recording-length{
+      width: 70%;
+      height: 1rem;
+      bottom: 16.5rem;
+      font-size: 0.6rem;
+   }
+
+   .app-input-field{
+      width: 60%;
+      height: 2rem;
+      border-width: 0.08rem;
+      border-radius: 0.18rem;
+      font-size: 0.7rem;
+   }
+
+   .app-input-field:focus{
+      box-shadow: 0 0 0 0.25rem rgba(119, 184, 230, 0.2);
+   }
+
+   #name-input{
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+   }
+
+   #email-input{
+      margin-bottom: 0.5rem;
+   }
+
+   #phone-input{
+      margin-bottom: 1.2rem;
+   }
+
+   #submit-btn{
+      width: 35.5%;
+      height: 2.4rem;
+      font-size: 0.8rem;
+      border-radius: 0.18rem;
+      margin-top: 0rem;
+   }
+
+   #vredact-app-page #final-btn{
+      height: 2.4rem;
+      margin-top: 7rem;
+      font-size: 0.8rem;
+      border-radius: 0.25rem;
+   }
+
+   #vredact-app-page .v-smallprint{
+      font-size: 0.5rem;
+      width: 68%;
+      margin: 0 auto;
+      margin-top: 0.2rem;
+      line-height: 1rem;
+   }
+
+   #vredact-app-page #checkbox-container{
+      width: 44%;
+      font-size: 0.7rem;
+      line-height: 1.1rem;
+      vertical-align: top;
+      margin-bottom: 0;
+   }
+
+   #vredact-app-page #checkbox-container .form-app-radio{
+   width: 1rem;
+   height: 1rem;
+   font-size: 0.6rem;
+   line-height: 1rem;
+   }
+
+   .vredact-app-divider{
+      width: 90%;
+      height: 0.2%;
+      margin: 0 auto;
+      background-color: #ddd;
+   }
+
+   #final-msgbar{
+      width: 60%;
+      height: 1.4rem;
+      margin-top:2rem;
+      line-height: 1.4rem;
+      font-size: 0.8rem;
+   }
+
+   #msgbar-text{
+      display: inline;
+      font-size: 0.8rem;
+   }
+
+   #def-player{
+      width: 55%;
+      height: 1.6rem;
+   }
+}

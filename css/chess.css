@@ -1,0 +1,203 @@
+.chessApp {
+  position: relative;
+  display: block;
+  background-color: #EDEDED;
+  width: calc(7.5rem * 8);
+  height: calc(7.5rem * 8);
+  line-height: 0;
+  margin: 0.5rem auto;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: #252525;
+  border-radius: 0.4rem;
+}
+
+.chessApp__msgBox {
+  border-radius: 1rem;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  top: 45%;
+  right: 35%;
+  width: 18rem;
+  height: 5rem;
+  line-height: 5rem;
+  background-color: #050505;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: snow;
+  color: snow;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  opacity: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.chessApp__msgBox--visible {
+  opacity: 0.98;
+  z-index: 1;
+}
+
+.chessApp__square {
+  position: static;
+  display: inline-block;
+  width: 7.5rem;
+  height: 7.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.1s;
+}
+
+.chessApp__square--dark {
+  background-color: #252525;
+}
+
+.chessApp__square--light {
+  background-color: #DADADA;
+}
+
+.chessApp__square--hoverEnable {
+  cursor: pointer;
+}
+
+.chessApp__square--selectedPiece {
+  background-color: #88AA88;
+}
+
+.chessApp__square--possibleMove {
+  cursor: pointer;
+  background-color: #AACC88;
+}
+.chessApp__square--possibleMove:hover {
+  background-color: #66BB44;
+}
+
+.chessApp__square--movingAi {
+  background-color: #66BB44;
+}
+
+.chessApp__square--bluePawn {
+  background-image: url("/img/chess/pawn_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--blueRook {
+  background-image: url("/img/chess/rook_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--blueKnight {
+  background-image: url("/img/chess/knight_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--blueBishop {
+  background-image: url("/img/chess/bishop_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--blueQueen {
+  background-image: url("/img/chess/queen_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--blueKing {
+  background-image: url("/img/chess/king_blue.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redPawn {
+  background-image: url("/img/chess/pawn_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redRook {
+  background-image: url("/img/chess/rook_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redKnight {
+  background-image: url("/img/chess/knight_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redBishop {
+  background-image: url("/img/chess/bishop_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redQueen {
+  background-image: url("/img/chess/queen_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessApp__square--redKing {
+  background-image: url("/img/chess/king_red.svg");
+  background-size: 100% 100%;
+}
+
+.chessBtnRow {
+  width: 61rem;
+  height: 4rem;
+  margin: 0 auto;
+  border-style: none;
+  margin-bottom: 1rem;
+}
+
+.chessBtnRow__flexContainer {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chessBtnRow__btn {
+  display: inline-block;
+  width: 19.6rem;
+  height: 3.8rem;
+  line-height: 3.8rem;
+  background-color: #EDEDED;
+  border-radius: 0.6rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #252525;
+  color: #252525;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.chessBtnRow__btn:hover {
+  background-color: #252525;
+  color: snow;
+}
+.chessBtnRow__btn:active {
+  background-color: snow;
+  color: snow;
+}
+
+.chessBtnRow__btn--disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+.chessBtnRow__btn--disabled:hover {
+  background-color: #EDEDED;
+  color: #252525;
+}
+
+/*# sourceMappingURL=chess.css.map */

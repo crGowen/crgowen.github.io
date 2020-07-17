@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="shortcut icon" href="/img/main/fav.png">
+    <title>Stenor</title>
+  </head>
+  <body>
+   <div class="topBanner">
+      <h1 class="leftTitle">crgowen.github.io</h1>
+      <ul class="navBar">
+         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
+         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
+         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
+         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
+      </ul>
+    </div>
+        <div class="pageItem">
+           <h1 class="pageItem__header">What is Stenor?</h1>
+           <p class="pageItem__paragraph">Short for "Steganographer", Stenor is a hobby project on digital steganography, imitating the cyber-spy thriller cliché of secretly storing data inside of data.
+             Stenor allows you to encode files into a container image or sound file, generally without changing the container in any noticeable way.
+             The files encoded into the container can be any type from .txt to .exe to .zip files (just for fun you could even encode a copy of Stenor into an image using Stenor).</p>
+        </div>
+        <div class="pageItem">
+           <h1 class="pageItem__header">How does it work?</h1>
+           <p class="pageItem__paragraph">In a typical image, each colour channel of each pixel is 8 bits (a bit is just a <strong>bi</strong>nary digi<strong>t</strong>), a typical RGB pixel has the three colour channels Red, Green, and Blue,
+             so could be therefore represented as three 8 digit binary numbers, for example:  [10101110, 11101100, 00011101] - equivalent to a colour hex of AEEC1D, or lime green.
+             If we change the last 2 bits of each channel, [101011xx, 111011xx, 000111xx], the difference in colour is basically impossible to notice,
+             for example [10101100, 11101100, 00011100] represents a colour hex of ACEC1C (open up paint/photoshop and compare those hexes, see if you can tell the difference).
+             This all means we can use those least significant bits to store data, in that example we used the 6 least significant bits to store "000000",
+             but we could just as easily have stored "101111" or any other series of 6 bits. In total therefore, we can store 6 bits of data in every pixel of an RGB image,
+             that might not sound like a lot, but considering a 1920x1080 picture has more than 2 million pixels, it means we can store 12 million bits (or 1.5 million bytes) of data in a single 1080p image.</p>
+        </div>
+        <div class="pageItem">
+           <h1 class="pageItem__header">Usage</h1>
+           <p class="pageItem__paragraph">Stenor is a hobby project and no effort has been put into making it compatible with various file formats: the only image format usable is .png, and audio files must be formatted as .wav 16bit PCM with no
+              fact chunk (which is the output for 16bit .wav in Audacity when you do not specify metadata upon file export); these limitations are for the container file when encoding, but the file that is encoded into the container can be literally anything, even an arbritary one you invent on the spot. Do not use Stenor to store personal information, it is not intended to be anything other than a
+            hobby project and curiosity, it does not encrypt information in any way that would make it resistant to prying eyes (given that softwares to detect and read steganographed data exist).</p>
+        </div>
+        <div class="pageItem">
+           <h1 class="pageItem__header">Download</h1>
+           <p class="pageItem__paragraph"><a href="/dl/stenor/stenor1.10.zip" download>Version 1.10 (.zip) / Windows x64</a></p>
+        </div>
+  </body>
+ </html>
