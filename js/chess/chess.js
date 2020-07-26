@@ -657,7 +657,6 @@ var ChessPlayer = (function () {
         }
     };
     ChessPlayer.prototype.endTurn = function () {
-        ChessController.clearBoardModifiers();
         for (var i = 0; i < this.pieces.length; i++) {
             if (this.pieces[i].type === "pawn")
                 this.pieces[i].checkPromotion();
@@ -1104,6 +1103,7 @@ var ChessController = (function () {
         ChessController.beginTurn();
     };
     ChessController.endGame = function () {
+        ChessController.clearBoardModifiers();
         ChessController.players[0].clearPlayer();
         ChessController.players[1].clearPlayer();
         clearTimeout(ChessController.timeoutHandle);
@@ -1128,6 +1128,7 @@ var ChessController = (function () {
         ChessController.timeoutHandle = setTimeout(function () { ChessController.players[ChessController.currentPlayer].beginTurn(); }, 200);
     };
     ChessController.endTurn = function () {
+        ChessController.clearBoardModifiers();
         ChessController.selectedPiece.getOwner().endTurn();
         ChessController.currentPlayer = (ChessController.currentPlayer + 1) % 2;
         ChessController.timeoutHandle = setTimeout(function () { ChessController.beginTurn(); }, 200);

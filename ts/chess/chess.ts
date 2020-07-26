@@ -786,8 +786,6 @@ class ChessPlayer {
     }
 
     endTurn() {
-        ChessController.clearBoardModifiers();
-
         for (let i = 0; i < this.pieces.length; i++) {
             if (this.pieces[i].type === "pawn") this.pieces[i].checkPromotion();
         }
@@ -1329,6 +1327,8 @@ class ChessController {
     }
     
     static endGame() {
+        ChessController.clearBoardModifiers();
+
         ChessController.players[0].clearPlayer();
         ChessController.players[1].clearPlayer();
         clearTimeout(ChessController.timeoutHandle);
@@ -1360,6 +1360,7 @@ class ChessController {
     }
 
     static endTurn() {
+        ChessController.clearBoardModifiers();
         ChessController.selectedPiece.getOwner().endTurn();
         ChessController.currentPlayer = (ChessController.currentPlayer + 1) % 2;
 
