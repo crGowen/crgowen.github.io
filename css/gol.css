@@ -2,8 +2,8 @@
   position: relative;
   display: block;
   background-color: #EDEDED;
-  width: calc(1.8rem * 41);
-  height: calc(1.8rem * 30);
+  width: calc(1.2rem * 41);
+  height: calc(1.2rem * 30);
   line-height: 0;
   font-size: 0;
   margin: 0.5rem auto;
@@ -15,9 +15,9 @@
 
 .golApp__cell {
   display: inline-block;
-  width: calc( 1.8rem * 0.75);
-  height: calc( 1.8rem * 0.75);
-  margin: calc( 1.8rem * 0.125) calc( 1.8rem * 0.125);
+  width: calc( 1.2rem * 0.75);
+  height: calc( 1.2rem * 0.75);
+  margin: calc( 1.2rem * 0.125) calc( 1.2rem * 0.125);
   border-radius: 0.25rem;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -42,7 +42,7 @@
 }
 
 .golBtnRow {
-  width: 74rem;
+  width: 62rem;
   height: 4rem;
   margin: 0 auto;
   border-style: none;

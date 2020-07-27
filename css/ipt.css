@@ -11,7 +11,7 @@
 .ptApp__legend {
   width: calc(18 * 2.56rem);
   padding: 0.25rem 0;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   height: 3.67rem;
   float: left;
   border-width: 0;
@@ -111,7 +111,7 @@
   display: inline-block;
   width: calc(18 * 2.56rem);
   height: 28rem;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 0.5rem;
 }
 
 .ptApp__tableRow {

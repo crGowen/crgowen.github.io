@@ -2,8 +2,8 @@
   position: relative;
   display: block;
   background-color: #EDEDED;
-  width: calc(7.5rem * 8);
-  height: calc(7.5rem * 8);
+  width: calc(4.5rem * 8);
+  height: calc(4.5rem * 8);
   line-height: 0;
   margin: 0.5rem auto;
   border-style: solid;
@@ -19,9 +19,9 @@
   z-index: -1;
   top: 45%;
   right: 35%;
-  width: 18rem;
-  height: 5rem;
-  line-height: 5rem;
+  width: 10rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
   background-color: #050505;
   border-style: solid;
   border-width: 0.1rem;
@@ -29,7 +29,8 @@
   color: snow;
   text-align: center;
   vertical-align: middle;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
+  font-family: "Raleway", sans-serif;
   transition: 0.3s;
   opacity: 0;
   user-select: none;
@@ -46,8 +47,8 @@
 .chessApp__square {
   position: static;
   display: inline-block;
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -144,8 +145,8 @@
 }
 
 .chessBtnRow {
-  width: 61rem;
-  height: 4rem;
+  width: 40rem;
+  height: 3rem;
   margin: 0 auto;
   border-style: none;
   margin-bottom: 1rem;
@@ -162,9 +163,9 @@
 
 .chessBtnRow__btn {
   display: inline-block;
-  width: 19.6rem;
-  height: 3.8rem;
-  line-height: 3.8rem;
+  width: 10.6rem;
+  height: 2.85rem;
+  line-height: 2.85rem;
   background-color: #EDEDED;
   border-radius: 0.6rem;
   border-width: 0.1rem;
@@ -174,7 +175,7 @@
   text-align: center;
   vertical-align: middle;
   font-family: "Raleway", sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.2s;
   -webkit-user-select: none;
