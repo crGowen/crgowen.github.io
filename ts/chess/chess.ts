@@ -1253,8 +1253,8 @@ class ChessController {
         ChessController.players[0].addPiece("bishop", ChessController.board[7][2]);
         ChessController.players[0].addPiece("bishop", ChessController.board[7][5]);
 
-        ChessController.players[0].addPiece("king", ChessController.board[7][3]);
-        ChessController.players[0].addPiece("queen", ChessController.board[7][4]);
+        ChessController.players[0].addPiece("queen", ChessController.board[7][3]);
+        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
 
         // prepare red
         for (let i = 0; i < 8; i++) {
@@ -1270,8 +1270,8 @@ class ChessController {
         ChessController.players[1].addPiece("bishop", ChessController.board[0][2]);
         ChessController.players[1].addPiece("bishop", ChessController.board[0][5]);
 
-        ChessController.players[1].addPiece("king", ChessController.board[0][3]);
-        ChessController.players[1].addPiece("queen", ChessController.board[0][4]);
+        ChessController.players[1].addPiece("queen", ChessController.board[0][3]);
+        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
 
     }
 

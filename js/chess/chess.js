@@ -1048,8 +1048,8 @@ var ChessController = (function () {
         ChessController.players[0].addPiece("knight", ChessController.board[7][6]);
         ChessController.players[0].addPiece("bishop", ChessController.board[7][2]);
         ChessController.players[0].addPiece("bishop", ChessController.board[7][5]);
-        ChessController.players[0].addPiece("king", ChessController.board[7][3]);
-        ChessController.players[0].addPiece("queen", ChessController.board[7][4]);
+        ChessController.players[0].addPiece("queen", ChessController.board[7][3]);
+        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
         for (var i = 0; i < 8; i++) {
             ChessController.players[1].addPiece("pawn", ChessController.board[1][i]);
         }
@@ -1059,8 +1059,8 @@ var ChessController = (function () {
         ChessController.players[1].addPiece("knight", ChessController.board[0][6]);
         ChessController.players[1].addPiece("bishop", ChessController.board[0][2]);
         ChessController.players[1].addPiece("bishop", ChessController.board[0][5]);
-        ChessController.players[1].addPiece("king", ChessController.board[0][3]);
-        ChessController.players[1].addPiece("queen", ChessController.board[0][4]);
+        ChessController.players[1].addPiece("queen", ChessController.board[0][3]);
+        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
     };
     ChessController.startPvpGame = function () {
         ChessController.players[0].setAi(false);
