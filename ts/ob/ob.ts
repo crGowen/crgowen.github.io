@@ -287,6 +287,9 @@ class ObController {
             ["Colony", "Jester", "Journey", "Wayfarer"],
             ["Vanguard", "Advance"],
             ["Pathfinder", "Traveller", "Pioneer"],
+            "Trooper",
+            "Award of the Pioneer",
+            "Fleets Prize",
             ["Frontiers", "Field"],
             ["Settled", "Expanse of"],
             1, 3, 2,
@@ -304,6 +307,9 @@ class ObController {
             ["Ocean"],
             ["Peace"],
             ["Magnificent"],
+            "Ensign",
+            "Prestige Ribbon",
+            "Medal of Esteem",
             ["Collective", "Alliance", "Sectors", "Systems"],
             ["Allied", "Treaty of"],
             3, 4, 3,
@@ -321,6 +327,9 @@ class ObController {
             ["Civilisation"],
             ["Gladius", "Hasta"],
             ["Trivia"],
+            "Legionary",
+            "Triumph",
+            "Ovation",
             ["Empire", "Dominion", "Enclave"],
             ["Imperial"],
             4, 4, 5,
@@ -338,6 +347,9 @@ class ObController {
             ["Danube"],
             ["Vanguard"],
             ["Capital"],
+            "Risk Management Operative",
+            "Exemplary Citizenship Award",
+            "Administrative Commendation",
             ["Concern", "Accord", "Federation"],
             ["League of", "Chartered"],
             4, 5, 2,
@@ -355,6 +367,9 @@ class ObController {
             ["Unity"],
             ["Heroic"],
             ["Tireless"],
+            "Matros",
+            "Hero of the Union Medal",
+            "Order of Victory",
             ["Pact", "Union", "Bloc"],
             ["United"],
             5, 1, 3,
@@ -372,6 +387,9 @@ class ObController {
             ["Nobel"],
             ["Chandrasekhar", "Imahara"],
             ["Sagan", "Conway", "Minkowski"],
+            "Security Agent",
+            "Extraordinary Prize of Degree",
+            "Distinction and Honours",
             ["Group", "Space", "Foundation"],
             ["Assembly of", "Constitution of"],
             2, 2, 1,
@@ -774,16 +792,17 @@ class ObController {
 }
 
 class Player {
-    ship: Ship;
-    state: string;
+    private ship: Ship;
+    private state: string;
     location: {x: number, y:number};
     systemLocation: {x: number, y: number};
     currentSystem: string;
     currentDestination: string;
-    galaxyTravelTarget: StarSystem;
-    systemTravelTarget: Destination;
-    galaxyGlobalMult: number;
-    systemGlobalMult: number;
+    private galaxyTravelTarget: StarSystem;
+    private systemTravelTarget: Destination;
+    private galaxyGlobalMult: number;
+    private systemGlobalMult: number;
+    private char: Character;
 
     static playerSprite:any;
 
@@ -794,12 +813,17 @@ class Player {
         this.systemLocation = {x: 350, y: 300};
         this.currentSystem = null;
         this.currentDestination = null;
+        this.char = null;
 
         
         this.galaxyTravelTarget = null;
         this.systemTravelTarget = null;
         this.galaxyGlobalMult = 0.05;
         this.systemGlobalMult = 0.2;
+    }
+
+    setCharacter(c: Character) {
+        this.char = c;
     }
 
     // self explantory

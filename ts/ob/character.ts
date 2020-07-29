@@ -4,6 +4,24 @@ class Character {
         female: [ "Zofia", "Sicia", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura" ],
         family: [ "Alvarez", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Asimaci", "Wutend", "Olrom", "Hossid", "Karing", "Ferci", "Ionov", "Tarium", "Likos" ]
     };
+
+    static genTraits = {
+        efficiency: ["Efficient", "Profligate"],
+        involvement: ["Ardent", "Cynical"],
+        niceness: ["Sympathetic", "Callous"],
+        cleverness: ["Astute", "Simple"],
+        excitability: ["Calm", "Hysterical"],
+        cruelty: ["Humane", "Ruthless"],
+        patience: ["Patient", "Impatient"],
+        greed: ["Generous", "Greedy"],
+        modesty: ["Modest", "Vain"],
+        respect: ["Respectful", "Arrogant"]
+    }
+
+    private name: string;
+    private title: string;
+
+
     
 }
 

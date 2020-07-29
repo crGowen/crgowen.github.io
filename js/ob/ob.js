@@ -163,12 +163,12 @@ var ObController = (function () {
         ObController.buildUiAfterLoad();
     };
     ObController.initCultures = function () {
-        this.cultures.push(new Culture(0, "Colonist", "Navigator", "Fleet Admiral", "Shipping Master", "Fr", "Exp", ["Colony", "Jester", "Journey", "Wayfarer"], ["Vanguard", "Advance"], ["Pathfinder", "Traveller", "Pioneer"], ["Frontiers", "Field"], ["Settled", "Expanse of"], 1, 3, 2, 'green'));
-        this.cultures.push(new Culture(1, "Neutralist", "President", "Secretary of Defence", "Secretary of State", "Armssel", "Comssel", ["Ocean"], ["Peace"], ["Magnificent"], ["Collective", "Alliance", "Sectors", "Systems"], ["Allied", "Treaty of"], 3, 4, 3, 'cyan'));
-        this.cultures.push(new Culture(2, "Imperialist", "Emperor", "Imperial Legate", "Imperial Prefect", "Legionship", "Mercship", ["Civilisation"], ["Gladius", "Hasta"], ["Trivia"], ["Empire", "Dominion", "Enclave"], ["Imperial"], 4, 4, 5, 'purple'));
-        this.cultures.push(new Culture(3, "Bureaucratic", "Director", "Head of Risk Management", "Chief Administrator", "FSA", "OSC", ["Danube"], ["Vanguard"], ["Capital"], ["Concern", "Accord", "Federation"], ["League of", "Chartered"], 4, 5, 2, 'white'));
-        this.cultures.push(new Culture(4, "Proletarian", "Overseer", "War Commissar", "People's Commissar", "AEV", "ICV", ["Unity"], ["Heroic"], ["Tireless"], ["Pact", "Union", "Bloc"], ["United"], 5, 1, 3, 'red'));
-        this.cultures.push(new Culture(5, "Scholastic", "Supervisor", "Security Coordinator", "Chancellor", "AS", "TR", ["Nobel"], ["Chandrasekhar", "Imahara"], ["Sagan", "Conway", "Minkowski"], ["Group", "Space", "Foundation"], ["Assembly of", "Constitution of"], 2, 2, 1, 'lime'));
+        this.cultures.push(new Culture(0, "Colonist", "Navigator", "Fleet Admiral", "Shipping Master", "Fr", "Exp", ["Colony", "Jester", "Journey", "Wayfarer"], ["Vanguard", "Advance"], ["Pathfinder", "Traveller", "Pioneer"], "Trooper", "Award of the Pioneer", "Fleets Prize", ["Frontiers", "Field"], ["Settled", "Expanse of"], 1, 3, 2, 'green'));
+        this.cultures.push(new Culture(1, "Neutralist", "President", "Secretary of Defence", "Secretary of State", "Armssel", "Comssel", ["Ocean"], ["Peace"], ["Magnificent"], "Ensign", "Prestige Ribbon", "Medal of Esteem", ["Collective", "Alliance", "Sectors", "Systems"], ["Allied", "Treaty of"], 3, 4, 3, 'cyan'));
+        this.cultures.push(new Culture(2, "Imperialist", "Emperor", "Imperial Legate", "Imperial Prefect", "Legionship", "Mercship", ["Civilisation"], ["Gladius", "Hasta"], ["Trivia"], "Legionary", "Triumph", "Ovation", ["Empire", "Dominion", "Enclave"], ["Imperial"], 4, 4, 5, 'purple'));
+        this.cultures.push(new Culture(3, "Bureaucratic", "Director", "Head of Risk Management", "Chief Administrator", "FSA", "OSC", ["Danube"], ["Vanguard"], ["Capital"], "Risk Management Operative", "Exemplary Citizenship Award", "Administrative Commendation", ["Concern", "Accord", "Federation"], ["League of", "Chartered"], 4, 5, 2, 'white'));
+        this.cultures.push(new Culture(4, "Proletarian", "Overseer", "War Commissar", "People's Commissar", "AEV", "ICV", ["Unity"], ["Heroic"], ["Tireless"], "Matros", "Hero of the Union Medal", "Order of Victory", ["Pact", "Union", "Bloc"], ["United"], 5, 1, 3, 'red'));
+        this.cultures.push(new Culture(5, "Scholastic", "Supervisor", "Security Coordinator", "Chancellor", "AS", "TR", ["Nobel"], ["Chandrasekhar", "Imahara"], ["Sagan", "Conway", "Minkowski"], "Security Agent", "Extraordinary Prize of Degree", "Distinction and Honours", ["Group", "Space", "Foundation"], ["Assembly of", "Constitution of"], 2, 2, 1, 'lime'));
     };
     ObController.initOb = function () {
         ObController.galaxyMap = new GalaxyView();
@@ -507,11 +507,15 @@ var Player = (function () {
         this.systemLocation = { x: 350, y: 300 };
         this.currentSystem = null;
         this.currentDestination = null;
+        this.char = null;
         this.galaxyTravelTarget = null;
         this.systemTravelTarget = null;
         this.galaxyGlobalMult = 0.05;
         this.systemGlobalMult = 0.2;
     }
+    Player.prototype.setCharacter = function (c) {
+        this.char = c;
+    };
     Player.prototype.equipShip = function (ship) {
         this.ship = ship;
     };

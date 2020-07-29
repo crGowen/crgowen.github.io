@@ -114,6 +114,8 @@ class Culture {
     private leaderTitles: {overall: string, military: string, civic: string};
     private shipDesignations: {commercial: string, military: string};
     private shipNames: {both: string [], commercial: string [], military: string[]};
+    private soldierTitle: string;
+    private heroAward: {major: string, minor: string};
     private nationTitles: {post: string [], pre: string []};
     private politicalAlignment: {authority: number, wealth: number, militarism: number}; // 1-5 likert scale
     private colour: string;
@@ -132,6 +134,9 @@ class Culture {
         shipNamesBoth: string [],
         shipNamesMilitary: string [],
         shipNamesCommercial: string [],
+        soldierName: string,
+        heroAwardMaj: string,
+        heroAwardMin: string,
         nationTitlesSuffixes: string [],
         nationTitlesPrefixes: string [],
         politicalAlignmentAuthority: number,
@@ -145,6 +150,8 @@ class Culture {
             this.leaderTitles = {overall: overallLeaderTitle, military: militaryLeaderTitle, civic: civicLeaderTitle};
             this.shipDesignations = {military: militaryShipDesignation, commercial: commercialShipDesignation};
             this.shipNames = {both: shipNamesBoth, military: shipNamesMilitary, commercial: shipNamesCommercial};
+            this.soldierTitle = soldierName;
+            this.heroAward = {major: heroAwardMaj, minor: heroAwardMin};
             this.nationTitles = {post: nationTitlesSuffixes, pre: nationTitlesPrefixes};
             this.politicalAlignment = {authority: politicalAlignmentAuthority, wealth: politicalAlignmentWealth, militarism: politicalAlignmentMilitarism};
 

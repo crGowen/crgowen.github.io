@@ -6,6 +6,18 @@ var Character = (function () {
         female: ["Zofia", "Sicia", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura"],
         family: ["Alvarez", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Asimaci", "Wutend", "Olrom", "Hossid", "Karing", "Ferci", "Ionov", "Tarium", "Likos"]
     };
+    Character.genTraits = {
+        efficiency: ["Efficient", "Profligate"],
+        involvement: ["Ardent", "Cynical"],
+        niceness: ["Sympathetic", "Callous"],
+        cleverness: ["Astute", "Simple"],
+        excitability: ["Calm", "Hysterical"],
+        cruelty: ["Humane", "Ruthless"],
+        patience: ["Patient", "Impatient"],
+        greed: ["Generous", "Greedy"],
+        modesty: ["Modest", "Vain"],
+        respect: ["Respectful", "Arrogant"]
+    };
     return Character;
 }());
 var Ship = (function () {

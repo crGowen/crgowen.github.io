@@ -76,12 +76,14 @@ var Nation = (function () {
     return Nation;
 }());
 var Culture = (function () {
-    function Culture(index, name, overallLeaderTitle, militaryLeaderTitle, civicLeaderTitle, militaryShipDesignation, commercialShipDesignation, shipNamesBoth, shipNamesMilitary, shipNamesCommercial, nationTitlesSuffixes, nationTitlesPrefixes, politicalAlignmentAuthority, politicalAlignmentWealth, politicalAlignmentMilitarism, colour) {
+    function Culture(index, name, overallLeaderTitle, militaryLeaderTitle, civicLeaderTitle, militaryShipDesignation, commercialShipDesignation, shipNamesBoth, shipNamesMilitary, shipNamesCommercial, soldierName, heroAwardMaj, heroAwardMin, nationTitlesSuffixes, nationTitlesPrefixes, politicalAlignmentAuthority, politicalAlignmentWealth, politicalAlignmentMilitarism, colour) {
         this.index = index;
         this.name = name;
         this.leaderTitles = { overall: overallLeaderTitle, military: militaryLeaderTitle, civic: civicLeaderTitle };
         this.shipDesignations = { military: militaryShipDesignation, commercial: commercialShipDesignation };
         this.shipNames = { both: shipNamesBoth, military: shipNamesMilitary, commercial: shipNamesCommercial };
+        this.soldierTitle = soldierName;
+        this.heroAward = { major: heroAwardMaj, minor: heroAwardMin };
         this.nationTitles = { post: nationTitlesSuffixes, pre: nationTitlesPrefixes };
         this.politicalAlignment = { authority: politicalAlignmentAuthority, wealth: politicalAlignmentWealth, militarism: politicalAlignmentMilitarism };
         this.colour = colour;
