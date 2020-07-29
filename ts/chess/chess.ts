@@ -563,7 +563,7 @@ class ChessPiece {
             let res = this.owner.getKing().checkForDanger();
 
             if (!res && this.owner.getIsAi()) {
-                let score = this.aiEvalMove() + Math.floor(Math.random() * (this.owner.getAiFudge() + Math.max(ChessController.aiRestlessness, 0)));
+                let score = this.aiEvalMove() + Math.floor(Math.random() * (this.owner.getAiFudge() + Math.max(ChessController.aiRestlessness, 0)) );
 
                 if (score > this.owner.getAiBestDecision().score) {
                     this.owner.setAiBestDecision(this, this.possibleMoves[i], score);
@@ -741,7 +741,7 @@ class ChessPlayer {
                 return;
             }
 
-            if(ChessController.aiRestlessness >= 48) {
+            if(ChessController.aiRestlessness >= 100) {
                 /* AI gets restless if the game doesn't meaningfully progress after a certain amount of time, as the AI
                 gets restless it will be willing to make increasingly aggressive moves to try break the deadlock
                 if the AI cannot break the deadlock the game will eventually end as a draw */ 
@@ -1294,7 +1294,7 @@ class ChessController {
         ChessController.players[1].setAi(false);
         let tRand = Math.floor((Math.random() - 0.005) * 2);
         ChessController.players[ tRand].setAi(true);
-        ChessController.aiRestlessness = -80;
+        ChessController.aiRestlessness = -160;
         ChessController.numPiecesPrevTurn = 0;
 
         if (tRand === 1) ChessController.showMsgBoxTemp("You are BLUE");
@@ -1313,7 +1313,7 @@ class ChessController {
     static startCvcGame() {
         ChessController.players[0].setAi(true);
         ChessController.players[1].setAi(true);
-        ChessController.aiRestlessness = -80;
+        ChessController.aiRestlessness = -160;
         ChessController.numPiecesPrevTurn = 0;
 
         short.byId("chessMidBtn").innerText = "end game"
@@ -1353,7 +1353,7 @@ class ChessController {
             ChessController.aiRestlessness = 0;
             ChessController.numPiecesPrevTurn = numPiecesThisTurn;
         } else {
-            ChessController.aiRestlessness += 2;
+            ChessController.aiRestlessness += 4;
         }
 
         ChessController.timeoutHandle = setTimeout(() => {ChessController.players[ChessController.currentPlayer].beginTurn();}, 200);

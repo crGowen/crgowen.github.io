@@ -617,7 +617,7 @@ var ChessPlayer = (function () {
                 ChessController.toggleMsgBox(true, "" + this.team[0].toUpperCase() + this.team.substring(1) + " resigned!");
                 return;
             }
-            if (ChessController.aiRestlessness >= 48) {
+            if (ChessController.aiRestlessness >= 100) {
                 ChessController.toggleMsgBox(true, "Game ends as a draw.");
                 return;
             }
@@ -1077,7 +1077,7 @@ var ChessController = (function () {
         ChessController.players[1].setAi(false);
         var tRand = Math.floor((Math.random() - 0.005) * 2);
         ChessController.players[tRand].setAi(true);
-        ChessController.aiRestlessness = -80;
+        ChessController.aiRestlessness = -160;
         ChessController.numPiecesPrevTurn = 0;
         if (tRand === 1)
             ChessController.showMsgBoxTemp("You are BLUE");
@@ -1093,7 +1093,7 @@ var ChessController = (function () {
     ChessController.startCvcGame = function () {
         ChessController.players[0].setAi(true);
         ChessController.players[1].setAi(true);
-        ChessController.aiRestlessness = -80;
+        ChessController.aiRestlessness = -160;
         ChessController.numPiecesPrevTurn = 0;
         short.byId("chessMidBtn").innerText = "end game";
         short.byId("chessLeftBtn").classList.add("chessBtnRow__btn--disabled");
@@ -1123,7 +1123,7 @@ var ChessController = (function () {
             ChessController.numPiecesPrevTurn = numPiecesThisTurn;
         }
         else {
-            ChessController.aiRestlessness += 2;
+            ChessController.aiRestlessness += 4;
         }
         ChessController.timeoutHandle = setTimeout(function () { ChessController.players[ChessController.currentPlayer].beginTurn(); }, 200);
     };
