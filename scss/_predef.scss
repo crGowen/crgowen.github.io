@@ -55,7 +55,7 @@ $golCellLengthsH: 30; // golCellLengthsW * golCellLengthsH = total number of gol
 
 // Chess predefines
 $chessSquareSize: 4.5rem;
-$chessDarkSquareColour: $primaryTextColour;
+$chessDarkSquareColour: #B9B9B9;
 $chessLightSquareColour: $behindPageColour;
 $chessSquareHoverColour: #DDDDDD;
 $chessSquareSelectedColour: #88AA88;
@@ -69,4 +69,4 @@ $chessMsgBoxColour:snow;
 $obSpaceColour: #0d0d0d;
 $obBarBackground: #00000088;
 $obToolTip: #151515BB;
-$obDestPane: #0A0A0AAA;
+$obUiPane: #0A0A0AAA;

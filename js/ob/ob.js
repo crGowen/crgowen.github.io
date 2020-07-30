@@ -4,6 +4,7 @@ var ObController = (function () {
     ObController.handleMouseDownEvents = function (event) {
         if (ObController.inputIsLocked)
             return;
+        ObController.inputIsLocked = true;
         ObController.mouseInput.mouseDownBeginsAt.x = event.pageX - short.byId("obCanv").offsetLeft;
         ObController.mouseInput.mouseDownBeginsAt.y = event.pageY - short.byId("obCanv").offsetTop;
         ObController.mouseInput.mouseMove.x = ObController.mouseInput.mouseDownBeginsAt.x;
@@ -11,10 +12,12 @@ var ObController = (function () {
         ObController.mouseInput.mouseMoveCumulative = 0;
         ObController.mouseInput.mouseIsDown = true;
         ObController.clearLocationTooltip();
+        ObController.inputIsLocked = false;
     };
     ObController.handleMouseMoveEvents = function (event) {
         if (ObController.inputIsLocked)
             return;
+        ObController.inputIsLocked = true;
         if (ObController.mouseInput.mouseIsDown) {
             var dx = event.pageX - short.byId("obCanv").offsetLeft - ObController.mouseInput.mouseMove.x;
             var dy = event.pageY - short.byId("obCanv").offsetTop - ObController.mouseInput.mouseMove.y;
@@ -33,27 +36,30 @@ var ObController = (function () {
         else {
             ObController.handleTooltip(event.pageX - short.byId("obAppCon").offsetLeft, event.pageY - short.byId("obAppCon").offsetTop);
         }
+        ObController.inputIsLocked = false;
     };
     ObController.handleMouseUpEvents = function (event) {
         if (ObController.inputIsLocked)
             return;
+        ObController.inputIsLocked = true;
         ObController.mouseInput.mouseIsDown = false;
         var newPosX = event.pageX - short.byId("obAppCon").offsetLeft;
         var newPosY = event.pageY - short.byId("obAppCon").offsetTop;
-        if (ObController.mouseInput.mouseMoveCumulative > 3)
-            return;
-        switch (ObController.viewType) {
-            case 'g':
-                ObController.openStarMap(newPosX, newPosY);
-                break;
-            case 's':
-                ObController.openDestination(newPosX, newPosY);
-                break;
-        }
+        if (ObController.mouseInput.mouseMoveCumulative <= 3)
+            switch (ObController.viewType) {
+                case 'g':
+                    ObController.openStarMap(newPosX, newPosY);
+                    break;
+                case 's':
+                    ObController.openDestination(newPosX, newPosY);
+                    break;
+            }
+        ObController.inputIsLocked = false;
     };
     ObController.handleMouseWheelEvents = function (event) {
         if (ObController.inputIsLocked)
             return;
+        ObController.inputIsLocked = true;
         switch (ObController.viewType) {
             case 'g':
                 ObController.galaxyMap.zoomView(event.deltaY);
@@ -63,6 +69,7 @@ var ObController = (function () {
                 ObController.starMap.zoomView(event.deltaY);
                 break;
         }
+        ObController.inputIsLocked = false;
     };
     ObController.handleMouseOutEvents = function (event) {
         ObController.mouseInput.mouseIsDown = false;
@@ -140,7 +147,7 @@ var ObController = (function () {
             btn.onclick = ObController.beginJourneyToDestination;
             short.byId("obBottomBar").appendChild(btn);
         }
-        var insert = short.create('div', 'obDestInfoPane', ["obApp__destInfoPane"]);
+        var insert = short.create('div', 'obDestInfoPane', ["obApp__uiPane", "obApp__uiPane--centerLarge"]);
         var hIns = "<h1 class= 'obApp__destInfoHeader'>" + ObController.selectedDestination.getDestinationName() + "</h2>" +
             "<h1 class= 'obApp__destInfoSubHeader'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo sit amet nibh vitae venenatis. Morbi mattis orci ut nunc suscipit, id ornare felis dignissim. Nullam magna ex, pellentesque id orci ut, malesuada faucibus tortor. Suspendisse ut urna gravida dolor commodo lobortis. Donec sit amet nibh ornare, dignissim enim at, sollicitudin velit. Suspendisse fringilla malesuada nisl, non eleifend tortor pretium eu. Ut ac tempus libero. Pellentesque ac ex at ex molestie fringilla. Suspendisse vehicula porttitor augue, ut aliquet diam vehicula quis. Cras mi ex, lobortis id dui ut, faucibus elementum nisi. Aenean scelerisque mauris et turpis suscipit, at tincidunt est pellentesque. Vivamus vitae nibh vulputate ex rutrum suscipit. Integer lacinia sit amet arcu et mattis. Nunc interdum porta augue quis maximus.</h1>";
         insert.innerHTML = hIns;
