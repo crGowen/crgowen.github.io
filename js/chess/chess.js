@@ -119,6 +119,15 @@ var ChessPiece = (function () {
     }
     ChessPiece.prototype.checkForDanger = function () {
         var _this = this;
+        var verifyValueOfAttacker = function (res, func) {
+            if (func > 0) {
+                if (res === 0)
+                    res = func;
+                else
+                    res = Math.min(res, func);
+            }
+            return res;
+        };
         var checkDangerInDirection = function (dir) {
             var attackers = [];
             for (var _i = 1; _i < arguments.length; _i++) {
@@ -178,15 +187,6 @@ var ChessPiece = (function () {
                     if (square.getOccupant().getType() === "king" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
                         return square.getOccupant().getValue();
             return 0;
-        };
-        var verifyValueOfAttacker = function (res, func) {
-            if (func > 0) {
-                if (res === 0)
-                    res = func;
-                else
-                    res = Math.min(res, func);
-            }
-            return res;
         };
         var result = 0;
         result = verifyValueOfAttacker(result, checkDangerInDirection("up", "rook", "queen"));
@@ -436,27 +436,47 @@ var ChessPiece = (function () {
     };
     ChessPiece.prototype.aiEvalMove = function () {
         var score = 500;
+        var pieceVal;
         for (var y = 0; y < ChessController.board.length; y++) {
             for (var x = 0; x < ChessController.board[y].length; x++) {
                 var examinePiece = ChessController.board[y][x].getOccupant();
                 if (examinePiece) {
                     if ((examinePiece.getOwner().getTeam() === this.getOwner().getTeam())) {
-                        if (examinePiece.getType() !== "epp")
-                            score += examinePiece.getValue();
+                        if (examinePiece.getType() !== "epp") {
+                            pieceVal = examinePiece.getValue();
+                            if (pieceVal === 1000)
+                                pieceVal = 250;
+                            score += pieceVal;
+                        }
                         var dangerVal = examinePiece.checkForDanger();
                         if (dangerVal) {
-                            score -= 1.1 * examinePiece.getValue();
                             var coverVal = examinePiece.checkForCover();
-                            if (coverVal)
-                                score += Math.min(Math.max(dangerVal - coverVal, 0), 0.9 * examinePiece.getValue());
+                            if (coverVal) {
+                                if (dangerVal === 1000) {
+                                    score += 30;
+                                }
+                                else {
+                                    score -= 1.1 * pieceVal;
+                                    score += Math.min(Math.max(dangerVal - coverVal, 0), 0.9 * pieceVal);
+                                }
+                            }
+                            else {
+                                score -= 1.1 * pieceVal;
+                            }
                         }
                     }
                     else {
-                        if (examinePiece.getType() !== "epp")
-                            score -= examinePiece.getValue();
+                        if (examinePiece.getType() !== "epp") {
+                            pieceVal = examinePiece.getValue();
+                            if (pieceVal === 1000)
+                                pieceVal = 250;
+                            score -= pieceVal;
+                        }
                         var dangerVal = examinePiece.checkForDanger();
                         if (dangerVal) {
-                            score += 0.10 * examinePiece.getValue();
+                            score += 0.10 * pieceVal;
+                            if (examinePiece.getType() === "king")
+                                score += 0.3 * Math.pow((8 - examinePiece.possibleMoves.length), 2);
                         }
                     }
                 }
@@ -985,7 +1005,7 @@ var King = (function (_super) {
         }
     };
     King.prototype.getValue = function () {
-        return 250;
+        return 1000;
     };
     return King;
 }(ChessPiece));
@@ -1039,6 +1059,8 @@ var ChessController = (function () {
         ChessController.processInput(ChessController.board[Number(dims[1])][Number(dims[0])]);
     };
     ChessController.prepareBoardPieces = function () {
+        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
+        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
         for (var i = 0; i < 8; i++) {
             ChessController.players[0].addPiece("pawn", ChessController.board[6][i]);
         }
@@ -1049,7 +1071,6 @@ var ChessController = (function () {
         ChessController.players[0].addPiece("bishop", ChessController.board[7][2]);
         ChessController.players[0].addPiece("bishop", ChessController.board[7][5]);
         ChessController.players[0].addPiece("queen", ChessController.board[7][3]);
-        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
         for (var i = 0; i < 8; i++) {
             ChessController.players[1].addPiece("pawn", ChessController.board[1][i]);
         }
@@ -1060,7 +1081,6 @@ var ChessController = (function () {
         ChessController.players[1].addPiece("bishop", ChessController.board[0][2]);
         ChessController.players[1].addPiece("bishop", ChessController.board[0][5]);
         ChessController.players[1].addPiece("queen", ChessController.board[0][3]);
-        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
     };
     ChessController.startPvpGame = function () {
         ChessController.players[0].setAi(false);

@@ -130,6 +130,15 @@ class ChessPiece {
     // check that a piece is in imminent danger of being captured. most often this is used at the start of every turn to assess if the king is in check, and again when choosing a move
     // since illegal moves (which expose the king to capture) have be removed from the UI and the player prevented from doing them
     checkForDanger() {
+        var verifyValueOfAttacker = (res:number, func:number) => {
+            if (func > 0) {
+                if (res === 0) res = func;
+                else res = Math.min(res, func);
+            }
+
+            return res;
+        };
+
         var checkDangerInDirection = (dir:string, ...attackers:string[]) => {
             let square = this.sq.getNeighbour(dir);
 
@@ -184,15 +193,6 @@ class ChessPiece {
                     if (square.getOccupant().getType()==="king" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) return square.getOccupant().getValue();
             
             return 0;
-        };
-
-        var verifyValueOfAttacker = (res:number, func:number) => {
-            if (func > 0) {
-                if (res === 0) res = func;
-                else res = Math.min(res, func);
-            }
-
-            return res;
         };
 
         let result = 0;
@@ -512,6 +512,7 @@ class ChessPiece {
     // using the previously defined CheckForDanger and CheckForCover to evaluate how good each move is
     protected aiEvalMove() {
         let score = 500;
+        var pieceVal;
 
         for (let y = 0; y < ChessController.board.length; y++) {
             for (let x = 0; x < ChessController.board[y].length; x++) {
@@ -520,27 +521,39 @@ class ChessPiece {
 
                 if (examinePiece) {
                     if ((examinePiece.getOwner().getTeam() === this.getOwner().getTeam())) {
-                        if (examinePiece.getType() !== "epp")
-                            score += examinePiece.getValue();
-
-                        let dangerVal = examinePiece.checkForDanger();
-                        if (dangerVal) {
-                            score -= 1.1 * examinePiece.getValue();
-
-                            let coverVal = examinePiece.checkForCover();
-                            if (coverVal)
-                                score += Math.min(Math.max(dangerVal - coverVal, 0), 0.9 * examinePiece.getValue());
-                        
-
+                        if (examinePiece.getType() !== "epp") {
+                            pieceVal = examinePiece.getValue();
+                            if (pieceVal === 1000) pieceVal = 250;
+                            score+= pieceVal;
                         }
 
+                        let dangerVal = examinePiece.checkForDanger();
+                        if (dangerVal) {
+                            let coverVal = examinePiece.checkForCover();
+                            if (coverVal) {
+                                if (dangerVal === 1000) {
+                                    // within cap range of king but can't be capped because the move is covered! -- results in emergent checkmate behaviour
+                                    score += 30;
+                                } 
+                                else {
+                                    score -= 1.1 * pieceVal;
+                                    score += Math.min(Math.max(dangerVal - coverVal, 0), 0.9 * pieceVal);
+                                }
+                            } else {
+                                score -= 1.1 * pieceVal;
+                            }                     
+                        }
                     } else {
-                        if (examinePiece.getType() !== "epp")
-                            score -= examinePiece.getValue();
+                        if (examinePiece.getType() !== "epp") {
+                            pieceVal = examinePiece.getValue();                        
+                            if (pieceVal === 1000) pieceVal = 250;
+                            score -= pieceVal;
+                        }
 
                         let dangerVal = examinePiece.checkForDanger();
                         if (dangerVal) {
-                            score += 0.10 * examinePiece.getValue();
+                            score += 0.10 * pieceVal;
+                            if (examinePiece.getType() === "king") score += 0.3 * Math.pow( (8-examinePiece.possibleMoves.length), 2);
                         }
                     }
                 }
@@ -1161,7 +1174,7 @@ class King extends ChessPiece {
     }
 
     getValue() {
-        return 250;
+        return 1000;
     }
 }
 
@@ -1239,6 +1252,10 @@ class ChessController {
     }
 
     static prepareBoardPieces() {
+        // place kings
+        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
+        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
+
         // prepare blue
         for (let i = 0; i < 8; i++) {
             ChessController.players[0].addPiece("pawn", ChessController.board[6][i]);
@@ -1254,7 +1271,6 @@ class ChessController {
         ChessController.players[0].addPiece("bishop", ChessController.board[7][5]);
 
         ChessController.players[0].addPiece("queen", ChessController.board[7][3]);
-        ChessController.players[0].addPiece("king", ChessController.board[7][4]);
 
         // prepare red
         for (let i = 0; i < 8; i++) {
@@ -1271,7 +1287,6 @@ class ChessController {
         ChessController.players[1].addPiece("bishop", ChessController.board[0][5]);
 
         ChessController.players[1].addPiece("queen", ChessController.board[0][3]);
-        ChessController.players[1].addPiece("king", ChessController.board[0][4]);
 
     }
 
