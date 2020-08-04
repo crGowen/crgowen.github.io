@@ -255,10 +255,11 @@
 }
 
 .obApp__uiPane--centerSmall {
-  width: 650px;
+  width: 800px;
   height: 500px;
-  left: calc(50% - 0.5*650px);
+  left: calc(50% - 0.5*800px);
   top: calc(50% - 0.5*500px - 25px);
+  background-color: #000000F5;
 }
 
 .obApp__uiPane--centerLarge {
@@ -268,7 +269,30 @@
   top: calc(50% - 0.5*550px - 25px);
 }
 
-.obApp__destInfoHeader {
+.obApp__paneBtnBar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100% - 20px);
+  height: 80px;
+  padding: 0 10px;
+  padding-bottom: 20px;
+  line-height: 80px;
+  color: inherit;
+  font-family: inherit;
+  text-align: center;
+  bottom: 0;
+  z-index: 4;
+}
+
+.obApp__btn--uiPane {
+  width: 130px;
+  margin: 13px 5px;
+}
+
+.obApp__paneInfoHeader {
   color: inherit;
   font-family: inherit;
   font-size: 30px;
@@ -280,22 +304,56 @@
   letter-spacing: 2px;
 }
 
-.obApp__destInfoSubHeader {
+.obApp__paneInfoSubHeader {
   color: inherit;
   font-family: inherit;
   font-size: 16px;
   text-align: center;
-  line-height: 18px;
+  vertical-align: middle;
+  line-height: 20px;
   text-decoration: none;
   font-style: normal;
   font-weight: normal;
   letter-spacing: 1px;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.obApp__paneInfoDoubleColumn {
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  vertical-align: middle;
+  line-height: 20px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.obApp__paneInfoDoubleColumn--left {
+  float: left;
+  text-align: left;
+  width: 45%;
+  padding-left: 5%;
+}
+
+.obApp__paneInfoDoubleColumn--right {
+  float: right;
+  text-align: right;
+  width: 45%;
+  padding-right: 5%;
 }
 
 .obApp__sprite--invisible {
   display: none;
+}
+
+.obApp__textUnderline {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=ob.css.map */

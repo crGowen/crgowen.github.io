@@ -8,7 +8,6 @@ var Nation = (function () {
             this.culture = null;
             this.name = "Independent";
             this.controlledStars = [];
-            this.leadership = [];
             this.index = null;
             return;
         }
@@ -19,7 +18,6 @@ var Nation = (function () {
         this.generateName();
         this.controlledStars = [];
         this.controlledStars.push(this.capital);
-        this.leadership = [];
     }
     Nation.generateCapital = function () {
         var tStar;
@@ -72,6 +70,29 @@ var Nation = (function () {
         this.controlledStars.forEach(function (e) {
             e.makeIndependent();
         });
+    };
+    Nation.prototype.generateLeadership = function () {
+        this.leadership = {
+            overall: new Character(this.getCulture().getLeaderTitle("o")),
+            military: new Character(this.getCulture().getLeaderTitle("m")),
+            civic: new Character(this.getCulture().getLeaderTitle("c"))
+        };
+    };
+    Nation.prototype.getLeaderCharacter = function (type) {
+        switch (type.toLowerCase()) {
+            case 'o':
+            case 'overall':
+                return this.leadership.overall;
+            case 'm':
+            case 'military':
+                return this.leadership.military;
+            case 'c':
+            case 'civic':
+            case 'commercial':
+                return this.leadership.civic;
+            default:
+                console.error("error: unexpected argument in function Nation.getLeaderCharacter");
+        }
     };
     return Nation;
 }());

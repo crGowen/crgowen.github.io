@@ -6,7 +6,7 @@ class Nation {
     private colourScheme: {c1: string, c2: string};
     
     public index: number;
-    public leadership: any [];
+    public leadership: {overall: Character, civic: Character, military: Character};
     public controlledStars: StarSystem [];
 
     static generateCapital() {
@@ -44,7 +44,6 @@ class Nation {
             this.culture = null;
             this.name = "Independent";
             this.controlledStars = [];
-            this.leadership = [];
             this.index = null;
             return;
         }
@@ -58,8 +57,6 @@ class Nation {
 
         this.controlledStars = [];
         this.controlledStars.push(this.capital);
-
-        this.leadership = [];
     }
 
     getName() {
@@ -104,6 +101,31 @@ class Nation {
         this.controlledStars.forEach(e => {
             e.makeIndependent();
         });
+    }
+
+    generateLeadership() {
+        this.leadership = {
+            overall: new Character(this.getCulture().getLeaderTitle("o")),
+            military: new Character(this.getCulture().getLeaderTitle("m")),
+            civic: new Character(this.getCulture().getLeaderTitle("c")),
+        }
+    }
+
+    getLeaderCharacter(type: string){
+        switch(type.toLowerCase()) {
+            case 'o':
+            case 'overall':
+                return this.leadership.overall;
+            case 'm':
+            case 'military':
+                return this.leadership.military;
+            case 'c':
+            case 'civic':
+            case 'commercial':
+                return this.leadership.civic;
+            default:
+                console.error("error: unexpected argument in function Nation.getLeaderCharacter");
+        }
     }
 }
 

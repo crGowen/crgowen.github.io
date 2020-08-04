@@ -372,13 +372,13 @@ class Destination {
     getEconomyType() {
         switch(this.type) {
             case 0:
-                return "Research Facility";
+                return "Research facility";
             case 1: 
-                return "Military Facility";
+                return "Military facility";
             case 2:
-                return "Mining Post";
+                return "Mining post";
             case 3:
-                return "Permanent Colony";
+                return "Permanent colony";
         }
     }
 
@@ -389,7 +389,7 @@ class Destination {
     getStatus() {
         switch (this.status) {
             case 0:
-                return "Normal";
+                return "operating normally";
         }
     }
 

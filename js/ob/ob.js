@@ -148,10 +148,34 @@ var ObController = (function () {
             short.byId("obBottomBar").appendChild(btn);
         }
         var insert = short.create('div', 'obDestInfoPane', ["obApp__uiPane", "obApp__uiPane--centerLarge"]);
-        var hIns = "<h1 class= 'obApp__destInfoHeader'>" + ObController.selectedDestination.getDestinationName() + "</h2>" +
-            "<h1 class= 'obApp__destInfoSubHeader'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo sit amet nibh vitae venenatis. Morbi mattis orci ut nunc suscipit, id ornare felis dignissim. Nullam magna ex, pellentesque id orci ut, malesuada faucibus tortor. Suspendisse ut urna gravida dolor commodo lobortis. Donec sit amet nibh ornare, dignissim enim at, sollicitudin velit. Suspendisse fringilla malesuada nisl, non eleifend tortor pretium eu. Ut ac tempus libero. Pellentesque ac ex at ex molestie fringilla. Suspendisse vehicula porttitor augue, ut aliquet diam vehicula quis. Cras mi ex, lobortis id dui ut, faucibus elementum nisi. Aenean scelerisque mauris et turpis suscipit, at tincidunt est pellentesque. Vivamus vitae nibh vulputate ex rutrum suscipit. Integer lacinia sit amet arcu et mattis. Nunc interdum porta augue quis maximus.</h1>";
+        var destControlledBy = ObController.selectedDestination.getStar().getNation().isIndependentNat() ? "no faction" : ObController.selectedDestination.getStar().getNation().getName();
+        var hIns = "<h1 class= 'obApp__paneInfoHeader'>" + ObController.selectedDestination.getDestinationName() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>" + ObController.selectedDestination.getEconomyType() + " in the " + ObController.selectedDestination.getStar().getStarName() + " system,\n        controlled by " + destControlledBy + ". This destination is currently " + ObController.selectedDestination.getStatus() + ".</h1>";
         insert.innerHTML = hIns;
+        var bar = short.create("div", "", ["obApp__paneBtnBar"]);
+        if (!ObController.selectedDestination.getStar().getNation().isIndependentNat()) {
+            btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
+            btn.innerText = "View Faction";
+            btn.onclick = ObController.uiShowViewNation;
+            bar.appendChild(btn);
+        }
+        insert.appendChild(bar);
         short.byId('obAppCon').appendChild(insert);
+    };
+    ObController.uiShowViewNation = function () {
+        var insert = short.create('div', 'obNatInfoPane', ["obApp__uiPane", "obApp__uiPane--centerSmall"]);
+        var nation = ObController.selectedDestination.getStar().getNation();
+        var hIns = "<h1 class= 'obApp__paneInfoHeader'>" + nation.getName() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textUnderline'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textUnderline'>Leadership</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: " + nation.getCapital().getStarName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + nation.getLeaderCharacter("o").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: " + nation.getCulture().getName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + nation.getLeaderCharacter("m").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: " + nation.controlledStars.length + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + nation.getLeaderCharacter("c").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Trade status: None</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Employment status: None</h1>";
+        insert.innerHTML = hIns;
+        var bar = short.create("div", "", ["obApp__paneBtnBar"]);
+        var btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
+        btn.innerText = "Close";
+        btn.onclick = ObController.uiCloseViewNation;
+        bar.appendChild(btn);
+        insert.appendChild(bar);
+        short.byId('obAppCon').appendChild(insert);
+    };
+    ObController.uiCloseViewNation = function () {
+        short.del(short.byId("obNatInfoPane"));
     };
     ObController.uiAddLoadingBar = function () {
         var bar = short.create("div", "obLoadingBar", ["obApp__loadingBar"]);
@@ -261,6 +285,9 @@ var ObController = (function () {
                     ObController.nations[i].freeControlledStars();
                     ObController.nations[i] = null;
                     ObController.natFreeSlots.push(i);
+                }
+                else {
+                    ObController.nations[i].generateLeadership();
                 }
             }
             ObController.player.equipShip(new Ship());
