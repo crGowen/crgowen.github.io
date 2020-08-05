@@ -1,6 +1,7 @@
 var Character = (function () {
-    function Character(position) {
+    function Character(fac, position) {
         if (position === void 0) { position = ""; }
+        this.faction = fac;
         if (Math.floor(Math.random() * 2))
             this.genderIsM = true;
         else
@@ -11,11 +12,19 @@ var Character = (function () {
     }
     Character.generateName = function (isM) {
         var generated;
-        if (isM)
-            generated = Character.genPersonNameSubstrings.male[Math.floor(Math.random() * Character.genPersonNameSubstrings.male.length)];
-        else
-            generated = Character.genPersonNameSubstrings.female[Math.floor(Math.random() * Character.genPersonNameSubstrings.female.length)];
-        generated += " " + Character.genPersonNameSubstrings.family[Math.floor(Math.random() * Character.genPersonNameSubstrings.family.length)];
+        var isUnique = false;
+        while (!isUnique) {
+            if (isM)
+                generated = Character.genPersonNameSubstrings.male[Math.floor(Math.random() * Character.genPersonNameSubstrings.male.length)];
+            else
+                generated = Character.genPersonNameSubstrings.female[Math.floor(Math.random() * Character.genPersonNameSubstrings.female.length)];
+            generated += " " + Character.genPersonNameSubstrings.family[Math.floor(Math.random() * Character.genPersonNameSubstrings.family.length)];
+            isUnique = true;
+            for (var i = 0; i < ObController.characters.length && isUnique; i++) {
+                if (ObController.characters[i].getName() === generated)
+                    isUnique = false;
+            }
+        }
         return generated;
     };
     Character.prototype.getName = function () {
@@ -28,9 +37,9 @@ var Character = (function () {
         return this.getTitle() + " " + this.getName();
     };
     Character.genPersonNameSubstrings = {
-        male: ["Jack", "Brigg", "Nicolaus", "Sigur", "Jens", "Ryan", "Dens", "Fenris", "William", "Edward", "Boris", "Vadim", "Alexander", "Jan", "Darius", "Lukas", "Petr", "Murray"],
-        female: ["Madison", "Zofia", "Sicia", "Alis", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura", "Erisa", "Andra"],
-        family: ["Alvarez", "Gowes", "Biszovic", "Kendy", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Renne", "Henda", "Asimaci", "Wurand", "Yurg", "Lograd", "Olrom", "Hossid", "Karing", "Ferci", "Ionov", "Tarium", "Likos", "Utan", "Akers", "Maruhani", "Peretz", "Koenig"]
+        male: ["Jack", "Caro", "Brigg", "Clark", "Benji", "Jeric", "Matis", "Nicolaus", "Sigur", "Jens", "Ryan", "Dens", "Fenris", "William", "Edward", "Boris", "Vadim", "Alexander", "Jan", "Darius", "Lukas", "Petr", "Murray"],
+        female: ["Io", "Madison", "Majira", "Iva", "Perin", "Zofia", "Sicia", "Alis", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura", "Erisa", "Andra"],
+        family: ["Bochart", "Duisgarde", "Ochre", "Monraue", "Alvarez", "Gowes", "Biszovic", "Kendy", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Renne", "Henda", "Asimaci", "Wurand", "Yurg", "Lograd", "Alrom", "Hossid", "Karing", "Ferci", "Tanov", "Tarium", "Likos", "Utan", "Akers", "Maruhani", "Peretz", "Koenig"]
     };
     Character.genTraits = {
         efficiency: ["Efficient", "Profligate"],

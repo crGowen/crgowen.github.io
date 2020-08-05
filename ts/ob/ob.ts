@@ -212,6 +212,9 @@ class ObController {
     static uiAll() {
         short.del(short.byId("obDestInfoPane"));
         short.clearChildren(short.byId("obBottomBar"));
+
+        ObController.uiCloseCharInfoPane();
+        ObController.uiCloseNatInfoPane();
     }
 
     // ui changes needed when going to the galaxy view screen
@@ -285,13 +288,13 @@ class ObController {
     static uiShowViewNation() {
         let insert = short.create('div', 'obNatInfoPane', ["obApp__uiPane", "obApp__uiPane--centerSmall"]);
 
-        let nation = ObController.selectedDestination.getStar().getNation();
+        let nation = ObController.selectedStar.getNation();
 
         let hIns = `<h1 class= 'obApp__paneInfoHeader'>${nation.getName()}</h1>
         <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textUnderline'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textUnderline'>Leadership</h1>
-        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: ${nation.getCapital().getStarName()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${nation.getLeaderCharacter("o").getNameAndTitle()}</h1>
-        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: ${nation.getCulture().getName()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${nation.getLeaderCharacter("m").getNameAndTitle()}</h1>
-        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: ${nation.controlledStars.length}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${nation.getLeaderCharacter("c").getNameAndTitle()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: ${nation.getCapital().getStarName()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick="ObController.uiShowViewCharacter('o')">${nation.getLeaderCharacter("o").getNameAndTitle()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: ${nation.getCulture().getName()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick="ObController.uiShowViewCharacter('m')">${nation.getLeaderCharacter("m").getNameAndTitle()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: ${nation.controlledStars.length}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick="ObController.uiShowViewCharacter('c')">${nation.getLeaderCharacter("c").getNameAndTitle()}</h1>
         <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>
         <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>
         <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>
@@ -304,7 +307,7 @@ class ObController {
         let bar = short.create("div", "", ["obApp__paneBtnBar"]);
         let btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
         btn.innerText = "Close";
-        btn.onclick = ObController.uiCloseViewNation;
+        btn.onclick = ObController.uiCloseNatInfoPane;
         bar.appendChild(btn);
 
         insert.appendChild(bar);
@@ -312,8 +315,43 @@ class ObController {
 
     }
 
-    static uiCloseViewNation(){
+    static uiShowViewCharacter(cType: string) {
+        let insert = short.create('div', 'obCharInfoPane', ["obApp__uiPane", "obApp__uiPane--centerSmall"]);
+
+        var char = ObController.selectedStar.getNation().getLeaderCharacter(cType);
+
+        let hIns = `<h1 class= 'obApp__paneInfoHeader'>${char.getName()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textUnderline'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textUnderline'>Leadership</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: ${char.getTitle()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${char.getTitle()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: ${char.getTitle()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${char.getTitle()}</h1>
+        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: ${char.getTitle()}</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>${char.getTitle()}</h1>
+        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>
+        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>
+        <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>
+        <h1 class= 'obApp__paneInfoSubHeader'>Trade status: None</h1>
+        <h1 class= 'obApp__paneInfoSubHeader'>Employment status: None</h1>`;
+        
+        insert.innerHTML = hIns;
+
+
+        let bar = short.create("div", "", ["obApp__paneBtnBar"]);
+        let btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
+        btn.innerText = "Close";
+        btn.onclick = ObController.uiCloseCharInfoPane;
+        bar.appendChild(btn);
+
+        insert.appendChild(bar);
+        short.byId('obAppCon').appendChild(insert);
+
+    }
+
+    static uiCloseNatInfoPane(){
         short.del(short.byId("obNatInfoPane"));
+    }
+
+    
+    static uiCloseCharInfoPane(){
+        short.del(short.byId("obCharInfoPane"));
     }
 
     // add loading bar for loading screens
@@ -482,6 +520,7 @@ class ObController {
         ObController.natFreeSlots = [];
 
         ObController.cultures = [];
+        
         ObController.initCultures();
 
         ObController.loadSprites();
@@ -511,6 +550,7 @@ class ObController {
 
         ObController.stars = [];
         ObController.nations = [];
+        ObController.characters = [];
 
         ObController.generateStars(500);
         ObController.generateNations(8);
@@ -780,7 +820,7 @@ class ObController {
                     h = obj.getDestinationName();
 
                     t1 = "Type: " + obj.getEconomyType();
-                    t2 = "Status: " + obj.getStatus();
+                    t2 = "Currently " + obj.getStatus();
                 } else if (ObController.starMap.getMouseHoverStar(x,y)) {
                     h = ObController.selectedStar.getStarName();
                     t1 = "Class: " + ObController.selectedStar.getStarType(true);

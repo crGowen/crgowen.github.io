@@ -105,10 +105,14 @@ class Nation {
 
     generateLeadership() {
         this.leadership = {
-            overall: new Character(this.getCulture().getLeaderTitle("o")),
-            military: new Character(this.getCulture().getLeaderTitle("m")),
-            civic: new Character(this.getCulture().getLeaderTitle("c")),
-        }
+            overall: new Character(this, this.getCulture().getLeaderTitle("o")),
+            military: new Character(this, this.getCulture().getLeaderTitle("m")),
+            civic: new Character(this, this.getCulture().getLeaderTitle("c")),
+        };
+
+        ObController.characters.push(this.leadership.overall);
+        ObController.characters.push(this.leadership.military);
+        ObController.characters.push(this.leadership.civic);
     }
 
     getLeaderCharacter(type: string){

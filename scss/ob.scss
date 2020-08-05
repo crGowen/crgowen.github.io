@@ -226,6 +226,7 @@
 
  .obApp__uiPane {
    position: absolute;
+   z-index: 50;
    display: block;
    color: inherit;
    font-family: inherit;
