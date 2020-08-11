@@ -9,7 +9,42 @@ var Character = (function () {
         this.name = Character.generateName(this.genderIsM);
         if (position)
             this.title = position;
+        this.traits = [];
+        for (var i = 0; i < 10; i++) {
+            var tempStr = Character.genTraitSingle(i);
+            if (tempStr)
+                this.traits.push(tempStr);
+        }
     }
+    Character.genTraitSingle = function (traitType) {
+        var tempRand = Math.floor(Math.random() * 10);
+        if (tempRand > 0 && tempRand < 9)
+            return "";
+        if (tempRand > 1)
+            tempRand = 1;
+        switch (traitType) {
+            case 0:
+                return Character.genTraits.efficiency[tempRand];
+            case 1:
+                return Character.genTraits.involvement[tempRand];
+            case 2:
+                return Character.genTraits.niceness[tempRand];
+            case 3:
+                return Character.genTraits.cleverness[tempRand];
+            case 4:
+                return Character.genTraits.excitability[tempRand];
+            case 5:
+                return Character.genTraits.cruelty[tempRand];
+            case 6:
+                return Character.genTraits.patience[tempRand];
+            case 7:
+                return Character.genTraits.greed[tempRand];
+            case 8:
+                return Character.genTraits.modesty[tempRand];
+            case 9:
+                return Character.genTraits.respect[tempRand];
+        }
+    };
     Character.generateName = function (isM) {
         var generated;
         var isUnique = false;
@@ -37,9 +72,9 @@ var Character = (function () {
         return this.getTitle() + " " + this.getName();
     };
     Character.genPersonNameSubstrings = {
-        male: ["Jack", "Caro", "Brigg", "Clark", "Benji", "Jeric", "Matis", "Nicolaus", "Sigur", "Jens", "Ryan", "Dens", "Fenris", "William", "Edward", "Boris", "Vadim", "Alexander", "Jan", "Darius", "Lukas", "Petr", "Murray"],
-        female: ["Io", "Madison", "Majira", "Iva", "Perin", "Zofia", "Sicia", "Alis", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura", "Erisa", "Andra"],
-        family: ["Bochart", "Duisgarde", "Ochre", "Monraue", "Alvarez", "Gowes", "Biszovic", "Kendy", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Renne", "Henda", "Asimaci", "Wurand", "Yurg", "Lograd", "Alrom", "Hossid", "Karing", "Ferci", "Tanov", "Tarium", "Likos", "Utan", "Akers", "Maruhani", "Peretz", "Koenig"]
+        male: ["Ade", "Jermane", "Jack", "Hadr", "Caro", "Brigg", "Clark", "Benji", "Jeric", "Matis", "Nicolaus", "Sigur", "Jens", "Ryan", "Dens", "Fenris", "William", "Edward", "Boris", "Vadim", "Alexander", "Jan", "Darius", "Lukas", "Petr", "Murray"],
+        female: ["Tyra", "Io", "Fiore", "Matra", "Valentina", "Kim", "Madison", "Majira", "Iva", "Perin", "Zofia", "Sicia", "Alis", "Morven", "Dena", "Luna", "Daria", "Lisa", "Maria", "Ann", "Helen", "Rosa", "Nataya", "Dura", "Erisa", "Andra"],
+        family: ["Arden", "Rey", "Stone", "Martial", "Bochart", "Nguyen", "Pulosic", "Duisgarde", "Ochre", "Monraue", "Alvarez", "Gowes", "Biszovic", "Kendy", "Surrom", "Henera", "Atermann", "Olbram", "Erane", "Renardo", "Muraki", "Hieosaki", "Rutsamov", "Renne", "Henda", "Asimaci", "Wurand", "Yurg", "Lograd", "Alrom", "Hossid", "Karing", "Ferci", "Tanov", "Tarium", "Likos", "Utan", "Akers", "Maruhani", "Peretz", "Koenig"]
     };
     Character.genTraits = {
         efficiency: ["Efficient", "Profligate"],
