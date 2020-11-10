@@ -19,8 +19,8 @@ class Character {
     };
 
     // could probably use !! but whatever, this way is a little more clear and explicit (if more verbose)
-    constructor(fac: Nation, position: string = "") {
-        this.faction = fac;
+    constructor(fac: Nation = null, position: string = "") {
+        this.faction = fac;   
 
         if (Math.floor(Math.random() * 2)) this.genderIsM = true;
         else this.genderIsM = false;
@@ -28,14 +28,17 @@ class Character {
         this.name = Character.generateName(this.genderIsM);
 
         if (position) this.title = position;
-
+        
+        this.appearance = Math.floor(Math.random() * 3);
 
         this.traits = [];
 
-        for (let i = 0; i < 10; i++) {
-            let tempStr = Character.genTraitSingle(i);
-            if (tempStr) this.traits.push(tempStr);
-        }        
+        while (this.traits.length < 1) {
+            for (let i = 0; i < 10; i++) {
+                let tempStr = Character.genTraitSingle(i);
+                if (tempStr) this.traits.push(tempStr);
+            }
+        }             
     }
 
     static genTraitSingle(traitType: number) {
@@ -97,13 +100,33 @@ class Character {
     private faction: Nation;
 
     private traits: string[];
+    private appearance: number;
     
     public getName() {
         return this.name;
     }
 
+    public getPortrait() {
+        let str = "f";
+        if (this.genderIsM) str = "m";
+        return str += this.appearance.toString() + '.jpg';
+    }
+
     public getTitle() {
         return this.title;
+    }
+
+    public getTraitsAsString(){
+        let buildStr = "";
+        for (let i = 0; i < this.traits.length; i++) {
+            buildStr = buildStr + this.traits[i] + ", ";
+        }
+        buildStr = buildStr.substring(0, buildStr.length - 2);
+        return buildStr;
+    }
+
+    public getFaction() {
+        return this.faction;
     }
 
     public getNameAndTitle() {

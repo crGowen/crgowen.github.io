@@ -94,7 +94,15 @@ var ObController = (function () {
     };
     ObController.buildUiAfterLoad = function () {
         var insert = short.create('div', 'obTopBar', ["obApp__topBar"]);
-        insert.innerText = "Top bar used for simple UI (prototype!)";
+        var barText = short.create('div', 'obTBTextLeft', ["obApp__topBarText", "obApp__topBarText--left"]);
+        barText.innerText = "-";
+        insert.appendChild(barText);
+        barText = short.create('div', 'obTBTextMid', ["obApp__topBarText", "obApp__topBarText--middle"]);
+        barText.innerText = "-";
+        insert.appendChild(barText);
+        barText = short.create('div', 'obTBTextRight', ["obApp__topBarText", "obApp__topBarText--right"]);
+        barText.innerText = "-";
+        insert.appendChild(barText);
         short.byId('obAppCon').appendChild(insert);
         insert = short.create('div', 'obBottomBar', ["obApp__bottomBar"]);
         short.byId('obAppCon').appendChild(insert);
@@ -166,7 +174,7 @@ var ObController = (function () {
     ObController.uiShowViewNation = function () {
         var insert = short.create('div', 'obNatInfoPane', ["obApp__uiPane", "obApp__uiPane--centerSmall"]);
         var nation = ObController.selectedStar.getNation();
-        var hIns = "<h1 class= 'obApp__paneInfoHeader'>" + nation.getName() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textUnderline'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textUnderline'>Leadership</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: " + nation.getCapital().getStarName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick=\"ObController.uiShowViewCharacter('o')\">" + nation.getLeaderCharacter("o").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: " + nation.getCulture().getName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick=\"ObController.uiShowViewCharacter('m')\">" + nation.getLeaderCharacter("m").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: " + nation.controlledStars.length + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right' onclick=\"ObController.uiShowViewCharacter('c')\">" + nation.getLeaderCharacter("c").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Trade status: None</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Employment status: None</h1>";
+        var hIns = "<h1 class= 'obApp__paneInfoHeader'>" + nation.getName() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textBold'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textBold'>Leadership</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: " + nation.getCapital().getStarName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textLink' onclick=\"ObController.uiShowViewCharacter('o')\">" + nation.getLeaderCharacter("o").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: " + nation.getCulture().getName() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textLink' onclick=\"ObController.uiShowViewCharacter('m')\">" + nation.getLeaderCharacter("m").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: " + nation.controlledStars.length + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textLink' onclick=\"ObController.uiShowViewCharacter('c')\">" + nation.getLeaderCharacter("c").getNameAndTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Trade status: None</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Employment status: None</h1>";
         insert.innerHTML = hIns;
         var bar = short.create("div", "", ["obApp__paneBtnBar"]);
         var btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
@@ -179,7 +187,7 @@ var ObController = (function () {
     ObController.uiShowViewCharacter = function (cType) {
         var insert = short.create('div', 'obCharInfoPane', ["obApp__uiPane", "obApp__uiPane--centerSmall"]);
         var char = ObController.selectedStar.getNation().getLeaderCharacter(cType);
-        var hIns = "<h1 class= 'obApp__paneInfoHeader'>" + char.getName() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left obApp__textUnderline'>Details</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right obApp__textUnderline'>Leadership</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Capital: " + char.getTitle() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + char.getTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Culture: " + char.getTitle() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + char.getTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--left'>Controlled stars: " + char.getTitle() + "</h1><h1 class= 'obApp__paneInfoDoubleColumn obApp__paneInfoDoubleColumn--right'>" + char.getTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this faction:</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Reputation: Neutral</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Trade status: None</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Employment status: None</h1>";
+        var hIns = "<img class='obApp__paneInfoPicture' src='/img/ob/" + char.getPortrait() + "'>\n        <h1 class= 'obApp__paneInfoHeader'>" + char.getName() + "</h1>        \n        <h1 class= 'obApp__paneInfoSubHeader'>Title: " + char.getTitle() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Faction: " + char.getFaction().getName() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Traits: " + char.getTraitsAsString() + "</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>---------------------------------------------------------------</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>Your relationship with this character:</h1>\n        <h1 class= 'obApp__paneInfoSubHeader'>None</h1>";
         insert.innerHTML = hIns;
         var bar = short.create("div", "", ["obApp__paneBtnBar"]);
         var btn = short.create("div", "", ["obApp__btn", "obApp__btn--uiPane"]);
@@ -191,6 +199,30 @@ var ObController = (function () {
     };
     ObController.uiCloseNatInfoPane = function () {
         short.del(short.byId("obNatInfoPane"));
+    };
+    ObController.playTheme = function () {
+        if (!ObController.themePlaying) {
+            var audio = short.byId("obPlayer");
+            audio.volume = 0.35;
+            audio.play();
+            ObController.themePlaying = true;
+        }
+    };
+    ObController.stopTheme = function () {
+        if (ObController.themePlaying) {
+            ObController.fadeTheme();
+        }
+    };
+    ObController.fadeTheme = function () {
+        var audio = short.byId("obPlayer");
+        if (audio.volume > 0.0005) {
+            audio.volume -= 0.0005;
+            setInterval(ObController.fadeTheme, 400);
+        }
+        else {
+            audio.pause();
+            ObController.themePlaying = false;
+        }
     };
     ObController.uiCloseCharInfoPane = function () {
         short.del(short.byId("obCharInfoPane"));
@@ -220,6 +252,7 @@ var ObController = (function () {
         this.cultures.push(new Culture(5, "Scholastic", "Supervisor", "Security Coordinator", "Chancellor", "AS", "TR", ["Nobel"], ["Chandrasekhar", "Imahara"], ["Sagan", "Conway", "Minkowski"], "Security Agent", "Extraordinary Prize of Degree", "Distinction and Honours", ["Group", "Space", "Foundation"], ["Assembly of", "Constitution of"], 2, 2, 1, 'lime'));
     };
     ObController.initOb = function () {
+        ObController.gameLoaded = false;
         ObController.galaxyMap = new GalaxyView();
         ObController.starMap = new StarView();
         ObController.context = short.byId("obCanv").getContext("2d");
@@ -229,6 +262,7 @@ var ObController = (function () {
         ObController.selectedStar = null;
         ObController.selectedDestination = null;
         ObController.viewStyle = 'n';
+        ObController.themePlaying = false;
         ObController.frameHandle = setInterval(ObController.drawFrame, 1 / 30);
         ObController.tooltipUpdatePending = false;
         ObController.clearTipPending = false;
@@ -236,7 +270,7 @@ var ObController = (function () {
         ObController.cultures = [];
         ObController.initCultures();
         ObController.loadSprites();
-        ObController.showMainMenu();
+        ObController.showStartMenu();
         ObController.inputIsLocked = false;
         ObController.mouseInput = {
             mouseDownBeginsAt: { x: 0, y: 0 },
@@ -320,8 +354,11 @@ var ObController = (function () {
                     ObController.galaxyMap.centerViewAtStar(ObController.stars[tempN]);
                 }
             }
+            ObController.player.setCharacter();
             ObController.uiEndLoadingScreen();
             ObController.viewType = 'g';
+            setInterval(ObController.stopTheme, 500);
+            ObController.gameLoaded = true;
         }
     };
     ObController.openGalaxyMap = function () {
@@ -419,15 +456,28 @@ var ObController = (function () {
         ObController.frameTasks();
         ObController.frameMod = (ObController.frameMod + 1) % 50;
     };
-    ObController.showMainMenu = function () {
-        ObController.viewType = 'm';
+    ObController.showStartMenu = function () {
+        ObController.viewType = 'h';
         short.del(short.byId("obTopBar"));
         short.del(short.byId("obBottomBar"));
         var insert = short.create("div", "obMainMenu", ["obApp__mainMenu"]);
         var btn = short.create("div", "obMenuLogo", ["obApp__menuLogo"]);
         btn.innerText = "Outward and Beyond (Work In Progress!)";
         insert.appendChild(btn);
-        btn = short.create("div", "", ["obApp__btn", "obApp__btn--menu"]);
+        btn = short.create("div", "obStartBtn", ["obApp__btn", "obApp__btn--menu"]);
+        btn.innerText = "Start";
+        btn.onclick = function () { return ObController.showMainMenu(); };
+        insert.appendChild(btn);
+        short.byId("obAppCon").appendChild(insert);
+    };
+    ObController.showMainMenu = function () {
+        ObController.playTheme();
+        ObController.viewType = 'm';
+        short.del(short.byId("obTopBar"));
+        short.del(short.byId("obBottomBar"));
+        short.del(short.byId("obStartBtn"));
+        var insert = short.byId("obMainMenu");
+        var btn = short.create("div", "", ["obApp__btn", "obApp__btn--menu"]);
         btn.innerText = "Play";
         btn.onclick = function () { return ObController.playGame(); };
         insert.appendChild(btn);
@@ -459,7 +509,7 @@ var ObController = (function () {
                     }
                 }
                 if (ObController.galaxyMap.getMouseHoverPlayer(x, y)) {
-                    h = "YOU";
+                    h = ObController.player.getCharacter().getName() + " (YOU)";
                     t1 = ObController.player.locationSummary();
                     t2 = ObController.player.stateSummary();
                     c = null;
@@ -481,7 +531,7 @@ var ObController = (function () {
                         t2 = "Culture: None";
                 }
                 if (ObController.player.currentSystem === ObController.selectedStar.getStarName() && ObController.starMap.getMouseHoverPlayer(x, y)) {
-                    h = "YOU";
+                    h = ObController.player.getCharacter().getName() + " (YOU)";
                     t1 = ObController.player.locationSummary();
                     t2 = ObController.player.stateSummary();
                     c = null;
@@ -530,7 +580,21 @@ var ObController = (function () {
         ObController.startNewSave();
     };
     ObController.frameTasks = function () {
-        ObController.player.frameTasks();
+        if (ObController.gameLoaded) {
+            ObController.player.frameTasks();
+            ObController.updateTopBar(ObController.player.getCharacter().getName(), ObController.player.locationSummary(), ObController.player.stateSummary());
+        }
+    };
+    ObController.updateTopBar = function (leftText, midText, rightText) {
+        if (leftText === void 0) { leftText = ""; }
+        if (midText === void 0) { midText = ""; }
+        if (rightText === void 0) { rightText = ""; }
+        if (leftText)
+            short.byId("obTBTextLeft").innerText = leftText;
+        if (midText)
+            short.byId("obTBTextMid").innerText = midText;
+        if (rightText)
+            short.byId("obTBTextRight").innerText = rightText;
     };
     ObController.colourPalette = [
         { c1: 'red', c2: 'white' },
@@ -567,7 +631,14 @@ var Player = (function () {
         this.systemGlobalMult = 0.2;
     }
     Player.prototype.setCharacter = function (c) {
-        this.char = c;
+        if (c === void 0) { c = null; }
+        if (c)
+            this.char = c;
+        else
+            this.char = new Character(ObController.independentNat);
+    };
+    Player.prototype.getCharacter = function () {
+        return this.char;
     };
     Player.prototype.equipShip = function (ship) {
         this.ship = ship;

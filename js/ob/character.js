@@ -1,5 +1,6 @@
 var Character = (function () {
     function Character(fac, position) {
+        if (fac === void 0) { fac = null; }
         if (position === void 0) { position = ""; }
         this.faction = fac;
         if (Math.floor(Math.random() * 2))
@@ -9,11 +10,14 @@ var Character = (function () {
         this.name = Character.generateName(this.genderIsM);
         if (position)
             this.title = position;
+        this.appearance = Math.floor(Math.random() * 3);
         this.traits = [];
-        for (var i = 0; i < 10; i++) {
-            var tempStr = Character.genTraitSingle(i);
-            if (tempStr)
-                this.traits.push(tempStr);
+        while (this.traits.length < 1) {
+            for (var i = 0; i < 10; i++) {
+                var tempStr = Character.genTraitSingle(i);
+                if (tempStr)
+                    this.traits.push(tempStr);
+            }
         }
     }
     Character.genTraitSingle = function (traitType) {
@@ -65,8 +69,25 @@ var Character = (function () {
     Character.prototype.getName = function () {
         return this.name;
     };
+    Character.prototype.getPortrait = function () {
+        var str = "f";
+        if (this.genderIsM)
+            str = "m";
+        return str += this.appearance.toString() + '.jpg';
+    };
     Character.prototype.getTitle = function () {
         return this.title;
+    };
+    Character.prototype.getTraitsAsString = function () {
+        var buildStr = "";
+        for (var i = 0; i < this.traits.length; i++) {
+            buildStr = buildStr + this.traits[i] + ", ";
+        }
+        buildStr = buildStr.substring(0, buildStr.length - 2);
+        return buildStr;
+    };
+    Character.prototype.getFaction = function () {
+        return this.faction;
     };
     Character.prototype.getNameAndTitle = function () {
         return this.getTitle() + " " + this.getName();

@@ -1,5 +1,9 @@
 @use 'predef';
 
+audio{
+   display: none;
+}
+
 .topBanner--obWidth {
    min-width: 1280px;
  }
@@ -36,18 +40,35 @@
     position: absolute;
     display: block;
     margin: 0 auto;
-    width: 1260px;
+    width: 1220px;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 30px;
     background-color: predef.$obBarBackground;
-    line-height: 40px;
-    color: inherit;
-    font-family: inherit;
-    text-align: center;
     top: 0;
     @include predef.noSelect();
    z-index: 4;
  }
+
+ .obApp__topBarText {
+   line-height: 40px;
+   color: inherit;
+   font-family: inherit;
+   text-align: center;
+   width: 33.3%;
+   float: left;
+ }
+
+ .obApp__topBarText--left {
+    text-align: left;
+ }
+
+ .obApp__topBarText--middle {
+   text-align: center;
+}
+
+.obApp__topBarText--right {
+   text-align: right;
+}
 
  .obApp__bottomBar {
     position: absolute;
@@ -282,7 +303,7 @@
     font-family: inherit;
     font-size: 30px;
     text-align: center;
-    line-height: 80px;
+    line-height: 65px;
     text-decoration: none;
     font-style: normal;
     font-weight: normal;
@@ -295,14 +316,21 @@
     font-size: 16px;
     text-align: center;
     vertical-align: middle;
-    line-height: 20px;
+    line-height: 18px;
     text-decoration: none;
     font-style: normal;
     font-weight: normal;
     letter-spacing: 1px;
     width: 60%;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+ }
+
+ .obApp__paneInfoPicture {
+    display: block;
+    width: 15%;
+    height: auto;
+    margin: 10px auto;
  }
 
  .obApp__paneInfoDoubleColumn {
@@ -333,10 +361,20 @@
    padding-right: 5%;
  }
 
+ .obApp__textLink{
+   display: inline;
+   text-decoration: underline;
+   cursor: pointer;
+
+   &:hover{
+     color: predef.$accentColour;
+ }
+}
+
  .obApp__sprite--invisible {
    display: none;
  }
 
- .obApp__textUnderline {
-    text-decoration: underline;
+ .obApp__textBold {
+    font-weight: bold;
  }

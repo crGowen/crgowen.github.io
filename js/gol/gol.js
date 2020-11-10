@@ -176,6 +176,9 @@ var GolCell = (function () {
             this.toggle();
         }
     };
+    GolCell.prototype.getState = function () {
+        return this.isAlive;
+    };
     return GolCell;
 }());
 //# sourceMappingURL=gol.js.map

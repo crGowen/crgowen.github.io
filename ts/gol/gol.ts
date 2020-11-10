@@ -228,4 +228,8 @@ class GolCell {
             this.toggle();
         }
     }
+
+    getState() {
+        return this.isAlive;
+    }
 }
