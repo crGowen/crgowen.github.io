@@ -1,11 +1,9 @@
 @use 'predef';
 
-audio{
-   display: none;
-}
-
 #obPlayer {
    display: none;
+   opacity: 0;
+   z-index: -5;
 }
 
 .topBanner--obWidth {
