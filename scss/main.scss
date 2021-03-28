@@ -8,6 +8,8 @@
 a {
     color: predef.$accentColour;
 
+    outline: 0;
+
     &:hover {
         color: predef.$accentHover;
     }
@@ -31,10 +33,6 @@ body {
     justify-content: center;
     background-color: predef.$accentColour; 
     color: predef.$invertedTextColour;
-}
-
-.topBanner--wide {
-    min-width: 74rem;
 }
 
 .leftTitle {
@@ -71,15 +69,18 @@ body {
     text-align: center;
     font-family: predef.$fontHeader;
     color: inherit;
+    text-decoration: none;
     font-size: 1.3rem;
     cursor: pointer;
     @include predef.noSelect();
 
     &:hover {
+        color: predef.$invertedTextColour;
         background-color: predef.$accentHover;
     }
 
     &:active {
+        color: predef.$invertedTextColour;
         background-color: predef.$accentActive;
     }
 }
@@ -100,6 +101,19 @@ body {
     letter-spacing: 0.05rem;
     line-height: 1.2rem;
 }
+
+.pageItem--link {
+    cursor: pointer;
+    transition: 0.1s;
+    @include predef.noSelect();
+    text-decoration: none;
+
+    &:hover{
+        box-shadow: 0 0 0.2rem 0.2rem predef.$accentColour;
+        color: predef.$primaryTextColour;
+    }
+}
+
 
 .pageItem--wide {
     width: 72rem;

@@ -23,6 +23,17 @@ var short = {
     checkForMobile: function () {
         var regex = /Mobi|Android/i;
         return regex.test(navigator.userAgent);
+    },
+    generator: function (attachTo, html, args) {
+        var htmlRes = "";
+        for (var _i = 0, args_1 = args; _i < args_1.length; _i++) {
+            var arg = args_1[_i];
+            htmlRes = html;
+            for (var key in arg) {
+                htmlRes = htmlRes.replaceAll("[>>" + key + "<<]", arg[key]);
+            }
+            attachTo.innerHTML += htmlRes;
+        }
     }
 };
 //# sourceMappingURL=short.js.map

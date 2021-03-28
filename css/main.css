@@ -5,6 +5,7 @@
 
 a {
   color: steelblue;
+  outline: 0;
 }
 a:hover {
   color: #3F75AA;
@@ -27,10 +28,6 @@ body {
   justify-content: center;
   background-color: steelblue;
   color: snow;
-}
-
-.topBanner--wide {
-  min-width: 74rem;
 }
 
 .leftTitle {
@@ -72,6 +69,7 @@ body {
   text-align: center;
   font-family: "Helvetica", sans-serif;
   color: inherit;
+  text-decoration: none;
   font-size: 1.3rem;
   cursor: pointer;
   -webkit-user-select: none;
@@ -80,9 +78,11 @@ body {
   user-select: none;
 }
 .navBar__link:hover {
+  color: snow;
   background-color: #3F75AA;
 }
 .navBar__link:active {
+  color: snow;
   background-color: #5F95BA;
 }
 
@@ -100,6 +100,20 @@ body {
   font-weight: normal;
   letter-spacing: 0.05rem;
   line-height: 1.2rem;
+}
+
+.pageItem--link {
+  cursor: pointer;
+  transition: 0.1s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+}
+.pageItem--link:hover {
+  box-shadow: 0 0 0.2rem 0.2rem steelblue;
+  color: #252525;
 }
 
 .pageItem--wide {

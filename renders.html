@@ -7,17 +7,27 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="shortcut icon" href="/img/main/fav.png">
     <title>crgowen.github.io</title>
+
+    <script src="js/base/short.js"></script>
   </head>
   <body>
-   <div class="topBanner">
-      <h1 class="leftTitle">crgowen.github.io</h1>
-      <ul class="navBar">
-         <li class="navBar__link" onclick="location.href='/index.html'">software</li>
-         <li class="navBar__link" onclick="location.href='/renders.html'">renders</li>
-         <li class="navBar__link" onclick="location.href='/extra.html'">extra</li>
-         <li class="navBar__link" onclick="location.href='/about.html'">about</li>
-      </ul>
-    </div>
+   <div class="topBanner" id ="topBannerContainer">
+   </div>
+
+   <script>
+    const setBanner = async () => {
+
+     let response = await fetch("/banner.html");
+     let result = await response.text();
+     let parser = new DOMParser();
+     let dom = parser.parseFromString(result, "text/html");
+
+     short.byId("topBannerContainer").innerHTML = dom.getElementsByTagName("body")[0].innerHTML;
+    } 
+    
+      setBanner();
+ </script>
+
      <div class="pageItem">
       <img class="pageItem__img pageItem__img--render" src="/img/renders/saphsword.png">
       <p class="pageItem__paragraph">Sapphire-hilt Longsword</p>
