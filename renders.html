@@ -15,38 +15,20 @@
    </div>
 
    <script>
-    const setBanner = async () => {
+       short.generator(short.b(),
+          `<div class='pageItem' >
+            <img class="pageItem__img pageItem__img--render" src="/img/renders/[>>imgsrc<<].png">
+               <p class='pageItem__paragraph'>[>>title<<]</p>
+            </div>`,
+          [
+             {title: `Sapphire-hilt Longsword`, imgsrc: `saphsword`},
+             {title: `Candle`, imgsrc: `candle`},
+             {title: `Bottle of 'Stuff'`, imgsrc: `chem`},
+             {title: `Useless Knife and Fork`, imgsrc: `knf`},
+             {title: `RGB Triangles`, imgsrc: `rgbtri`}
+         ]);
 
-     let response = await fetch("/banner.html");
-     let result = await response.text();
-     let parser = new DOMParser();
-     let dom = parser.parseFromString(result, "text/html");
-
-     short.byId("topBannerContainer").innerHTML = dom.getElementsByTagName("body")[0].innerHTML;
-    } 
-    
-      setBanner();
+      short.fillWithHtml(short.byId("topBannerContainer"), "/banner.html");
  </script>
-
-     <div class="pageItem">
-      <img class="pageItem__img pageItem__img--render" src="/img/renders/saphsword.png">
-      <p class="pageItem__paragraph">Sapphire-hilt Longsword</p>
-   </div>
-      <div class="pageItem">
-         <img class="pageItem__img pageItem__img--render" src="/img/renders/candle.png">
-         <p class="pageItem__paragraph">Candle</p>
-      </div>
-        <div class="pageItem">
-           <img class="pageItem__img pageItem__img--render" src="/img/renders/chem.png">
-           <p class="pageItem__paragraph">Bottle of 'Stuff'</p>
-        </div>
-        <div class="pageItem">
-           <img class="pageItem__img pageItem__img--render" src="/img/renders/knf.png">
-           <p class="pageItem__paragraph">Useless Knife and Fork</p>
-        </div>        
-        <div class="pageItem">
-           <img class="pageItem__img pageItem__img--render" src="/img/renders/rgbtri.png">
-           <p class="pageItem__paragraph">RGB Triangles</p>
-        </div>
   </body>
  </html>

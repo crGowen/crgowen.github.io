@@ -18,17 +18,7 @@
     </div>
 
     <script>
-     const setBanner = async () => {
-
-      let response = await fetch("/banner.html");
-      let result = await response.text();
-      let parser = new DOMParser();
-      let dom = parser.parseFromString(result, "text/html");
-
-      short.byId("topBannerContainer").innerHTML = dom.getElementsByTagName("body")[0].innerHTML;
-     } 
-     
-       setBanner();
+      short.fillWithHtml(short.byId("topBannerContainer"), "/banner.html");
   </script>
     
     <!-- don't rename -->
