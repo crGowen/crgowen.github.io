@@ -15,31 +15,18 @@
      </div>
 
      <script>
-      const setBanner = async () => {
+       short.generator(short.b(),
+          `<div class='pageItem' >
+               <h1 class='pageItem__header'>[>>title<<]</h1>
+               <p class='pageItem__paragraph'>[>>description<<]</p>
+            </div>`,
+          [
+             {title: `About me`, description: `I am a developer from the United Kingdom and I like space, technical-wizardry, and even normal stuff like football. I develop in C# (with .NET), C++, Python, and JS.`},
+             {title: `About this website`, description: `This site is intended to be a place to dump and display a variety of my personal projects, ranging from software and programming, to 3D renders, and occassionally even a blog or tutorial post. Mostly I just take whatever <a href="https://github.com/crgowen" target="_blank" rel="noopener noreferrer">GitHub</a> projects I'm happy with and throw them up on here.`},
+             {title: `Credits`, description: `All projects on this page are created by me (C R Gowen), hosted via GitHub, and some projects were/are created with third party softwares/utilties (which are credited on their relevant page or in the included readme/about files).`}
+         ]);
 
-       let response = await fetch("/banner.html");
-       let result = await response.text();
-       let parser = new DOMParser();
-       let dom = parser.parseFromString(result, "text/html");
-
-       short.byId("topBannerContainer").innerHTML = dom.getElementsByTagName("body")[0].innerHTML;
-      } 
-      
-        setBanner();
-   </script>
-
-        <div class="pageItem">
-           <h1 class="pageItem__header">About me</h1>
-           <p class="pageItem__paragraph">I am a developer from the United Kingdom and I like space, technical-wizardry, and even normal stuff like football.
-             I develop in C# (with .NET), C++, Python, and JS.</p>
-        </div>
-        <div class="pageItem">
-           <h1 class="pageItem__header">About this website</h1>
-           <p class="pageItem__paragraph">This site is intended to be a place to dump and display a variety of my personal projects, ranging from software and programming, to 3D renders, and occassionally even a blog or tutorial post. Mostly I just take whatever <a href="https://github.com/crgowen" target="_blank" rel="noopener noreferrer">GitHub</a> projects I'm happy with and throw them up on here.</p>
-        </div>
-        <div class="pageItem">
-         <h1 class="pageItem__header">Credits</h1>
-         <p class="pageItem__paragraph">All projects on this page are created by me (C R Gowen), hosted via GitHub, and some projects were/are created with third party softwares/utilties (which are credited on their relevant page or in the included readme/about files).</p>
-      </div>
+      short.fillWithHtml(short.byId("topBannerContainer"), "/banner.html");
+     </script>
   </body>
  </html>

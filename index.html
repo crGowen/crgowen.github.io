@@ -15,31 +15,21 @@
      </div>
 
      <script>
-        const setBanner = async () => {
-
-         let response = await fetch("/banner.html");
-         let result = await response.text();
-         let parser = new DOMParser();
-         let dom = parser.parseFromString(result, "text/html");
-
-         short.byId("topBannerContainer").innerHTML = dom.getElementsByTagName("body")[0].innerHTML;
-        } 
-        
-          setBanner();
-
-          short.generator(document.getElementsByTagName("body")[0],
+          short.generator(short.b(),
           `<a class='pageItem pageItem--link' href='[>>link<<]'>
                <h1 class='pageItem__header'>[>>title<<]</h1>
                <p class='pageItem__paragraph'>[>>description<<]</p>
             </a>`,
           [
              {title: `Stenor`, link: `/stenor.html`, description: `Short for "Steganographer", Stenor is a hobby project on digital steganography, imitating the cyber-spy thriller cliché of secretly storing data inside of data. The tool takes an input file, and as a second input an image file, and encodes the input file into the image without changing it in any noticable way. The hidden data can then be decoded and extracted by Stenor.`},
-             {title: `Fast Latin-to-Russian Characters`, link: `https://addons.mozilla.org/en-GB/firefox/addon/fast-latin-to-russian-chars/`, description: `Firefox extension which, when enabled, will automatically convert Latin phonetics to Russian alphabet characters as you type. Example: 'pozhaluysta' converts to 'пожалуйста'.`},
+             {title: `Fast Latin-to-Russian Characters`, link: `https://addons.mozilla.org/en-GB/firefox/addon/fast-latin-to-russian-chars/' target='_blank' rel='noopener noreferrer'`, description: `Firefox extension which, when enabled, will automatically convert Latin phonetics to Russian alphabet characters as you type. Example: 'pozhaluysta' converts to 'пожалуйста'.`},
              {title: `Aliens Out There`, link: `/aot.html`, description: `Representation of the Fermi Paradox and the search for extra-terrestial civilisations. Playable in your browser. Note that it requires about ~2GB of free RAM to launch and a modern processor, a GPU is also recommended.`},
              {title: `Chess`, link: `/chess.html`, description: `Online version of chess with an AI to play against. You can also play local multiplayer or watch the AI play against itself.`},
              {title: `Conway's Game of Life`, link: `/gol.html`, description: `Online version of John Horton Conway's Game of Life, a cellular automaton game where the player enters an initial state which then evolves itself over time, often creating mathematically beautiful patterns.`},
              {title: `Interactive Periodic Table`, link: `/ipt.html`, description: `Periodic table that deals more with the history of chemistry and its elements than the chemistry itself. Click on elements to get a short brief summary of how we discovered it, how the element behaves, and what we use it for.`}
          ]);
+
+         short.fillWithHtml(short.byId("topBannerContainer"), "/banner.html");
      </script>
   </body>
  </html>
