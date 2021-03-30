@@ -161,31 +161,25 @@ var ChessPiece = (function () {
             var square = _this.sq.getNeighbour(n1);
             if (square)
                 square = square.getNeighbour(n2);
-            if (square)
-                if (square.getOccupant())
-                    if (square.getOccupant().getType() === "knight" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
-                        return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType() === "knight"
+                && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam()) {
+                return square.getOccupant().getValue();
+            }
             return 0;
         };
         var checkPawnSquares = function () {
             var square = _this.sq.getNeighbour(_this.owner.getPawnDir() + "Left");
-            if (square)
-                if (square.getOccupant())
-                    if (square.getOccupant().getType() === "pawn" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
-                        return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType() === "pawn" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
+                return square.getOccupant().getValue();
             square = _this.sq.getNeighbour(_this.owner.getPawnDir() + "Right");
-            if (square)
-                if (square.getOccupant())
-                    if (square.getOccupant().getType() === "pawn" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
-                        return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType() === "pawn" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
+                return square.getOccupant().getValue();
             return 0;
         };
         var checkKingSquare = function (dir) {
             var square = _this.sq.getNeighbour(dir);
-            if (square)
-                if (square.getOccupant())
-                    if (square.getOccupant().getType() === "king" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
-                        return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType() === "king" && square.getOccupant().getOwner().getTeam() != _this.owner.getTeam())
+                return square.getOccupant().getValue();
             return 0;
         };
         var result = 0;
@@ -646,26 +640,15 @@ var ChessPlayer = (function () {
             ChessController.timeoutHandle = setTimeout(function () {
                 _this.aiBestDecision.sq.applyCssModifier("chessApp__square--movingAi", false);
                 _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--movingAi", false);
-                if (_this.aiBestDecision.piece.getType() === "king") {
-                    if (_this.aiBestDecision.sq === _this.aiBestDecision.piece.castleMoves["left"]) {
-                        _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        _this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        _this.aiBestDecision.piece.castle("left");
-                    }
-                    else if (_this.aiBestDecision.sq === _this.aiBestDecision.piece.castleMoves["right"]) {
-                        _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        _this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        _this.aiBestDecision.piece.castle("right");
-                    }
-                    else {
-                        _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        _this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        _this.aiBestDecision.piece.moveTo(_this.aiBestDecision.sq, true);
-                    }
+                _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
+                _this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
+                if (_this.aiBestDecision.piece.getType() === "king" && _this.aiBestDecision.sq === _this.aiBestDecision.piece.castleMoves["left"]) {
+                    _this.aiBestDecision.piece.castle("left");
+                }
+                else if (_this.aiBestDecision.piece.getType() === "king" && _this.aiBestDecision.sq === _this.aiBestDecision.piece.castleMoves["right"]) {
+                    _this.aiBestDecision.piece.castle("right");
                 }
                 else {
-                    _this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                    _this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
                     _this.aiBestDecision.piece.moveTo(_this.aiBestDecision.sq, true);
                 }
                 ChessController.selectedPiece = _this.aiBestDecision.piece;

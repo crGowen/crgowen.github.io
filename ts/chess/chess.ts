@@ -76,7 +76,7 @@ class ChessSquare {
     }
 
     /* function to determine whether or not is possible for a chess piece to land on this square, given the conditions imposed by the current player (callerOwner), and whether or not the selected potential move
-    can capture on this square (usually true, the except is that a pawn cannot capture on the square directly front of it), and whether a piece can move to a square (WITHOUT) capturing (again, usually true but
+    can capture on this square (usually true, the exception is that a pawn cannot capture on the square directly front of it), and whether a piece can move to a square (WITHOUT) capturing (again, usually true but
     the pawn is the exception because a pawn can move diagonally without capturing a piece) */ 
     verifySquareIsPossibleMove(callerOwner: ChessPlayer, allowCapture: boolean, allowNoCapture:boolean) {
         if (!this.currentOccupant && allowNoCapture) return "tt";
@@ -127,13 +127,21 @@ class ChessPiece {
         this.addPieceToSquare();
     }
 
-    // check that a piece is in imminent danger of being captured. most often this is used at the start of every turn to assess if the king is in check, and again when choosing a move
-    // since illegal moves (which expose the king to capture) have be removed from the UI and the player prevented from doing them
+    /* check that a piece is in imminent danger of being captured. most often this is used at the start of every turn to assess if the king is in check, and again when choosing a move
+    since illegal moves (which expose the king to capture) have be removed from the UI and the player prevented from doing them
+
+    the AI also uses this function to determine the lowest value piece that endangers one of its own
+    (i.e. being in danger to a PAWN is much worse than being in danger to queen because a competent player will gladly sacrifice a pawn to capture a higher value piece)*/
     checkForDanger() {
+        
         var verifyValueOfAttacker = (res:number, func:number) => {
             if (func > 0) {
                 if (res === 0) res = func;
                 else res = Math.min(res, func);
+                /* if res === 0 that means no enemy piece has yet been found to endanger this piece, and so therefore any attacker
+                should be applied as THE attacker of this piece (func > 0 when an attacker is found),
+                however if res !== 0 that means the piece has already been found to be in danger but now we want to know which is LOWEST valued attacker
+                (i.e. being in danger to a PAWN is much worse than being in danger to queen because a competent player will gladly sacrifice a pawn to capture a higher value piece) */
             }
 
             return res;
@@ -164,33 +172,33 @@ class ChessPiece {
 
         var getKnightSpace = (n1:string, n2:string) => {
             let square = this.sq.getNeighbour(n1);
-            if (square) square = square.getNeighbour(n2);
-            if (square)
-                if (square.getOccupant()) 
-                    if (square.getOccupant().getType()==="knight" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) return square.getOccupant().getValue();
-            
+
+            if (square) square = square.getNeighbour(n2);            
+
+            if (square && square.getOccupant() && square.getOccupant().getType()==="knight"
+                && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) {
+                    return square.getOccupant().getValue();
+            }
+
             return 0;
         };
 
         var checkPawnSquares = () => {
             let square = this.sq.getNeighbour(this.owner.getPawnDir() + "Left");
-            if (square)
-                if (square.getOccupant()) 
-                    if (square.getOccupant().getType()==="pawn" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType()==="pawn" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam())
+                return square.getOccupant().getValue();
 
-            square = this.sq.getNeighbour(this.owner.getPawnDir() + "Right");
-            if (square)
-                if (square.getOccupant()) 
-                    if (square.getOccupant().getType()==="pawn" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) return square.getOccupant().getValue();
+            square = this.sq.getNeighbour(this.owner.getPawnDir() + "Right");            
+            if (square && square.getOccupant() && square.getOccupant().getType()==="pawn" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) 
+                return square.getOccupant().getValue();
 
             return 0;
         }
 
         var checkKingSquare = (dir:string) => {
             let square = this.sq.getNeighbour(dir);
-            if (square)
-                if (square.getOccupant()) 
-                    if (square.getOccupant().getType()==="king" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam()) return square.getOccupant().getValue();
+            if (square && square.getOccupant() && square.getOccupant().getType()==="king" && square.getOccupant().getOwner().getTeam()!=this.owner.getTeam())
+                return square.getOccupant().getValue();
             
             return 0;
         };
@@ -230,8 +238,12 @@ class ChessPiece {
         return result;
     }
 
-    // similar as above but checks for FRIENDLY pieces instead. This function is only used by the AI to help it make smarter moves. This function leads to emergent behaviour that makes the AI both better
-    // at developing its pieces, as well as getting checkmate (especially in sitations where something like a "Scholar's Mate" is available)
+    /* similar as above but checks for FRIENDLY pieces instead. This function is used by the AI to help it make smarter moves.
+    This function leads to emergent behaviour that makes the AI both better
+    at developing its pieces, as well as getting checkmate (especially in sitations where something like a "Scholar's Mate" is available) 
+    
+    The reason it exists is to check that a piece (that is in danger) is also defended by a friendly piece:
+    i.e. a player should think twice about capturing a rook with their queen if the rook is also covered by another piece (which would then capture the queen) */
     checkForCover() {
         var checkCoverInDirection = (dir:string, ...attackers:string[]) => {
             let square = this.sq.getNeighbour(dir);
@@ -333,7 +345,7 @@ class ChessPiece {
         return result;
     }
 
-    // is overwritted by each class which extends ChessPiece: generates a list of moves which are *potentially* possible, these possible moves are then sent into a second step of verification
+    // is overwritten by each class which extends ChessPiece: generates a list of moves which are *potentially* possible, these possible moves are then sent into a second step of verification
     // (verifyMoves functions) which eliminates any possible moves that actually are illegal (that is, they expose the king to capture)
     generatePossibleMoves() {
         // to be overridden
@@ -466,8 +478,8 @@ class ChessPiece {
         return this.type;
     }
 
-    /* these function is overridden for each piece and is used by the AI to plan it's moves
-    effectively, each piece has intrinsic value and some pieces have extra value that is gained from it's
+    /* this function is overridden for each piece and is used by the AI to plan its moves
+    effectively, each piece has intrinsic value and some pieces have extra value that is gained from its
     position on the board (e.g. in the case of a pawn: as the pawn gets closer to promotion it's value exponentially climbs to be equal to a queen's instrinsic value).
 
     The AI will make decisions about sacrificing its pieces to take enemy pieces: these sacrifice decisions are guided by the values of each piece on the board, provided by this getValue() function
@@ -478,7 +490,7 @@ class ChessPiece {
     }
 
     // used to flip the rank for each player's perspective, e.g. for the player whose pawns are going UP the top rank needs to be rank 8 and the bottom rank 1
-    // (that last part is correct: rank *ONE*, because this function also changes the rank scale from 0-7 to 1-8)
+    // (that last part is correct: rank *ONE*, because this function also changes the rank scale from 0-7 to 1-8 so that it can be directly used mathematically to calculate piece values
     rankCleaned() {
         if (this.owner.getPawnDir() === "up") {
             return 8 - this.sq.getRank();
@@ -563,7 +575,7 @@ class ChessPiece {
         return score;
     }
 
-    // remove all moves for which the king would be exposed (REQUIRED FOR PINNED PIECES)
+    // remove all moves for which the king would be exposed (REQUIRED FOR REMOVING ILLEGAL MOVES / PINNED PIECES)
     protected verifyPossibleMoves() {
         this.handleUniqueMoveVerifications();
         let startingSq = this.sq;
@@ -769,25 +781,19 @@ class ChessPlayer {
                 this.aiBestDecision.sq.applyCssModifier("chessApp__square--movingAi", false);
                 this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--movingAi", false);
 
-                if (this.aiBestDecision.piece.getType() === "king") {
-                    if (this.aiBestDecision.sq === this.aiBestDecision.piece.castleMoves["left"]) {
-                        this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        this.aiBestDecision.piece.castle("left");
-                    } else if (this.aiBestDecision.sq === this.aiBestDecision.piece.castleMoves["right"]) {
-                        this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        this.aiBestDecision.piece.castle("right");
-                    } else {
-                        this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                        this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                        this.aiBestDecision.piece.moveTo(this.aiBestDecision.sq, true); 
-                    }
+
+
+                this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
+                this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
+
+                if (this.aiBestDecision.piece.getType() === "king" && this.aiBestDecision.sq === this.aiBestDecision.piece.castleMoves["left"]) {
+                    this.aiBestDecision.piece.castle("left");
+                } else if (this.aiBestDecision.piece.getType() === "king" && this.aiBestDecision.sq === this.aiBestDecision.piece.castleMoves["right"]) {
+                    this.aiBestDecision.piece.castle("right");
                 } else {
-                    this.aiBestDecision.piece.sq.applyCssModifier("chessApp__square--selectedPiece", false);
-                    this.aiBestDecision.piece.applyPossibleMoveCssModifiers(false);
-                    this.aiBestDecision.piece.moveTo(this.aiBestDecision.sq, true);                    
+                    this.aiBestDecision.piece.moveTo(this.aiBestDecision.sq, true); 
                 }
+                
                 ChessController.selectedPiece = this.aiBestDecision.piece;
                 ChessController.endTurn();
             }, 2000);
