@@ -80,9 +80,9 @@ var ChessSquare = (function () {
             return "ff";
         else if (this.currentOccupant.owner === callerOwner)
             return "ff";
-        else if (this.currentOccupant.getType === "epp")
+        else if (this.currentOccupant.getType() === "epp")
             return "tt";
-        else if (this.currentOccupant.getType !== "epp" && allowCapture)
+        else if (this.currentOccupant.getType() !== "epp" && allowCapture)
             return "tf";
         else
             return "ff";

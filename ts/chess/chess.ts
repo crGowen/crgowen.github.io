@@ -82,8 +82,8 @@ class ChessSquare {
         if (!this.currentOccupant && allowNoCapture) return "tt";
         else if (!this.currentOccupant) return "ff"; 
         else if (this.currentOccupant.owner === callerOwner) return "ff";
-        else if (this.currentOccupant.getType === "epp") return "tt";
-        else if (this.currentOccupant.getType !== "epp" && allowCapture) return "tf";        
+        else if (this.currentOccupant.getType() === "epp") return "tt";
+        else if (this.currentOccupant.getType() !== "epp" && allowCapture) return "tf";        
         else return "ff";
     }
 
