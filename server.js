@@ -9,8 +9,7 @@ const PORT = 3000;
 app.use(express.static("."));
 
 app.get('*', (req, res) => {
-   console.log("404!");
-   const file = path.resolve(__dirname, "/index.html");
+   const file = path.resolve(__dirname, "./404.html");
    res.sendFile(file);
 });
 

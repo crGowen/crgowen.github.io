@@ -1,7 +1,14 @@
-import ChildComp from "./child/ChildComp";
+import useHashRouting, { HashRoutes } from "./hashRouting";
+import Software from "./pages/Software"; 
+import PageNotFound from "./pages/PageNotFound";
+
+const routes: HashRoutes = {
+    sw: Software,
+    index: Software,
+    defaultPage: PageNotFound
+};
 
 export default function App() {
-    return(<div>
-        <ChildComp />
-    </div>);
+    const Page = useHashRouting(routes);
+    return(<Page />);
 }
