@@ -9,6 +9,6 @@ const routes: HashRoutes = {
 };
 
 export default function App() {
-    const Page = useHashRouting(routes);
-    return(<Page />);
+    const Route = useHashRouting(routes);
+    return(<Route/>);
 }
