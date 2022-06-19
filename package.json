@@ -1,0 +1,23 @@
+{
+  "name": "crgowen-source",
+  "version": "1.0.0",
+  "description": "source code for crgowen.github.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "build-dev": "tsc && webpack --mode development --config webpack.config.js",
+    "build-prod": "tsc && webpack --mode production --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "express": "^4.18.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.7.4",
+    "webpack-cli": "^4.10.0"
+  }
+}
