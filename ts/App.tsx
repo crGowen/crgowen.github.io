@@ -1,9 +1,9 @@
-import useHashRouting, { HashRoutes } from "./hashRouting";
+import useHashRouting, { HashRoutes } from "./hash";
 import Software from "./pages/Software"; 
 import PageNotFound from "./pages/PageNotFound";
 
 const routes: HashRoutes = {
-    sw: Software,
+    software: Software,
     index: Software,
     defaultPage: PageNotFound
 };

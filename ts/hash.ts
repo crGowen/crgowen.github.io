@@ -6,7 +6,7 @@ export type HashRoutes = {
 }
 
 export default function useHashRouting(routes: HashRoutes) {
-    const resourceMatch = window.location.pathname.match(/\/?(\w+)\.?/) ?? ['sw', 'sw'];
+    const resourceMatch = window.location.pathname.match(/\/?(\w+)\.?/) ?? ['software', 'software'];
     const hashMatch = window.location.hash.match(/#?(.+)/);
     const matches = hashMatch ?? resourceMatch;
     const [hash, setHash] = useState(matches[1]);
