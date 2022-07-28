@@ -2,119 +2,33 @@ import React, { useState } from "react";
 
 type PageProps = {
     children: React.ReactNode;
-    pageWidth?: 'normal' | 'wide';
+    width: 'normal' | 'wide';
 };
 
 const links=[
-    "link1",
+    "software",
     "link2",
     "link3",
     "link4"
 ];
-const styles = getStyles();
+
+const accentColor = "#4682b4";
+const highlightColor = "#66a2c4";
+const navBarHeight = '3rem';
+const navLinkWidth = 12;
+const logoWidth = 11;
+const logoPadding = 0.5;
+const whiteColor = "#f2f2f2";
+const blackColor = "#353535";
+const baseWidth = logoWidth + logoPadding + navLinkWidth*links.length;
 
 export default function Page(props: PageProps){
-    const { children, pageWidth = 'normal' } = props;
-    const style = pageWidth === 'normal' ? styles.normalPage : styles.widePage;
+    const { children, width } = props;
 
-    return (
-        <>
-            <NavBar />
-            <div style={style}>
-                {children}
-            </div>
-        </>
-    );
-}
+    const normalWidth = `${baseWidth - 4}rem`;
+    const wideWidth = `${baseWidth - 1}rem`;
 
-function NavBar() {
-    const [hoveredElem, setHover] = useState<string | null>(null);
-    return (
-        <div style={styles.banner}>
-            <div style={styles.bannerContent}>
-                <div style={styles.logo}>crgowen.github.io</div>
-                <div onMouseOut={() => setHover(null)} style={styles.linkRow}>
-                    { links.map( link => <NavLink
-                        key={`nav-link-${link}`}
-                        text={link}
-                        style={styles.link}
-                        hlStyle={styles.linkHighlight}
-                        hoveredElem={hoveredElem}
-                        setHover={setHover}
-                    />) }
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function NavLink(props: {style: {[k:string]: string}; hlStyle: {[k:string]: string}; text: string;  hoveredElem: string | null; setHover: (x:string) => void}) {
-    const {style, text, hoveredElem, setHover, hlStyle} = props;
-    const hoverStyle = hoveredElem === text ? hlStyle : {};
-    return (
-        <a
-            href={`#${text}`}
-            onMouseOver={() => setHover(text)}
-        >
-            <div style={{...style, ...hoverStyle}}
-            >
-                {text}
-            </div>
-        </a>
-    );
-}
-
-export function PageList(props: { items: JSX.Element[] }) {
-    return (
-        <>
-            {props.items.map((x, index) => (
-                <PageEntry key={`PageEntry${index}`}>
-                    {x}
-                </PageEntry>
-            ))}
-        </>
-    );
-}
-
-export function PageEntry(props: { children: React.ReactNode }) {
-    return (
-        <div>
-            {props.children}
-        </div>
-    );
-}
-
-function getStyles() {
-    const accentColor = "#4682b4";
-    const highlightColor = "#66a2c4";
-    const navBarHeight = '3rem';
-    const navLinkWidth = 10;
-    const logoWidth = 11;
-    const logoPadding = 1;
-    const whiteColor = "#f2f2f2";
-    const logoFontSize = 1.4;
-
-    const normalWidth = `${logoWidth + logoPadding + navLinkWidth*links.length - 0.5}rem`;
-    const wideWidth = `${logoWidth + logoPadding + navLinkWidth*links.length + 1.5}rem`;
-
-    const banner = {
-        backgroundColor: accentColor,
-        width: '100%',
-        height: navBarHeight
-    };
-
-    const bannerContent = {
-        display: "flex",
-        flexDirection: "row" as const,
-        margin: '0 auto',
-        minWidth: `${logoWidth + logoPadding + navLinkWidth*links.length}rem`,
-        width: '45%',
-        height: '100%',
-        lineHeight: navBarHeight,
-        whiteColor
-    };
-
-    const normalPage = {
+    const normalPage =  {
         width: normalWidth,
         height: 'auto',
         margin: '0 auto'
@@ -125,49 +39,133 @@ function getStyles() {
         width: wideWidth,
     };
 
-    const logo = {
-        width: "40%",
-        display: "block",
-        fontFamily: "'Saira Condensed', sans-serif",
-        height: '100%',
-        paddingLeft: `${logoPadding}rem`,
-        fontSize: `${logoFontSize}rem`,
-        minWidth: `${logoWidth}rem`,
-        userSelect: "none" as const
-    };
+    return (
+        <>
+            <NavBar />
+            <div style={width === 'normal' ? normalPage : widePage}>
+                {children}
+            </div>
+        </>
+    );
+}
 
-    const linkRow = {
-        width: "60%",
-        minWidth: `${navLinkWidth*links.length}rem`,
-        height: "100%",
-        display: "flex",
-        flexDirection: "row" as const,
-        justifyContent: "space-between"
-    };
+function NavBar() {
+    const logoFontSize = 1.4;
 
-    const link = {
-        width: `${navLinkWidth}rem`,
-        height: '100%',
-        display: "block",
-        textAlign: "center",
-        whiteColor,
-        fontFamily: "'Helvetica', sans-serif",
-        userSelect: "none",
-        cursor: "pointer"
-    };
+    return (
+        <div style={{
+            backgroundColor: accentColor,
+            width: '100%',
+            height: navBarHeight
+        }}>
+            <div style={{
+                display: "flex",
+                flexDirection: "row" as const,
+                margin: '0 auto',
+                minWidth: `${baseWidth}rem`,
+                width: '45%',
+                height: '100%',
+                lineHeight: navBarHeight,
+                color: whiteColor
+            }}>
+                <div style={{
+                    width: "40%",
+                    display: "block",
+                    fontFamily: "'Saira Condensed', sans-serif",
+                    height: '100%',
+                    paddingLeft: `${logoPadding}rem`,
+                    fontSize: `${logoFontSize}rem`,
+                    minWidth: `${logoWidth}rem`,
+                    userSelect: "none" as const
+                }}>crgowen.github.io</div>
+                <div style={{
+                    width: "60%",
+                    minWidth: `${navLinkWidth*links.length}rem`,
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "row" as const,
+                    justifyContent: "space-between"
+                }}>
+                    { links.map( link => <NavLink
+                        key={`nav-link-${link}`}
+                        text={link}
+                    />) }
+                </div>
+            </div>
+        </div>
+    );
+}
 
-    const linkHighlight = {
-        backgroundColor: highlightColor
-    };
+function NavLink(props: {text: string; }) {
+    const { text } = props;
 
-    return {
-        banner,
-        bannerContent,
-        logo,
-        link,
-        linkRow,
-        linkHighlight,
-        normalPage,
-        widePage
-    };
+    const [hover, setHover] = useState<boolean>(false);
+    const hoverStyle = hover ? { backgroundColor: highlightColor } : {};
+
+    return (
+        <a
+            href={`#${text}`}
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(false)}
+        >
+            <div style={{
+                width: `${navLinkWidth}rem`,
+                height: '100%',
+                display: "block",
+                textAlign: "center" as const,
+                color: whiteColor,
+                fontFamily: "'Helvetica', sans-serif",
+                userSelect: "none" as const,
+                cursor: "pointer",
+                transition: "0.15s",
+                ...hoverStyle
+            }}>
+                {text}
+            </div>
+        </a>
+    );
+}
+
+export function PageList(props: { items: {jsx: JSX.Element; link?: string}[] }) {
+    return (
+        <>
+            {props.items.map(( {jsx, link}, index) => (
+                <PageEntry key={`PageEntry${index}`} link={link}>
+                    {jsx}
+                </PageEntry>
+            ))}
+        </>
+    );
+}
+
+export function PageEntry(props: { children: React.ReactNode, link?: string }) {
+    const [hover, setHover] = useState<boolean>(false);
+    const hoverStyle = hover ? { boxShadow: `0 0 5px 0.08rem ${accentColor}` } : {};
+    const pageEntryPadding = 0.6
+
+    const { link } = props;
+
+    const entry = (
+        <div style={{
+            backgroundColor: whiteColor,
+            color: blackColor,
+            marginTop: '0.6rem',
+            padding: `0.4rem ${pageEntryPadding}rem`,
+            width: `calc(100% -  ${pageEntryPadding*2}rem)`,
+            borderRadius: '0.25rem',
+            minHeight: '5.5rem',
+            fontFamily: "'Raleway', sans-serif",
+            userSelect: "none",
+            cursor: link ? "pointer" : "default",
+            transition: "0.15s",
+            ...hoverStyle
+        }}
+            onMouseOver={() => setHover(link !== undefined)}
+            onMouseOut={() => setHover(false)}
+        >
+            {props.children}
+        </div>
+    );
+
+    return link ? <a href={`#${link}`}>{entry}</a> : entry;
 }
