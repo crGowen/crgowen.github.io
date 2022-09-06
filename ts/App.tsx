@@ -1,4 +1,4 @@
-import useHashRouting, { HashRoutes } from "./hash";
+import useHashRouting, { HashRoutes } from "./hooks/useHashRouting";
 import Software from "./pages/Software"; 
 import PageNotFound from "./pages/PageNotFound";
 
