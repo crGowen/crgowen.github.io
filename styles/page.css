@@ -1,0 +1,32 @@
+.page {
+    --pageEntryPadding: 0.6;
+    height: auto;
+    margin: 0 auto;
+    width: calc( (var(--baseWidth) - 4) * 1rem );
+}
+
+.wide {
+    width: calc( (var(--baseWidth) - 1) * 1rem );
+}
+
+.pageEntry {
+    background-color: var(--whiteColor);
+    color: var(--blackColor);
+    margin-top: 0.6rem;
+    padding: 0.4rem calc(var(--pageEntryPadding) * 1rem);
+    width: calc(100% - var(--pageEntryPadding) * 2 * 1rem);
+    border-radius: 0.25rem;
+    min-height: 5.5rem;
+    font-family: 'Raleway', sans-serif;
+    user-select: none;
+    cursor: default;
+    transition: 0.15s;
+}
+
+.pageEntryLink {
+    cursor: pointer;
+}
+
+.pageEntryLink:hover {
+    box-shadow: 0 0 5px 0.08rem var(--accentColor);
+}
