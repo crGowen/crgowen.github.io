@@ -8,8 +8,9 @@ export type HashRoutes = {
 export default function useHashRouting(routes: HashRoutes) {
     const resourceMatch = window.location.pathname.match(/\/?(\w+)\.?/) ?? ['software', 'software'];
     const hashMatch = window.location.hash.match(/#?(.+)/);
-    const matches = hashMatch ?? resourceMatch;
-    const [hash, setHash] = useState(matches[1]);
+    const matched = (hashMatch ?? resourceMatch)[1].toLowerCase();
+    
+    const [hash, setHash] = useState(matched);
 
     useEffect(function addHashListener() {
         const handleHashChange = () => setHash(window.location.hash.substring(1));

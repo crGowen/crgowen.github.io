@@ -18,7 +18,6 @@
     border-radius: 0.25rem;
     min-height: 5.5rem;
     font-family: 'Raleway', sans-serif;
-    user-select: none;
     cursor: default;
     transition: 0.15s;
 }
@@ -29,4 +28,10 @@
 
 .pageEntryLink:hover {
     box-shadow: 0 0 5px 0.08rem var(--accentColor);
+}
+
+.pageEntry img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.3rem;
 }

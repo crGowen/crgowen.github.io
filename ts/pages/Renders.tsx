@@ -1,22 +1,20 @@
 import Page, { PageList } from "../Page";
 import candle from '../../img/candle.png';
+import knf from '../../img/knf.png';
+import saphsword from '../../img/saphsword.png';
 
 const items = [
     {
-        title: "img1",
+        title: "Sapphire Longsword",
+        image: saphsword
+    },
+    {
+        title: "Candle",
         image: candle
     },
     {
-        title: "img2",
-        image: undefined
-    },
-    {
-        title: "img3",
-        image: undefined
-    },
-    {
-        title: "img4",
-        image: undefined
+        title: "Decorative Cutlery",
+        image: knf
     }
 ];
 
@@ -25,7 +23,7 @@ const itemsJSX = items.map( x => ({
     <img src={x.image}/>
     <h1 style={{
             fontWeight: "normal",
-            fontSize: '1.2rem',
+            fontSize: '1.1rem',
             marginBottom: '0.2rem'
         }}
     >{x.title}</h1>
