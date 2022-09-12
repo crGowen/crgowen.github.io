@@ -1,4 +1,50 @@
+import Page, { PageEntry } from "../../Page";
+import {elements, Elem, ElemInfo, Spacer, RowSubstitution} from "../../data/iptElems";
+
 export default function Ipt() {
-    return <>
-    </>;
+    return (
+        <Page width="wide">
+            <PageEntry>
+                {elements.map((x, i) => <Period key={i} elems={x}/>)}
+            </PageEntry>
+        </Page>
+    );
+}
+
+function Period(props: {elems: Elem[]}){
+    return <div>
+        {props.elems.map((e, i) => <ElemEntry key={i} data={e} />)}
+    </div>
+}
+
+function ElemEntry(props: {data: Elem}) {
+    const { data } = props;
+    const EntryType = getEntryType(data);
+    if (EntryType === undefined) return null;
+
+    return (<EntryType data={data as any} />);
+}
+
+function getEntryType(d: any) {
+    const types = {
+        name: ElemSq,
+        spaces: RowSpacer,
+        rowSub: RowSub
+    };
+
+    const resolved = Object.entries(types).find(([key, _]) => d[key] !== undefined);
+    return resolved && resolved[1];
+}
+
+function ElemSq(props: {data: ElemInfo}) {
+    return <p style={{color: "red"}}>{props.data.name}</p>;
+}
+
+function RowSpacer(props: {data: Spacer}) {
+    return <p style={{color: "blue"}}>{props.data.spaces}</p>;
+}
+
+function RowSub(props: {data: RowSubstitution}) {
+    console.log(props);
+    return null;
 }

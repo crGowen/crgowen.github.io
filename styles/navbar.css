@@ -20,7 +20,7 @@
     display: block;
     font-family: 'Saira Condensed', sans-serif;
     height: 100%;
-    padding: 0 calc( var(--logoPadding) * 1rem );
+    padding-right: calc( var(--logoPadding) * 1rem );
     font-size: calc( var(--logoFontSize) * 1rem );
     min-width: calc( var(--logoWidth) * 1rem );
     user-select: none;
