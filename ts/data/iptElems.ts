@@ -39,7 +39,7 @@ export const elements: Elem[][]  = [
                 75% of all mass in the universe, where it is often found as the fusion fuel of stars, the glow of nebulae, and the atmosphere of gas planets.`
         },
         {
-            spaces: 17
+            spaces: 16
         },
         {
             name: "Helium",
@@ -58,5 +58,39 @@ export const elements: Elem[][]  = [
                 It can also be used in neon lighting fixtures, where it glows bright orange.`
         },
 
+    ],
+    [
+        {
+            name: "Hydrogen",
+            symbol: "H",
+            mass: 1.01,
+            z: 1,
+            state: "Gas",
+            p1: `Discovered in 1766 by Henry Cavendish, 
+                who reacted metals and acids to produce what was then thought to be a kind of 'burned out air'
+                - phlogiston. After mankind's understanding of chemistry improved, phlogiston theory was discarded and this gas was named hydrogen,
+                reflecting its ability to generate water through reaction with oxygen.`,
+            p2: `It is produced in a large number of reactions, as well as through electrolysis of water.
+                It is able to form ionic bonds as both an anion or cation: as a cation it is a vital component of acids, as the anion it forms compounds called hydrides.
+                Hydrogen can of course also form covalent bonds, and may also be able to form metallic bonds, but forming metallic hydrogen remains an elusive 'holy grail' of modern physics.`,
+            p3: `As the most abundant element, hydrogen makes up approximately
+                75% of all mass in the universe, where it is often found as the fusion fuel of stars, the glow of nebulae, and the atmosphere of gas planets.`
+        },
+        {
+            name: "Hydrogen",
+            symbol: "H",
+            mass: 1.01,
+            z: 1,
+            state: "Gas",
+            p1: `Discovered in 1766 by Henry Cavendish, 
+                who reacted metals and acids to produce what was then thought to be a kind of 'burned out air'
+                - phlogiston. After mankind's understanding of chemistry improved, phlogiston theory was discarded and this gas was named hydrogen,
+                reflecting its ability to generate water through reaction with oxygen.`,
+            p2: `It is produced in a large number of reactions, as well as through electrolysis of water.
+                It is able to form ionic bonds as both an anion or cation: as a cation it is a vital component of acids, as the anion it forms compounds called hydrides.
+                Hydrogen can of course also form covalent bonds, and may also be able to form metallic bonds, but forming metallic hydrogen remains an elusive 'holy grail' of modern physics.`,
+            p3: `As the most abundant element, hydrogen makes up approximately
+                75% of all mass in the universe, where it is often found as the fusion fuel of stars, the glow of nebulae, and the atmosphere of gas planets.`
+        },
     ]
 ];

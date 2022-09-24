@@ -5,14 +5,17 @@ export default function Ipt() {
     return (
         <Page width="wide">
             <PageEntry>
-                {elements.map((x, i) => <Period key={i} elems={x}/>)}
+                <div className="iptContainer">
+                    <Table />
+                    <InfoPane />
+                </div>
             </PageEntry>
         </Page>
     );
 }
 
 function Period(props: {elems: Elem[]}){
-    return <div>
+    return <div className="iptRow">
         {props.elems.map((e, i) => <ElemEntry key={i} data={e} />)}
     </div>
 }
@@ -37,14 +40,28 @@ function getEntryType(d: any) {
 }
 
 function ElemSq(props: {data: ElemInfo}) {
-    return <p style={{color: "red"}}>{props.data.name}</p>;
+    return <div className="iptSq iptElem">{props.data.symbol}</div>;
 }
 
 function RowSpacer(props: {data: Spacer}) {
-    return <p style={{color: "blue"}}>{props.data.spaces}</p>;
+    const arr = [...new Array(props.data.spaces).keys()];
+
+    return <>
+        {arr.map(x => <div key={`iptSpacer +${x}`} className="iptSq"></div>)}
+    </>
 }
 
 function RowSub(props: {data: RowSubstitution}) {
     console.log(props);
     return null;
+}
+
+function Table() {
+    return <div className="iptTable">
+        {elements.map((x, i) => <Period key={i} elems={x}/>)}
+    </div>;
+}
+
+function InfoPane() {
+    return <div className="iptInfo"></div>;
 }
