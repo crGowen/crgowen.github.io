@@ -1,13 +1,47 @@
 import Page, { PageEntry } from "../../Page";
 import {elements, Elem, ElemInfo, Spacer, RowSubstitution} from "../../data/iptElems";
+import { useState, useEffect } from "react";
+
+const defaultSelection: ElemInfo = elements[0][0] as ElemInfo;
+
+/*{
+    name: "",
+    symbol: "",
+    mass: 0,
+    z: 0,
+    state: "Solid",
+    p1: "",
+    p2: "",
+    p3: ""
+};*/
 
 export default function Ipt() {
+    const [currentSelection, setCurrentSelection] = useState<ElemInfo>(defaultSelection);
+
+    useEffect(() => {
+        const clickHandler = (evt: MouseEvent) => {
+            evt.stopPropagation();
+            const id = (evt.target as HTMLElement).id;
+
+            const prefix = "iptElement-";
+            if (id.includes(prefix)) {
+                const symbol = id.substring(prefix.length);
+                const foundElem = findElementBySymbol(symbol);
+                setCurrentSelection(foundElem);
+            }
+        };
+
+        window.addEventListener("click", clickHandler);
+
+        return () => window.removeEventListener("click", clickHandler);
+    });
+
     return (
         <Page width="wide">
             <PageEntry>
                 <div className="iptContainer">
-                    <Table />
-                    <InfoPane />
+                    <Table/>
+                    <InfoPane info={currentSelection} />
                 </div>
             </PageEntry>
         </Page>
@@ -22,25 +56,27 @@ function Period(props: {elems: Elem[]}){
 
 function ElemEntry(props: {data: Elem}) {
     const { data } = props;
-    const EntryType = getEntryType(data);
-    if (EntryType === undefined) return null;
 
-    return (<EntryType data={data as any} />);
-}
+    const types = ["name", "spaces", "rowSub"];
 
-function getEntryType(d: any) {
-    const types = {
-        name: ElemSq,
-        spaces: RowSpacer,
-        rowSub: RowSub
-    };
-
-    const resolved = Object.entries(types).find(([key, _]) => d[key] !== undefined);
-    return resolved && resolved[1];
+    const resolved = types.find((key) => (data as any)[key] !== undefined); 
+    switch(resolved) {
+        case "name":
+            return <ElemSq data={data as ElemInfo}/>;
+        case "spaces":
+            return <RowSpacer data={data as Spacer}/>;
+        case "rowSub":
+            return <RowSub data={data as RowSubstitution}/>;
+        default:
+            return null;
+    }
 }
 
 function ElemSq(props: {data: ElemInfo}) {
-    return <div className="iptSq iptElem">{props.data.symbol}</div>;
+    const state = props.data.state.toLowerCase();
+    const radio = props.data.halfLife !== undefined ? "radio" : "";
+
+    return <div className={`iptSq iptElem ${state} ${radio}`} id={`iptElement-${props.data.symbol}`}>{props.data.symbol}</div>;
 }
 
 function RowSpacer(props: {data: Spacer}) {
@@ -52,16 +88,44 @@ function RowSpacer(props: {data: Spacer}) {
 }
 
 function RowSub(props: {data: RowSubstitution}) {
-    console.log(props);
-    return null;
+    return <div className="iptSq iptRowSub">{props.data.rowSub}</div>
 }
 
 function Table() {
     return <div className="iptTable">
-        {elements.map((x, i) => <Period key={i} elems={x}/>)}
+        {elements.map((x, i) => <Period key={i} elems={x} />)}
     </div>;
 }
 
-function InfoPane() {
-    return <div className="iptInfo"></div>;
+function InfoPane(props: {info: ElemInfo | null}) {
+
+    return <div className="iptInfo">
+        {props?.info !== null ? content() : null}
+    </div>;
+
+    function content() {
+        const {name, mass, state, z, halfLife, p1, p2, p3} = props.info as ElemInfo;
+
+        return  <>
+            <div className="iptElemName">{name}</div>
+            <div className="iptSubHeadLeft"><span className="bolded">Mass:</span> {mass.toFixed(2)}</div>
+            <div className="iptSubHeadRight"><span className="bolded">State@STP:</span> {state}</div>
+            <div className="iptSubHeadLeft"><span className="bolded">Half-life:</span> {halfLife ?? "Nonradioactive"}</div>
+            <div className="iptSubHeadRight"><span className="bolded">Atomic Number:</span> {z}</div>
+
+            <div className="iptParagraph">{p1}</div>
+            <div className="iptParagraph">{p2}</div>
+            <div className="iptParagraph">{p3}</div>
+        </>
+    }
+}
+
+function findElementBySymbol(symbol: string) {
+    let result = null;
+    elements.forEach(row => {
+        const e = (row as ElemInfo[]).find(x => x.name !== undefined && x.symbol === symbol);
+        if (e !== undefined) result = e;
+    });
+
+    return result ?? defaultSelection;
 }
