@@ -9,20 +9,84 @@
     font-family: 'Saira Condensed', sans-serif;
     display: inline-block;
     width: calc(var(--iptWidth) * 0.30rem - 0.25rem);
-    height: auto;
+    background-color: white;
+    height: 30rem;
     vertical-align: top;
-    background-color: aqua;
     border-radius: 0.3rem;
     padding-left: 0.25rem;
+    padding-top: 0.5rem;
+    outline-style: solid;
+    outline-color: #00000099;
+    outline-width: 0.08rem;
+    outline-offset: 0.1rem;
 }
 
-.iptTable {
-    --iptTableWidth: calc(var(--iptWidth) * 0.70rem);
+.iptLeftPane {
+    --iptTableWidth: calc(var(--iptWidth) * 0.70rem - 1rem);
+    margin: 0 0.5rem;
     display: inline-block;
     width: var(--iptTableWidth);
     height: auto;
-    background-color: beige;
-    vertical-align: top;
+}
+
+.iptTable {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.iptLegend {
+    display: block;
+    width: 100%;
+    height: 6rem;
+    color: black;
+}
+
+.iptLegendHeader {
+    font-family: 'Saira Condensed', sans-serif;
+    padding-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+}
+
+.iptLegendRow {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.iptLegendItem {
+    display: inline-block;
+    width: auto;
+    height: 2.5rem;
+    margin: 0 0.15rem;
+    padding: 0 0.5rem;
+    vertical-align: middle;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.5rem;
+
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 1.8rem;
+
+    border-style: solid;
+    border-width: 0.125rem;
+    border-color: transparent;
+    user-select: none;
+    background-color: white;
+    border-radius: 0.6rem;
+    transition: 0.15s;
+    border-color: black;
+}
+
+.iptLegendItem:hover {
+    background-color: black;
 }
 
 .iptRow {
@@ -102,9 +166,10 @@
 .iptElemName {
     display: block;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     width: 100%;
     text-align: center;
+    margin-bottom: 0.2rem;
 }
 
 .iptSubHeadLeft {

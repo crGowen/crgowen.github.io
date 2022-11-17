@@ -40,7 +40,10 @@ export default function Ipt() {
         <Page width="wide">
             <PageEntry>
                 <div className="iptContainer">
-                    <Table/>
+                    <div className="iptLeftPane">
+                        <Legend />
+                        <Table/>
+                    </div>
                     <InfoPane info={currentSelection} />
                 </div>
             </PageEntry>
@@ -97,6 +100,18 @@ function Table() {
     </div>;
 }
 
+function Legend(){
+    return <div className="iptLegend">
+        <div className="iptLegendHeader">LEGEND</div>
+        <div className="iptLegendRow">
+            <div className="iptLegendItem solid">Solid</div>
+            <div className="iptLegendItem liquid">Liquid</div>
+            <div className="iptLegendItem gas">Gas</div>
+            <div className="iptLegendItem radio">Radioactive</div>
+        </div>
+    </div>
+};
+
 function InfoPane(props: {info: ElemInfo | null}) {
 
     return <div className="iptInfo">
@@ -108,7 +123,7 @@ function InfoPane(props: {info: ElemInfo | null}) {
 
         return  <>
             <div className="iptElemName">{name}</div>
-            <div className="iptSubHeadLeft"><span className="bolded">Mass:</span> {mass.toFixed(2)}</div>
+            <div className="iptSubHeadLeft"><span className="bolded">Mass:</span> {mass}</div>
             <div className="iptSubHeadRight"><span className="bolded">State@STP:</span> {state}</div>
             <div className="iptSubHeadLeft"><span className="bolded">Half-life:</span> {halfLife ?? "Nonradioactive"}</div>
             <div className="iptSubHeadRight"><span className="bolded">Atomic Number:</span> {z}</div>

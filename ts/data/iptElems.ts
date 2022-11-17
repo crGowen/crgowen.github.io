@@ -1,7 +1,7 @@
 export type ElemInfo = {
     name: string;
     symbol: string;
-    mass: number;
+    mass: string;
     z: number;
     state: "Gas" | "Liquid" | "Solid";
     halfLife?: string;
@@ -25,7 +25,7 @@ export const elements: Elem[][]  = [
         {
             name: "Hydrogen",
             symbol: "H",
-            mass: 1.01,
+            mass: "1.01",
             z: 1,
             state: "Gas",
             p1: `Discovered in 1766 by Henry Cavendish, 
@@ -44,7 +44,7 @@ export const elements: Elem[][]  = [
         {
             name: "Helium",
             symbol: "He",
-            mass: 4.00,
+            mass: "4.00",
             z: 2,
             state: "Gas",
             p1: `Discovered in 1868 when several astronomers studied the emission spectrum of the Sun and found indications of
@@ -63,7 +63,7 @@ export const elements: Elem[][]  = [
         {
             name: "Lithium",
             symbol: "Li",
-            mass: 6.94,
+            mass: "6.94",
             z: 3,
             state: "Solid",
             p1: `Discovered in 1817 by Johan August Afwedson, who analysed a mineral called petalite and discovered it contained the as-of-then unknown element lithium.
@@ -77,7 +77,7 @@ export const elements: Elem[][]  = [
         {
             name: "Beryllium",
             symbol: "Be",
-            mass: 9.01,
+            mass: "9.01",
             z: 4,
             state: "Solid",
             p1: `In 1798 Louis-Nicolas Vauquelin reported the discovery of the element after dissolving the beryl mineral in a base. In 1828 it was isolated for the first time by
@@ -94,7 +94,7 @@ export const elements: Elem[][]  = [
         {
             name: "Boron",
             symbol: "B",
-            mass: 10.81,
+            mass: "10.81",
             z: 5,
             state: "Solid",
             p1: `First discovered in 1808 when Sir Humphry Davy electrolysed borates and boron was precipitated out. At around the same time it was
@@ -107,7 +107,7 @@ export const elements: Elem[][]  = [
         {
             name: "Carbon",
             symbol: "C",
-            mass: 12.01,
+            mass: "12.01",
             z: 6,
             state: "Solid",
             p1: `The discovery of carbon as coal predates written history, and the name carbon derives from the Latin 'carbo' for coal. It would later also be learned that diamond and graphite are carbon structures.
@@ -121,7 +121,7 @@ export const elements: Elem[][]  = [
         {
             name: "Nitrogen",
             symbol: "N",
-            mass: 14.01,
+            mass: "14.01",
             z: 7,
             state: "Gas",
             p1: `Discovered in 1772 by Daniel Rutherford, who burned all the oxygen from a small space, then removed the carbon dioxide from it, in the remaining air mice
@@ -134,7 +134,7 @@ export const elements: Elem[][]  = [
         {
             name: "Oxygen",
             symbol: "O",
-            mass: 16.00,
+            mass: "16.00",
             z: 8,
             state: "Gas",
             p1: `Credit for the discovery of oxygen is generally shared between three different chemists - Scheele, Priestley, and
@@ -147,7 +147,7 @@ export const elements: Elem[][]  = [
         {
             name: "Fluorine",
             symbol: "F",
-            mass: 19.00,
+            mass: "19.00",
             z: 9,
             state: "Gas",
             p1: `Hydrofluoric acid is one of the few substances that will corrode glass, as such (although nobody knew what it was chemically) it was used in the making of glass art as far back as 1720.
@@ -160,7 +160,7 @@ export const elements: Elem[][]  = [
         {
             name: "Neon",
             symbol: "Ne",
-            mass: 20.18,
+            mass: "20.18",
             z: 10,
             state: "Gas",
             p1: `Discovered by Sir William Ramsey and William Travers in 1898, when they seperated air by a method similar to fractional distillation.
@@ -175,7 +175,7 @@ export const elements: Elem[][]  = [
         {
             name: "Sodium",
             symbol: "Na",
-            mass: 22.99,
+            mass: "22.99",
             z: 11,
             state: "Solid",
             p1: `Discovered in 1807 by Sir Humphry Davy, who electrolysed molten sodium hydroxide to produce a small amount of elemental sodium.
@@ -188,7 +188,7 @@ export const elements: Elem[][]  = [
         {
             name: "Magnesium",
             symbol: "Mg",
-            mass: 24.31,
+            mass: "24.31",
             z: 12,
             state: "Solid",
             p1: `Discovered in 1808 by Sir Humphry Davy, who seperated it out from oxides using electrolysis. Magnesium's name comes from magnesia abla meaning 'white ore from Magnesia', which is a region in Greece.
@@ -204,7 +204,7 @@ export const elements: Elem[][]  = [
         {
             name: "Aluminium",
             symbol: "Al",
-            mass: 26.98,
+            mass: "26.98",
             z: 13,
             state: "Solid",
             p1: `First isolated and discovered by Hans Christian Ørsted in 1824, who reacted an aluminium salt with mercury-potassium alloy, yielding a small lump of the metal.
@@ -217,7 +217,7 @@ export const elements: Elem[][]  = [
         {
             name: "Silicon",
             symbol: "Si",
-            mass: 28.09,
+            mass: "28.09",
             z: 14,
             state: "Solid",
             p1: `First produced by Joseph Louis Gay-Lussac and Louis Jacques Thénard in 1811, when they heated silicon tetrafluoride with potassium, which stole the fluoride ions leaving behind elemental silicon.
@@ -229,7 +229,7 @@ export const elements: Elem[][]  = [
         {
             name: "Phosphorous",
             symbol: "P",
-            mass: 30.97,
+            mass: "30.97",
             z: 15,
             state: "Solid",
             p1: `Phosphorus was the first element discovery since the ancient era discoveries like carbon and iron. It was found by Hennig Brand in 1669, who distilled urine to produce a salt which burned blindingly bright - hence the name 'phosphorus':
@@ -241,7 +241,7 @@ export const elements: Elem[][]  = [
         {
             name: "Sulfur",
             symbol: "S",
-            mass: 32.06,
+            mass: "32.06",
             z: 16,
             state: "Solid",
             p1: `Sulfur is one of the few elements that can be easily found in elemental form, as such its discovery predates written history. Sulfur occurs in abundance around volcanoes as a yellow solid, in antiquity they collected the element and associated it
@@ -252,7 +252,7 @@ export const elements: Elem[][]  = [
         {
             name: "Chlorine",
             symbol: "Cl",
-            mass: 35.45,
+            mass: "35.45",
             z: 17,
             state: "Gas",
             p1: `Chlorine was discovered by Carl Wilhelm Scheele in 1774, when he produced the element by reacting manganese dioxide with hydrochloric acid. Already with insects Scheele was able to observe the deadly toxicity of the gas,
@@ -263,7 +263,7 @@ export const elements: Elem[][]  = [
         {
             name: "Argon",
             symbol: "Ar",
-            mass: 39.88,
+            mass: "39.88",
             z: 18,
             state: "Gas",
             p1: `Discovered in 1894 by Lord Rayleigh and Sir William Ramsay, who removed oxygen, carbon dioxide, and nitrogen from air leaving behind argon (which constitutes ~1% of ordinary air), as well as then undetected trace gases like neon and xenon which would later be discovered by Ramsey and Travers.`,
@@ -275,7 +275,7 @@ export const elements: Elem[][]  = [
         {
             name: "Potassium",
             symbol: "K",
-            mass: 39.10,
+            mass: "39.10",
             z: 19,
             state: "Solid",
             p1: `Discovered in 1807 by Sir Humphry Davy, who electrolysed potassium hydroxide, isolating the metal. Potash is the name given to a group of salts that can be mined all over the world: from caustic potash (potassium hydroxide) the element was first isolated, hence the name potassium derives from potash.`,
@@ -286,7 +286,7 @@ export const elements: Elem[][]  = [
         {
             name: "Calcium",
             symbol: "Ca",
-            mass: 40.08,
+            mass: "40.08",
             z: 20,
             state: "Solid",
             p1: `Discovered and first isolated by Sir Humphry Davy in 1808, like most of Davy's discoveries it involved the electrolysis of a metal salt. Davy's method also required mercury and was not viable commercially, so in modern calcium production electrolysis of molten calcium chloride is used instead.`,
@@ -296,7 +296,7 @@ export const elements: Elem[][]  = [
         {
             name: "Scandium",
             symbol: "Sc",
-            mass: 44.96,
+            mass: "44.96",
             z: 21,
             state: "Solid",
             p1: `Discovered as an oxide by Lars Fredrik Nilson in 1879, it would only be isolated as late as 1937 through electrolysis. The element is named for Scandinavia, place of Nilson's birth and the discovery.`,
@@ -306,7 +306,7 @@ export const elements: Elem[][]  = [
         {
             name: "Titanium",
             symbol: "Ti",
-            mass: 47.87,
+            mass: "47.87",
             z: 22,
             state: "Solid",
             p1: `Known to William Gregor as early as 1791, who prospected some 'black sand' he noticed and found a metallic oxide he did not recognise as any known element. Titanium was later isolated in 1910, when Matthew Hunter reacted titanium tetrafluoride with sodium.`,
@@ -316,7 +316,7 @@ export const elements: Elem[][]  = [
         {
             name: "Vanadium",
             symbol: "V",
-            mass: 50.94,
+            mass: "50.94",
             z: 23,
             state: "Solid",
             p1: `Discovered by Andrés Manuel del Rio in 1801, who identified the new metal via the salts in 'brown lead' ore. It was isolated to its elemental form in 1867 by Henry Enfield Roscoe, who reacted vanadium chloride with hydrogen.`,
@@ -326,7 +326,7 @@ export const elements: Elem[][]  = [
         {
             name: "Chromium",
             symbol: "Cr",
-            mass: 52.00,
+            mass: "52.00",
             z: 24,
             state: "Solid",
             p1: `Discovered by Louis Nicolas Vauquelin in 1794, who thermally decomposed chromium trioxide to produce metallic chromium. However, before the discovery of chromium, oxides of the element had been used for decades in the production of red paints and pigments.`,
@@ -336,7 +336,7 @@ export const elements: Elem[][]  = [
         {
             name: "Manganese",
             symbol: "Mn",
-            mass: 54.94,
+            mass: "54.94",
             z: 25,
             state: "Solid",
             p1: `Known to Carl Wilhelm Scheele in 1774 as a dioxide, and isolated months later by Johan Gottlieb Gahn, who reduced manganese dioxide with carbon. Manganese's name comes from magnesia negra meaning 'black ore from Magnesia', which is a region in Greece. From the same region also comes magnesia able (the white ore), to avoid the obvious confusion, one became known as magnesium, and the other as manganese.`,
@@ -346,7 +346,7 @@ export const elements: Elem[][]  = [
         {
             name: "Iron",
             symbol: "Fe",
-            mass: 55.85,
+            mass: "55.85",
             z: 26,
             state: "Solid",
             p1: `One of the elements known to humanity since ancient times: it surplanted bronze as the metal of choice at around 1000BCE, ending the Bronze Age and beginning the Iron Age. Despite common portrayals, bronze was actually superior to early iron in many ways, but too expensive for mass production since copper and tin deposits (the components of bronze) are relatively rare compared to iron.`,
@@ -356,7 +356,7 @@ export const elements: Elem[][]  = [
         {
             name: "Cobalt",
             symbol: "Co",
-            mass: 58.93,
+            mass: "58.93",
             z: 27,
             state: "Solid",
             p1: `The first metal discovery since ancient times, cobalt was discovered at around 1735 by Georg Brandt, who distinguished it from bismuth in a 'just bismuth' ore sample. Some compounds were often used in the blue-colouring of glass, even before its discovery, although people back then believed that they were bismuth compounds.`,
@@ -366,7 +366,7 @@ export const elements: Elem[][]  = [
         {
             name: "Nickel",
             symbol: "Ni",
-            mass: 58.96,
+            mass: "58.96",
             z: 28,
             state: "Solid",
             p1: `Discovered by Axel Fredrik Cronstedt in 1751, who tried to extract copper from a mineral called nickeline, but was surprised by a new element instead, which he named after the ore. This discovery was somewhat controversial, and many chemists suspected it was likely nothing more than a copper alloy, the last of the nay-sayers were convinced in 1775 when Torbern Bergman produced pure nickel for the first time.`,
@@ -376,7 +376,7 @@ export const elements: Elem[][]  = [
         {
             name: "Copper",
             symbol: "Cu",
-            mass: 63.55,
+            mass: "63.55",
             z: 29,
             state: "Solid",
             p1: `Copper is a prehistoric discovery, chiefly because it can actually be found in elemental form in some ores. Considering that copper is a component of bronze alloys, the use of copper must obviously predate the bronze age, and there is proof that copper was even used at around the time of the Neolithic Revolution - meaning copper was used by some of the very first civilisations and proto-civilisations in human history. Copper is therefore probably the first metal known to man.`,
@@ -386,7 +386,7 @@ export const elements: Elem[][]  = [
         {
             name: "Zinc",
             symbol: "Zn",
-            mass: 65.38,
+            mass: "65.38",
             z: 30,
             state: "Solid",
             p1: `Discovered in prehistory by simply thermally decomposing ores, zinc has been used since before the Iron Age. It was often used as an alloy with copper: brass, which was even sometimes used in stead of other materials like iron and bronze, such as in the coinage and military equipment of the early Roman Empire.`,
@@ -396,7 +396,7 @@ export const elements: Elem[][]  = [
         {
             name: "Gallium",
             symbol: "Ga",
-            mass: 69.72,
+            mass: "69.72",
             z: 31,
             state: "Solid",
             p1: `Discovered in 1875 by Paul Emile Lecoq de Boisbaudran, who used the then-new invention of the spectroscope to analyse a mineral sample. Lecoq then went on to also be the first to isolate the element, through the use of electrolysis.`,
@@ -406,7 +406,7 @@ export const elements: Elem[][]  = [
         {
             name: "Germanium",
             symbol: "Ge",
-            mass: 72.63,
+            mass: "72.63",
             z: 32,
             state: "Solid",
             p1: `Discovered in 1886 by Clemens Winkler, who analysed the mineral argyrodite and isolated out the known elements, what was left was a new unknown element: germanium, a brittle semi-metal that Winkler considered similar to antimony.`,
@@ -416,7 +416,7 @@ export const elements: Elem[][]  = [
         {
             name: "Arsenic",
             symbol: "As",
-            mass: 74.92,
+            mass: "74.92",
             z: 33,
             state: "Solid",
             p1: `Arsenic is an element known since ancient times, where it was used in bronze alloys and - more infamously - as a deadly poison. Its value as a poison was owed to the difficulty of proving arsenic poisoning. Use as a murder weapon declined with the advent of the scientific revolution, which brought a new understanding of chemistry and a test for arsenic.`,
@@ -426,7 +426,7 @@ export const elements: Elem[][]  = [
         {
             name: "Selenium",
             symbol: "Se",
-            mass: 78.97,
+            mass: "78.97",
             z: 34,
             state: "Solid",
             p1: `Discovered in 1817 by Jöns Jakob Berzelius and Johan Gottlieb Gahn, who reacted sulfuric acid with a sample of fool's gold: the reaction produced a precipitate which was first misidentified as the similar element tellurium, but Berzelius later reinvestigated the product, discovering selenium.`,
@@ -436,7 +436,7 @@ export const elements: Elem[][]  = [
         {
             name: "Bromine",
             symbol: "Br",
-            mass: 79.90,
+            mass: "79.90",
             z: 35,
             state: "Liquid",
             p1: `Discovered near-simultaneously by both Carl Jacob Löwig and Antoine Balard. Löwig discovered the element slightly sooner in 1825, by displacing the bromide in a salt with chloride, however the delay in publishing his findings meant that Balard's isolation of bromine (though performed a year later), was the first published discovery of the element.`,
@@ -446,7 +446,7 @@ export const elements: Elem[][]  = [
         {
             name: "Krypton",
             symbol: "Kr",
-            mass: 83.80,
+            mass: "83.80",
             z: 36,
             state: "Gas",
             p1: `Discovered in 1898 by William Ramsey and Morris Travers, via the same process as their discoveries for the other noble gasses neon and xenon: in a method similar to fractional distillation, applied to air.`,
@@ -458,7 +458,7 @@ export const elements: Elem[][]  = [
         {
             name: "Rubidium",
             symbol: "Rb",
-            mass: 85.47,
+            mass: "85.47",
             z: 37,
             state: "Solid",
             p1: `Discovered in 1861 by Robert Bunsen (of Bunsen burner fame) and Gustav Kirchhoff, who performed flame tests (otherwise known as flame spectroscopy) on samples of a mineral called lepidolite. The spectrum showed a set of red lines unassociated with any element, and after successive chemical tests they determined they had found a new element.`,
@@ -468,7 +468,7 @@ export const elements: Elem[][]  = [
         {
             name: "Strontium",
             symbol: "Sr",
-            mass: 87.62,
+            mass: "87.62",
             z: 38,
             state: "Solid",
             p1: `Discovered by Adair Crawford and William Cruickshank in 1790, who believed an ore found in the mines of Strontian (a village on the west coast of Scotland) was distinct from previously known and extracted minerals. Their suspicion was confirmed in 1808 when Sir Humphry Davy electrolysed a sample and isolated the element.`,
@@ -478,7 +478,7 @@ export const elements: Elem[][]  = [
         {
             name: "Yttrium",
             symbol: "Y",
-            mass: 88.91,
+            mass: "88.91",
             z: 39,
             state: "Solid",
             p1: `The first of eight elements discovered from samples of a single quarry in Ytterby, Sweden - the other seven being ytterbium, erbium, terbium, scandium, holmium, thulium, and gadolinium. Yttrium was found in 1794 by Johan Gadolin, but the element would only be isolated decades later by Friedrich Wöhler in 1828.`,
@@ -488,7 +488,7 @@ export const elements: Elem[][]  = [
         {
             name: "Zirconium",
             symbol: "Zr",
-            mass: 91.22,
+            mass: "91.22",
             z: 40,
             state: "Solid",
             p1: `Discovered in 1789 by Martin Heinrich Klaproth, who analysed a sample of jargoon (a mineral known since classical antiquity) and discoverd a new oxide which he called zirconia. Jöns Jacob Berzelius was the first to isolate the element in 1824, by reacting a zirconium salt with potassium.`,
@@ -498,7 +498,7 @@ export const elements: Elem[][]  = [
         {
             name: "Niobium",
             symbol: "Nb",
-            mass: 92.91,
+            mass: "92.91",
             z: 41,
             state: "Solid",
             p1: `Discovered by Charles Hatchett in 1801, who suspected a sample of columbite contained a new element. Although he could not isolate it himself, his chemical investigation confirmed the existence of what he then named 'columbium'. The first isolation of the element occured in 1864 by the work of Christian Wilhelm Blomstrand, and by that time the element had been renamed to niobium.`,
@@ -508,7 +508,7 @@ export const elements: Elem[][]  = [
         {
             name: "Molybdenum",
             symbol: "Mo",
-            mass: 95.95,
+            mass: "95.95",
             z: 42,
             state: "Solid",
             p1: `Discovered by Carl Wilhelm Scheele in 1778, who distinguished what was previously thought to be a sample of graphite from both galena (lead sulfide ore) and real graphite. He named the new element molybdenum and it was isolated three years later by Peter Jacob Hjelm.`,
@@ -518,7 +518,7 @@ export const elements: Elem[][]  = [
         {
             name: "Technetium",
             symbol: "Tc",
-            mass: 97,
+            mass: "(97)",
             z: 43,
             state: "Solid",
             halfLife: "4,200,000 years",
@@ -529,7 +529,7 @@ export const elements: Elem[][]  = [
         {
             name: "Ruthenium",
             symbol: "Ru",
-            mass: 101.07,
+            mass: "101.07",
             z: 44,
             state: "Solid",
             p1: `Discovered in 1844 by Karl Ernst Claus, who found and extracted the element from platinum residue. However, the element was very nearly almost discovered earlier by Gottfried Osann, but unfortunately for Osann he could not successfully repeat his own experiment, Osann gave it the name ruthenium after the land the ore came from: Russia... being the homeland of the eventual discoverer Claus, the name was kept thanks to his patriotism.`,
@@ -539,7 +539,7 @@ export const elements: Elem[][]  = [
         {
             name: "Rhodium",
             symbol: "Rh",
-            mass: 102.91,
+            mass: "102.91",
             z: 45,
             state: "Solid",
             p1: `Discovered in 1803 by William Hyde Wollaston, the discovery - like most of the platinum group metals - involved the analysis of a platinum ore sample which yielded the observation that another metal was present. Wollaston then isolated the metal through a series of strong acid combinations, producing metallic rhodium.`,
@@ -549,7 +549,7 @@ export const elements: Elem[][]  = [
         {
             name: "Palladium",
             symbol: "Pd",
-            mass: 106.42,
+            mass: "106.42",
             z: 46,
             state: "Solid",
             p1: `Discovered and isolated by William Hyde Wollaston in 1802, as expected for a platinum group metal, the discovery was the result of the analysis of platinum ore, which turned out to contain more than just platinum. Palladium is named after an asteroid, called 2 Pallas, which was thought to have been a planet at that time.`,
@@ -559,7 +559,7 @@ export const elements: Elem[][]  = [
         {
             name: "Silver",
             symbol: "Ag",
-            mass: 107.87,
+            mass: "107.87",
             z: 47,
             state: "Solid",
             p1: `Being in the same group as copper and gold, silver shares many of the same properties, including the fact that it naturally occurs in its metallic form, and as a result silver is one of humanity's ancient discoveries. Like copper, silver was known to some of the very earliest proto-civilisations.`,
@@ -569,7 +569,7 @@ export const elements: Elem[][]  = [
         {
             name: "Cadmium",
             symbol: "Cd",
-            mass: 112.41,
+            mass: "112.41",
             z: 48,
             state: "Solid",
             p1: `Discovered in 1817 by both Friedrich Stromeyer and Karl Samuel Leberecht Hermann independently of each other. They both discovered it the same way: they were producing zinc oxide from zinc carbonate, and occassionally the product was discoloured instead of being white, this discolouration turned out to be from the presence of a cadmium oxide, and from there cadmium was soon isolated.`,
@@ -579,7 +579,7 @@ export const elements: Elem[][]  = [
         {
             name: "Indium",
             symbol: "In",
-            mass: 114.82,
+            mass: "114.82",
             z: 49,
             state: "Solid",
             p1: `Discovered by 1863 by Ferdinand Reich and Hieronymus Theodor Richter, who used emission spectroscopy to analyse ores. They were hoping to find thallium but after finding emission lines that didn't match any other known element, they realised they had found a new element. They gave it the name indium after indigo (the colour of one of its emission lines), they then went on to isolate it within a year.`,
@@ -589,7 +589,7 @@ export const elements: Elem[][]  = [
         {
             name: "Tin",
             symbol: "Sn",
-            mass: 118.71,
+            mass: "118.71",
             z: 50,
             state: "Solid",
             p1: `A prehistoric discovery, tin was used since as far back as at least 3000BCE: the metal is alloyed together with copper to form bronze, and this alloy was such a breakthrough that an era of history is named for it: the Bronze Age. Contrary to popular belief, bronze was actually a better metal than early iron in almost every way, but the downside of bronze is the relative rarity of copper and tin compared to iron - iron tools are much less expensive to mass produce.`,
@@ -599,7 +599,7 @@ export const elements: Elem[][]  = [
         {
             name: "Antimony",
             symbol: "Sb",
-            mass: 121.76,
+            mass: "121.76",
             z: 51,
             state: "Solid",
             p1: `Antimony is a prehistoric discovery and has been used for thousands of years, there is even a vase made of antimony in the Louvre today which dates to 3000BCE. Its compounds have been used historically for make-up as well as for medical purposes, though the brittle metallic form has largely been considered useless.`,
@@ -609,7 +609,7 @@ export const elements: Elem[][]  = [
         {
             name: "Tellurium",
             symbol: "Te",
-            mass: 127.60,
+            mass: "127.60",
             z: 52,
             state: "Solid",
             p1: `Discovered in 1782 by Franz-Joseph Müller von Reichenstein, who inspected supposed gold ore from a Romanian mine and found it contained a antimony-like metal. Martin Heinrich Klaproth later isolated the metal and named it.`,
@@ -619,7 +619,7 @@ export const elements: Elem[][]  = [
         {
             name: "Iodine",
             symbol: "I",
-            mass: 126.90,
+            mass: "126.90",
             z: 53,
             state: "Solid",
             p1: `Discovered and isolated in 1811 by Bernard Courtois, who - in a fairly routine procedure - was harvesting sodium carbonate from seaweed, but when dealing with the waste he added sulfuric acid and observed purple fumes that condensed into crystals, he immediately suspected this was a new element and gave samples to others, who verified the discovery.`,
@@ -629,7 +629,7 @@ export const elements: Elem[][]  = [
         {
             name: "Xenon",
             symbol: "Xe",
-            mass: 131.29,
+            mass: "131.29",
             z: 54,
             state: "Gas",
             p1: `Discovered by William Ramsay and Morris Travers in 1898, they used the same methodology as was used in the discoveries of krypton and neon. As a colourless noble gas it was previously undetected like the rest of the noble gasses.`,
@@ -641,7 +641,7 @@ export const elements: Elem[][]  = [
         {
             name: "Caesium",
             symbol: "Cs",
-            mass: 132.91,
+            mass: "132.91",
             z: 55,
             state: "Solid",
             p1: `In 1859 Robert Bunsen and Gustav Kirchhoff invented the spectroscope, within a year they had put it to good use analysing residue left behind by evaporating mineral water. Using the spectroscope to conduct essentially a high-tech flame test, they discovered spectral lines that were not shared by any known element - thus, they had discovered a new one: caesium.`,
@@ -651,7 +651,7 @@ export const elements: Elem[][]  = [
         {
             name: "Barium",
             symbol: "Ba",
-            mass: 137.33,
+            mass: "137.33",
             z: 56,
             state: "Solid",
             p1: `Discovered in 1774 when Carl Wilhelm Scheele analysed baryte, a phosphorescent mineral known for centuries. Barium was later isolated by Sir Humphry Davy in 1808 through the same method he used for his isolations of other alkali metals: electrolysis of a molten salt compound.`,
@@ -664,7 +664,7 @@ export const elements: Elem[][]  = [
         {
             name: "Hafnium",
             symbol: "Hf",
-            mass: 178.49,
+            mass: "178.49",
             z: 72,
             state: "Solid",
             p1: `Discovered in Copenhagen by Dirk Coster and Georg von Hevesy in 1923. Armed with the knowledge that undiscovered element 72 would likely be similar to zirconium, they performed X-ray spectroscopy on zircon (zirconium ore) confirming that a new element was present. Shortly afterward, this new element was also isolated for the first time. It was named Hafnium after the Latin word for Copenhagen, Hafnia.`,
@@ -674,7 +674,7 @@ export const elements: Elem[][]  = [
         {
             name: "Tantalum",
             symbol: "Ta",
-            mass: 180.95,
+            mass: "180.95",
             z: 73,
             state: "Solid",
             p1: `Discovered in ores by Anders Ekeberg in 1802, but he thought these ores to only contain columbium. Tantalum was only discovered as a unique element in 1846, when Heinrich Rose rediscovered columbium (and gave it the name it has today - niobium) and determined that there was also a second element in the ore: tantalum.`,
@@ -684,7 +684,7 @@ export const elements: Elem[][]  = [
         {
             name: "Tungsten",
             symbol: "W",
-            mass: 183.84,
+            mass: "183.84",
             z: 74,
             state: "Solid",
             p1: `Also known as wolfram, tungsten was discovered by Carl Wilhelm Scheele and Torbern Bergman in 1781, who produced tungstic acid from a sample of scheelite and thought a metal may be obtainable from it. Two years later, José and Fausto Elhuyar reduced tungstic acid with carbon, producing metallic tungsten.`,
@@ -694,7 +694,7 @@ export const elements: Elem[][]  = [
         {
             name: "Rhenium",
             symbol: "Re",
-            mass: 186.21,
+            mass: "186.21",
             z: 75,
             state: "Solid",
             p1: `Discovered in 1925 by Walter and Ida Noddack and Otto Berg, who found the element in samples of platinum ore and columbite. Rhenium was also accidently discovered earlier by Japanese scientist Masataka Ogawa in 1908: he believed he had discovered element 43 (technetium) however he had actually discovered rhenium, unfortunately for him, he did not realise his true discovery.`,
@@ -704,7 +704,7 @@ export const elements: Elem[][]  = [
         {
             name: "Osmium",
             symbol: "Os",
-            mass: 190.23,
+            mass: "190.23",
             z: 76,
             state: "Solid",
             p1: `As normal for platinum group metals, osmium was discovered from a platinum sample: when some platinum was dissolved in aqua regia, an insoluble reside was formed in addition to the soluble platinum salt. This residue was analysed by Smithson Tennant in 1803, and he found they were the insoluble salts of two new elements, which came to be known as iridium and osmium (neighbours on the periodic table).`,
@@ -714,7 +714,7 @@ export const elements: Elem[][]  = [
         {
             name: "Iridium",
             symbol: "Ir",
-            mass: 192.22,
+            mass: "192.22",
             z: 77,
             state: "Solid",
             p1: `As expected for a platinum group metal, iridium was found from a platinum sample: when some platinum was dissolved in aqua regia, an insoluble reside was formed in addition to the soluble platinum salt. This residue was analysed by Smithson Tennant in 1803, and he found they were the insoluble salts of two new elements, which came to be known as iridium and osmium (neighbours on the periodic table).`,
@@ -724,7 +724,7 @@ export const elements: Elem[][]  = [
         {
             name: "Platinum",
             symbol: "Pt",
-            mass: 195.08,
+            mass: "195.08",
             z: 78,
             state: "Solid",
             p1: `As a noble metal, platinum occurs often in its native metallic form and was discovered two millennia ago by an Ecuadoran civilisation. It was later discovered by Europeans when Antonio de Ulloa and Jorge Juan y Santacilia observed Native Americans mining the element.`,
@@ -734,7 +734,7 @@ export const elements: Elem[][]  = [
         {
             name: "Gold",
             symbol: "Au",
-            mass: 196.97,
+            mass: "196.97",
             z: 79,
             state: "Solid",
             p1: `Discovered in prehistory, as a result of its lack of reactivity gold often occurs in its metallic form, and therefore was found by some of the earliest humans. Alongside silver, gold was quick to become a precious and valued material, and was employed as currency and jewellery throughout history.`,
@@ -744,7 +744,7 @@ export const elements: Elem[][]  = [
         {
             name: "Mercury",
             symbol: "Hg",
-            mass: 200.59,
+            mass: "200.59",
             z: 80,
             state: "Liquid",
             p1: `Mercury (also known as quicksilver) was discovered in prehistory before 2000BCE. Although it is a rare element, it can be obtained from a beautiful ruby-like mineral known as cinnabar, by simply heating the cinnabar and condensing a mercury product.`,
@@ -754,7 +754,7 @@ export const elements: Elem[][]  = [
         {
             name: "Thallium",
             symbol: "Tl",
-            mass: 204.38,
+            mass: "204.38",
             z: 81,
             state: "Solid",
             p1: `Discovered in 1861 by William Crookes, who used flame spectroscopy and observed the element's bright green lines on the flame's emission spectrum. It was also independently discovered by Claude Auguste Lamy at around the same time through the same method.`,
@@ -764,7 +764,7 @@ export const elements: Elem[][]  = [
         {
             name: "Lead",
             symbol: "Pb",
-            mass: 207.21,
+            mass: "207.21",
             z: 82,
             state: "Solid",
             p1: `A relatively common element, lead has been known since prehistoric times, going back at least as far a 6000BCE. Early civilisations infamously used lead for many uses (ignorant of the dangers posed by the neurotoxin) ranging from make-up to currency to plumbing - in fact the word 'plumbing' originates from the Latin word for lead 'plumbum'.`,
@@ -774,7 +774,7 @@ export const elements: Elem[][]  = [
         {
             name: "Bismuth",
             symbol: "Bi",
-            mass: 208.98,
+            mass: "208.98",
             z: 83,
             halfLife: "2x10^19 years",
             state: "Solid",
@@ -785,7 +785,7 @@ export const elements: Elem[][]  = [
         {
             name: "Polonium",
             symbol: "Po",
-            mass: 209,
+            mass: "(209)",
             z: 84,
             halfLife: "125 years",
             state: "Solid",
@@ -796,7 +796,7 @@ export const elements: Elem[][]  = [
         {
             name: "Astatine",
             symbol: "At",
-            mass: 210,
+            mass: "(210)",
             z: 85,
             halfLife: "8 hours",
             state: "Solid",
@@ -807,7 +807,7 @@ export const elements: Elem[][]  = [
         {
             name: "Radon",
             symbol: "Rn",
-            mass: 222,
+            mass: "(222)",
             z: 86,
             halfLife: "92 hours",
             state: "Gas",
@@ -820,7 +820,7 @@ export const elements: Elem[][]  = [
         {
             name: "Francium",
             symbol: "Fr",
-            mass: 223,
+            mass: "(223)",
             z: 87,
             halfLife: "22 minutes",
             state: "Solid",
@@ -831,7 +831,7 @@ export const elements: Elem[][]  = [
         {
             name: "Radium",
             symbol: "Ra",
-            mass: 226,
+            mass: "(226)",
             z: 88,
             halfLife: "1600 years",
             state: "Solid",
@@ -845,13 +845,350 @@ export const elements: Elem[][]  = [
         {
             name: "Rutherfordium",
             symbol: "Rf",
-            mass: 267,
+            mass: "(267)",
             z: 104,
             halfLife: "75 minutes",
             state: "Solid",
             p1: `Discovered in 1964 by the Soviet Joint Institute for Nuclear Research near Moscow, who synthesised the element by bombarding plutonium with neon-22. 5 years later the American Lawrence Berkeley National Laboratory sythesised the element for the first time by bombarding californium with carbon-12.`,
             p2: `The JINR named the element 'kurchatowium', whilst the American team gave it the name 'rutherfordium', and in 1992 the IUPAC chose to make the latter name standard - although it was initially hotly debated as part of a greater disagreement over credit between the the different scientists behind Cold War element synthesis (known as the Transfermium Wars).`,
             p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Dubnium",
+            symbol: "Db",
+            mass: "(268)",
+            z: 105,
+            halfLife: "28 hours",
+            state: "Solid",
+            p1: `Discovered in 1968 by the Joint Institute for Nuclear Research, who bombarded americium with neon-22, producing the element 105. Like rutherfordium, it was soon after also synthesised by American science and a disagreement over credit between the two Cold War powers ensued.`,
+            p2: `Dubnium was first called 'nielsbohrium' by the JINR, the Americans proposed the name 'hahnium' (for Otto Hahn), both names remained in conflict (as part of the Transfermium Wars) until being resolved by IUPAC in 1995: after suggesting 'joliotium' and reconsidering, the name 'dubnium' was finally settled (named for Dubna, the home of the JINR).`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Seaborgium",
+            symbol: "Sg",
+            mass: "(269)",
+            z: 106,
+            halfLife: "14 minutes",
+            state: "Solid",
+            p1: `Discovered almost simultaenously in 1974, firstly by the American Lawrence Berkeley National Laboratory when they bombarded californium with oxygen-18, and also by the Soviet JINR who bombarded lead with chromium-54.`,
+            p2: `As part of the 'Transfermium Wars', a dispute about discovery credit soon broke out. When the disputes of the Transfermium Wars were resolved by IUPAC in the 1990s, the name Seaborgium was given for element 106.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Bohrium",
+            symbol: "Bh",
+            mass: "(270)",
+            z: 107,
+            halfLife: "1 minute",
+            state: "Solid",
+            p1: `Discovered in 1981 by the German GSI Helmholtz Centre for Heavy Ion Research, who bombarded bismuth with chromium-54. A soviet research team also claimed to have created bohrium in 1976, however the evidence was not judged to be convincing enough.`,
+            p2: `Like dubnium, the name 'nielsbohrium' was first proposed for the element, but this was eventually shortened to just 'bohrium'.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Hassium",
+            symbol: "Hs",
+            mass: "(269)",
+            z: 108,
+            halfLife: "16 seconds",
+            state: "Solid",
+            p1: `Discovered in 1984 by a team of the German GSI Helmholtz Centre for Heavy Ion Research, lead by Peter Armbruster and Gottfried Münzenberg. This team bombarded lead with iron to produce only a few atoms of hassium, which would nearly instantly decay.`,
+            p2: `The name of the element comes from the Latin name of the home of the GSI Helmholtz Centre for Heavy Ion Research: Hesse (a bundesland of Germany) or 'Hassia' in Latin.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Meitnerium",
+            symbol: "Mt",
+            mass: "(278)",
+            z: 109,
+            halfLife: "4 seconds",
+            state: "Solid",
+            p1: `Discovered in 1982 by a team of the German GSI Helmholtz Centre for Heavy Ion Research, lead by Peter Armbruster and Gottfried Münzenberg. They bombarded bismuth with iron-58, and only a single atom of meitnerium was then observed.`,
+            p2: `Meitnerium is named for Lise Meitner, a nuclear physicist famous for co-discovering protactinium. Although the name was only officially adopted long afterward: as part of the naming controversies of that era the element was previously given the placeholder name 'unnilennium', until the official recognition of the 'meitnerium' name in 1997.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Darmstadtium",
+            symbol: "Ds",
+            mass: "(281)",
+            z: 110,
+            halfLife: "14 seconds",
+            state: "Solid",
+            p1: `Discovered in 1994 by the prolific German GSI Helmholtz Centre for Heavy Ion Research, by Peter Armbruster, Gottfried Münzenberg, and Sigurd Hofmann. They bombarded lead with nickel-62, and a single atom of darmstadtium was then observed.`,
+            p2: `The names proposed for the new element were first 'becquerelium' and 'hahnium', but ultimately the element's discoverers proposed the name 'darmstadtium' after the hometown of the GSI, Darmstadt.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Roentgenium",
+            symbol: "Rg",
+            mass: "(282)",
+            z: 111,
+            halfLife: "100 seconds",
+            state: "Solid",
+            p1: `Discovered in 1994 by the German GSI Helmholtz Centre for Heavy Ion Research, by Peter Armbruster, Gottfried Münzenberg, and Sigurd Hofmann. They bombarded bismuth with nickel-64, and three atoms of roentgenium were consequently detected.`,
+            p2: `The GSI team who discovered the element roentgenium named it for Wilhelm Conrad Röntgen, who won the Nobel Prize in Physics for his discovery of the high energy 'Röntgen Ray' - now known as X-Ray - radiation in 1901.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Copernicium",
+            symbol: "Cn",
+            mass: "(285)",
+            z: 112,
+            halfLife: "28 seconds",
+            state: "Solid",
+            p1: `Discovered in 1996 by the German GSI Helmholtz Centre for Heavy Ion Research, by a team under the direction of Sigurd Hofmann. They bombarded lead with zinc-70 for two weeks, producing a few atoms of copernicium.`,
+            p2: `After the discovery, the name 'copernicium' was eventually selected, in honor of Nicolaus Copernicus, who published 'De Revolutionibus' and introduced the concept of heliocentrism to Europe, arguing that the Earth revolved around the Sun, not the other way around.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Nihonium",
+            symbol: "Nh",
+            mass: "(286)",
+            z: 113,
+            halfLife: "9.5 seconds",
+            state: "Solid",
+            p1: `Although previously reported by a Russian-American collaboration, the credit for discovery goes to a Japanese team, who synthesised the element in 2004 by bombarding bismuth with zinc-70. The element's name comes from 'Nihon' (the Japanese name for Japan).`,
+            p2: `Super heavy elements are created and exist for a fraction of a second before decay. The discovery of these elements is based on energy signatures of that decay, and some observations are more reliable than others, which is why the Japanese team are credited with the discovery: evidence from the Russian-American team was not enough to be sure they actually produced nihonium (although it took many subsequent experiments to validate the Japanese discovery, too).`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Flerovium",
+            symbol: "Fl",
+            mass: "(289)",
+            z: 114,
+            halfLife: "1.9 seconds",
+            state: "Solid",
+            p1: `Discovered in 1998 at the Joint Institute for Nuclear Research in Dubna, Russia. The discovery came from a team led by Yuri Oganessian, who bombarded plutonium with calcium-48 to produce a single atom of flerovium.`,
+            p2: `The element was named after the Flyorov Laboratory at the JINR, which is itself named after the Russian nuclear physicist Georgy Flyorov, who played a large role in the Soviet Union's own Manhattan Project.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Moscovium",
+            symbol: "Mc",
+            mass: "(290)",
+            z: 115,
+            halfLife: "650 milliseconds",
+            state: "Solid",
+            p1: `Discovered in 2003 by a joint Russian-American team at the JINR in Russia. The discovery came from a team led by Yuri Oganessian, who bombarded americium with calcium-48 to produce four atoms of moscovium.`,
+            p2: `The first name suggested for the element was 'langevinium': named for Paul Langevin, famous for his Langevin dynamics modelling of molecular interactions. Later the name 'moscovium' was proposed, after the Moscow Oblast (roughly translating to 'Moscow province') to which which the town of Dubna belongs.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Livermorium",
+            symbol: "Lv",
+            mass: "(293)",
+            z: 116,
+            halfLife: "57 milliseconds",
+            state: "Solid",
+            p1: `Discovered in 2000 by a joint Russian-American team at the JINR in Russia. The discovery came from a team led by led by Yuri Oganessian, Vladimir Utyonkov, and Kenton Moody, who bombarded curium with calcium-48 to produce a single atom of livermorium.`,
+            p2: `Livermorium is named after the Lawrence Livermore National Laboratory in the United States (the laboratory being the US side of the collaboration). The laboratory is itself named after Ernest Orlando Lawrence (the 'Livermore' part of the name comes from its location in Livermore, California). Lawrence was an American nuclear physicist famous for inventing the cyclotron particle accelerator. The element lawrencium is also more directly named after Ernest.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Tennessine",
+            symbol: "Ts",
+            mass: "(294)",
+            z: 117,
+            halfLife: "51 milliseconds",
+            state: "Solid",
+            p1: `Discovered in 2010 by a joint Russian-American team at the JINR in Russia. They bombarded berkelium with calcium-48 to produce a tiny amount of tennessine, which immediately decayed. The discovery has been cast in doubt by others, such as the GSI (discoverers of elements 107-112), yet after further analyses the discovery still stands.`,
+            p2: `The element is named after the US state of Tennessee, the reason being that the Oak Ridge National Laboratory in Tennessee was involved in the project and had supplied the berkelium target (at the time Oak Ridge was the only place in the world where berkelium was produced).`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Oganesson",
+            symbol: "Og",
+            mass: "(294)",
+            z: 118,
+            halfLife: "690 milliseconds",
+            state: "Solid",
+            p1: `Discovered in 2002 by a joint Russian-American team at the JINR in Russia. They bombarded californium with calcium-48 to produce three atoms of oganesson. At time of writing, it is the heaviest element known to humanity.`,
+            p2: `As with many of the superheavy elements, the discovering team operated under the direction of Yuri Oganessian, and this element was ultimately named in his honour. He is one of only two scientists to have an element named after them whilst still alive (the other being seaborgium, after Glenn Seaborg).`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+    ],
+    [
+        {
+            spaces: 18
         }
+    ],
+    [
+        {
+            spaces: 1
+        },
+        {
+            rowSub: 1
+        },
+        {
+            name: "Lanthanum",
+            symbol: "La",
+            mass: "138.91",
+            z: 57,
+            state: "Solid",
+            p1: `Discovered by Carl Gustaf Mosander in 1839, who investigated a sample of ceria and observed that although most was insoluble, some was soluble: this he correctly deduced to be the oxide of another element. From the same sample he also found 'didymium', but failed to realise didymium was infact two new elements: neodymium and praseodymium, thus he narrowly missed discovery of 2 other elements.`,
+            p2: `As a lanthanoid, lanthanum can generally be considered to have a reactivity falling between barium and hafnium, and is also considered a group 3 element.`,
+            p3: `All elements of the lanthanoid row actually belong between barium and hafnium, but in order to keep the table within standard book dimensions they are often shown below (although '32 column' versions of the table exist with these elements in the main block). The word 'lanthanide' is also used, but 'lanthanoid' is recommended instead since the -ide prefix should only be used to indicate a negative ion.`
+        },
+        {
+            name: "Cerium",
+            symbol: "Ce",
+            mass: "140.12",
+            z: 58,
+            state: "Solid",
+            p1: `Discovered in 1803 simultaneously by two independent experiments: Jöns Jakob Berzelius and Wilhelm Hisinger in Sweden; and Martin Heinrich Klaproth in Germany. Both found the element as (what is now called) cerium oxide, or ceria. It is named after the dwarf planet Ceres, which was newly discovered at the time and was believed to be a major planet.`,
+            p2: `Cerium is the second element of the lanthanoids and has qualities expected of a lanthanoid, it is quite reactive with oxygen and will tarnish easily (shavings are also flammable), the element will also react readily with halogens.`,
+            p3: `The most common use of the element is as ceria, which is used in 'chemical mechanical polishing', especially for optical lens and instruments where purely abrasive polishing could leave scratches. It is also used in pyrophoric ignition sources, as it is about 42% of the alloy ferrocerium, which can be struck to produce burning sparks, often used in handheld lighters and firestarting rods.`
+        },
+        {
+            name: "Praseodymium",
+            symbol: "Pr",
+            mass: "140.91",
+            z: 59,
+            state: "Solid",
+            p1: `In 1839 Carl Gustaf Mosander investigated a sample of ceria and observed that although most was insoluble, some was soluble: from this he found the element lanthanum and also 'didymium', but failed to realise didymium was infact two new elements: neodymium and praseodymium. It wasn't until 1885 that Carl Auer von Welsbach seperated didymium and formally discovered the two elements.`,
+            p2: `Chemically, praseodymium is exactly what can be expected of a lanthanoid: it tarnishes quickly, it can burn in oxygen, and will readily react with the halogens. Like the rest of the lanthanoids in general, it can usually be substituted in the place of other lanthanoids in alloys and applications for similar performance.`,
+            p3: `The element has many niche applications, among other things it can be alloyed with magnesium to produce robust metals, it can used in arc lamps (for lighting large rooms), and it can be used as a yellow ceramics/glass colouring additive.`
+        },
+        {
+            name: "Neodymium",
+            symbol: "Nd",
+            mass: "144.24",
+            z: 60,
+            state: "Solid",
+            p1: `In 1839 Carl Gustaf Mosander investigated a sample of ceria and observed that although most was insoluble, some was soluble: from this he found the element lanthanum and also 'didymium', but failed to realise didymium was infact two new elements: neodymium and praseodymium. It wasn't until 1885 that Carl Auer von Welsbach seperated didymium and formally discovered the two elements.`,
+            p2: `As a lanthanoid, the chemistry of neodymium is similar to lanthanum: it is quite reactive and will oxidise quickly in area, and will burn at only 150C. Like most of the lanthanoids it is also paramagnetic, and this forms the most well known use of neodymium.`,
+            p3: `Neodymium is most famous as forming the extremely strong magnetic alloy known as 'NdFeB' after the periodic table symbols of the consituent elements. Apart from high-power electromagnets, neodymium magnets are the strongest magnets available, and are used in many modern technologies, such as hard-drives.`
+        },
+        {
+            name: "Promethium",
+            symbol: "Pm",
+            mass: "(145)",
+            z: 61,
+            state: "Solid",
+            halfLife: "18 years",
+            p1: `Discovered in 1945 by Jacob A. Marinsky, Lawrence E. Glendenin, and Charles D. Coryell at the Oak Ridge National Laboratory. They analysed fission products of uranium fuel from a graphite reactor, but due to the ongoing Second World War did not reveal their discovery until 1947. Charles D. Coryell's wife, Grace, suggested the name 'promethium', after the Ancient Greek god Promethius.`,
+            p2: `Promethium is one of only two elements lighter than lead to be radioactive (the other being the much lighter technetium). The element is - as expected - very similar to the rest of the lanthanoid row, the only real difference being that it is (extremely) radioactive and doesn't exist in nature.`,
+            p3: `Owing to the element's high radioactivity, it is only useful for research and too dangerous elsewhere, however in the past small amounts have been used in radioluminescent paint. Due to safety concerns, radioluminescent paints are not used today and have been replaced by phosphorescent paints.`
+        },
+        {
+            name: "Samarium",
+            symbol: "Sm",
+            mass: "150.36",
+            z: 62,
+            state: "Solid",
+            p1: `Discovered by numerous chemists in during the 1800s, although the strongest credit for the discovery typically goes Paul Émile Lecoq de Boisbaudran. In 1879, Boisbaudran found and analysed oxide from a mineral called samarskite, using absorption spectroscopy he confirmed this was an oxide of a new element. Boisbaudran was also able to isolate the element (though not with a high degree of purity).`,
+            p2: `As typical for a lanthanoid, the element is quite reactive, tarnishes quickly, can be burned, and is also paramagnetic. Samarium's paramagnetism is more resistance to temperature, and such it can used in some applications where other elements would fail.`,
+            p3: `Second to only neodymium in the strength of its permanent magnetisation, a major use of the element is in samarium-cobalt magnets. Samarium also catalyses several decomposition reactions, including dehydration, dehydrogenation, and dechlorination - which can be particularly useful in breaking down plastics.`
+        },
+        {
+            name: "Europium",
+            symbol: "Eu",
+            mass: "151.96",
+            z: 63,
+            state: "Solid",
+            p1: `Discovered in 1901 by Eugène-Anatole Demarçay, who suspected that some samples of recently discovered samarium included an unknown element. He carried out a sequence of crystallisations on a sample of samarium magnesium nitrate and managed to separate out the suspected element, which he subsequently called 'europium'.`,
+            p2: `As a lanthanoid the characteristics of europium are as expected: quite reactive, will tarnish easily, and it is possible to ignite and burn the element, the element is also very soft (softer than all other lanthanoids) and can be cut with a knife. Europium is actually the most reactive of all the lanthanoids and rare-earth elements: if left in air, a sample will oxidise completely within days, and even in mineral oil the element will slightly oxidise.`,
+            p3: `Materials containing europium can be used for both the red and blue flourenscent emitters in RGB colour CRT screens for televisions and computers, however with the downfall of CRT screens this usage has declined.`
+        },
+        {
+            name: "Gadolinium",
+            symbol: "Gd",
+            mass: "157.25",
+            z: 64,
+            state: "Solid",
+            p1: `Discovered in 1880 by Jean Charles Galissard de Marignac, who observed spectral emission lines of an unknown element in a sample of gadolinite, he subsequently seperated out the oxide of this new element, which he called 'gadolinia'. Although this was the formal discovery of a new element, the first isolation of gadolinium from gadolinia was done later in 1886 by Paul Émile Lecoq de Boisbaudran.`,
+            p2: `Gadolinium is a malleable lanthanoid that bucks the reactivity of the row by being less reactive: in dry air it will generally not tarnish, although humidity will still cause the element to tarnish rapidly.`,
+            p3: `Gadolinium is one of eight elements discovered from samples of a single quarry in Ytterby, Sweden - the other seven being ytterbium, erbium, terbium, scandium, holmium, thulium, and yttrium. Gadolinium has some small uses in green flourenscent emitters in TV screens, as well as being an element of the GdBCO superconductor alloy.`
+        },
+        {
+            name: "Terbium",
+            symbol: "Tb",
+            mass: "158.93",
+            z: 65,
+            state: "Solid",
+            p1: `Discovered in 1843 by Carl Gustaf Mosander, who seperated out impurities of a yttria sample, one of which was terbia (terbium oxide). Although Mosander was unable to isolate the elemental terbium from the oxide, he realised the compound contained a new element and is credited with the discovery. Elemental terbium would only be isolated 162 years later, in 1905.`,
+            p2: `Terbium is a soft lanthanoid - soft enough to be cut with a knife - with typical lanthanoid chemistry, although it is somewhat less reactive than the lighter elements of the row. The element is still reactive enough to take part in all the reactions characteristic of the lanthanoids, including reactions with water, halides, and tarnishing (albeit slowly for this element).`,
+            p3: `Terbium is one of eight elements discovered from samples of a single quarry in Ytterby, Sweden - the other seven being ytterbium, erbium, gadolinium, scandium, holmium, thulium, and yttrium. The largest use is in flourenscent emitters for TV screens, as the green 'pixel'.`
+        },
+        {
+            name: "Dysprosium",
+            symbol: "Dy",
+            mass: "162.50",
+            z: 66,
+            state: "Solid",
+            p1: `Discovered in 1886 by Paul Émile Lecoq de Boisbaudran, who separated dysprosium oxide from a sample of holmium oxide. Isolating dysprosium from the oxide however, was a difficult process which took him more than 30 tries - when he finally did succeed he gave the element the name 'dysprosium' from 'dysprositos', Greek for 'hard to obtain'.`,
+            p2: `Dysprosium is chemically a typical lanthanoid, it will react readily with oxygen and other electronegative elements. Physically it has slightly soft, has a fair melting point, and is resistant to demagnetisation.`,
+            p3: `Most roles that dysprosium could fill are already occupied by better-performing alternatives, that doesn't stop the element from being used in some niche applications though, such as being combined with neodymium-magnet alloys, where it can make the magnet more resistant to demagnetisation. Dysprosium also has use in nuclear reactor control rod cermets due to its neutron absorption performance.`
+        },
+        {
+            name: "Holmium",
+            symbol: "Ho",
+            mass: "164.93",
+            z: 67,
+            state: "Solid",
+            p1: `Discovered in 1878 by Jacques-Louis Soret and Marc Delafontaine; as well as separately by Per Teodor Cleve. Soret and Delafontaine carried out spectrophotometry on a sample of gadolinite and noticed the absorption lines of the element, meanwhile Cleve seperated two unknown oxides from erbia: discovering holmium and thulium together.`,
+            p2: `Holmium is a soft lanthanoid that is - relative to most of the lanthanoids - resistant to oxidation, but it will still tarnish from moisture or heating. Holmium has the highest magnetic permeability of all the elements, which makes it a good choice for magnet polepieces.`,
+            p3: `The element's name comes the Latin name for the city of Stockholm - 'Holmia', the capital of Sweden (Per Teodor Cleve's home country). Due to the element's magnetic properties it is often used in alloys for strong magnets, such as the polepieces. In the future holmium may as be useful for quantum computing, as ongoing innovations show that qubits may be stored with holmium atoms.`
+        },
+        {
+            name: "Erbium",
+            symbol: "Er",
+            mass: "167.26",
+            z: 68,
+            state: "Solid",
+            p1: `Discovered in 1843 by Carl Gustaf Mosander, who seperated out impurities of a yttria sample, one of which was erbia (erbium oxide). Although Mosander was unable to isolate the elemental erbium from the oxide, he realised the compound contained a new element and is credited with the discovery. Elemental erbium would not be produced until 1934, when Wilhelm Klemm and Heinrich Bommer reacted erbium chloride with potassium.`,
+            p2: `Chemically erbium behaves as expected for a lanthanoid, it will tarnish easily, can be burned, and will react readily with all halogens. It does not tarnish as quickly as most of the lanthanoids, but in the presence of moisture and heat it will still oxidise all the same.`,
+            p3: `Erbia can be used as an additive for glass, typically for safety glasses in high temperature applications where it helps to absorb infrared radiation. The element also sees use in 'EDFA' fibre optic cables where it can be used to amplify signals.`
+        },
+        {
+            name: "Thulium",
+            symbol: "Tm",
+            mass: "168.93",
+            z: 69,
+            state: "Solid",
+            p1: `Discovered in 1879 by Per Teodor Cleve who used the same technique used in the discovery of most lanthanoids: he seperated oxides from erbia, and found the oxides of two new elements: one was holmium (which Cleve discovered simultaneously to two other researchers), and the other was thulium. The element is named after Thule, the Ancient Greek/Roman name for the most northern land on Earth: it isn't clear whether they used the name to refer to a place on the northern tip of Scotland, Norway, or Iceland.`,
+            p2: `Thulium is a very soft and fairly reactive lanthanoid, it is able to be cut with a knife, will tarnish slowly in air, and it can be burned. All in all, it is quite a typical lanthanoid element.`,
+            p3: `The element has two main uses in medical fields: one of the isotopes is ideal as an X-ray source, and a material which includes thulium can be used to produce superficially harmful lasers that are ideal for laser-based surgeries.`
+        },
+        {
+            name: "Ytterbium",
+            symbol: "Yb",
+            mass: "173.05",
+            z: 70,
+            state: "Solid",
+            p1: `Discovered by Jean Charles Galissard de Marignac in 1878, who like many other chemists of the time, analysed rare earth metal oxide samples to seperate out impurities: through this he separated out an new oxide from erbia which he named 'ytterbia' and hence the new element was called ytterbium.`,
+            p2: `The chemistry of ytterbium is as expected for a lanthanoid element, it follows all the regular patterns of the row: electropositive and will oxidise readily in air, water, and with halogens. Ytterbium is notable for having the smallest liquid range of all metals (the range between the boiling point and melting point) at only 327C.`,
+            p3: `Like its neighbour thulium, ytterbium has use as a dopant for lasers, as well as having an isotope useful for generating high energy EM radiation (in this case, it is a good source of gamma rays and is useful is radiomedicine).`
+        },
+        {
+            name: "Lutetium",
+            symbol: "Lu",
+            mass: "174.97",
+            z: 71,
+            state: "Solid",
+            p1: `Discovered in 1907 by three individual people sumultaneously: Georges Urbain, Carl Auer von Welsbach, and Charles James. They all discovered the element by the seperating out lutetium oxide from ytterbia, ultimately Urbain published his experiment methodology and was given naming rights, he called the new element 'lutetium' after the Latin name for Paris, 'Lutetia'.`,
+            p2: `Lutetium is the heaviest, hardest, and has the highest melting point of all the lanthanoids, the chemistry of the element is typical for the row and the element is easily oxidised and will burn in air, although it is on the less reactive end of the lanthanoids and will tarnish quite slowly.`,
+            p3: `Being a very rare lanthanoid, the element is outclassed by cheaper, easier to obtain alternatives and has few uses. Some isotopes of lutetium have niche uses, such as in radiomedicine..`
+        }
+    ],
+    [
+        {
+            spaces: 1
+        },
+        {
+            rowSub: 2
+        },
+        {
+            name: "Actinium",
+            symbol: "Ac",
+            mass: "(227)",
+            z: 89,
+            halfLife: "22 years",
+            state: "Solid",
+            p1: `Discovered in 1899 by André Debierne, who managed to extract the element from a uranium ore sample. Since actinium has a half-life too short to be found on its own, finding it as part of the uranium decay chain is the only way to find it naturally - which is to say, the element is only available as radiogenic or synthetic.`,
+            p2: `As an actinoid, actinium can generally be considered to have a reactivity falling between radium and rutherfordium, and is also considered a group 3 element.`,
+            p3: `Just as to lanthanum and the lanthanoids, all elements of the actinoid row actually belong between radium and rutherfordium, but in order to keep the table within standard book dimensions they are often shown below (although '32 column' versions of the table exist with these elements in the main block). The word 'actinide' is also used, but 'actinoid' is recommended instead since the -ide prefix should only be used to indicate a negative ion.`
+        },
     ]
 ];
