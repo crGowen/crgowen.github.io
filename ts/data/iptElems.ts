@@ -1190,5 +1190,159 @@ export const elements: Elem[][]  = [
             p2: `As an actinoid, actinium can generally be considered to have a reactivity falling between radium and rutherfordium, and is also considered a group 3 element.`,
             p3: `Just as to lanthanum and the lanthanoids, all elements of the actinoid row actually belong between radium and rutherfordium, but in order to keep the table within standard book dimensions they are often shown below (although '32 column' versions of the table exist with these elements in the main block). The word 'actinide' is also used, but 'actinoid' is recommended instead since the -ide prefix should only be used to indicate a negative ion.`
         },
+        {
+            name: "Thorium",
+            symbol: "Th",
+            mass: "(232)",
+            z: 90,
+            halfLife: "14 billion years",
+            state: "Solid",
+            p1: `Discovered in 1828 by Jöns Jacob Berzelius with help from Morten and Jens Esmark: Morten was a priest who often sent interesting minerals to his father, Jens, who was a learned mineralogist. One day Morten sent a black mineral sample to his father, who did not recognise it as a known mineral and sent it to Berzelius, who then analysed it and discovered a new element within, which he called 'thorium'.`,
+            p2: `As an actinoid, thorium is quite electropositive and will oxidise with air, water, and halogens; its shavings are also combustable in air. It is suprisingly resistance to most acids and the reaction with water is quite slow.`,
+            p3: `Like uranium, thorium is radioactive enough to have relevant uses (unlike bismuth), but not so radioactive as to be too dangerous to interact with: the longest lived isotope has a half-life of 14 billion years - about the same as the age of the universe. Thorium may soon provide a vital part of the world's energy needs, as research into 'LFTR' thorium-cell reactors is ongoing.`
+        },
+        {
+            name: "Protactinium",
+            symbol: "Pa",
+            mass: "(231)",
+            z: 91,
+            halfLife: "32,000 years",
+            state: "Solid",
+            p1: `Discovered in 1913 by Kasimir Fajans and Oswald Helmuth Göhring, who found the element whilst they were analysing the daughter isotopes of the uranium-238 decay chain. The isotope they discovered had a short half-life of only a few hours, so they called their discovery 'brevium' for its brevity; then in 1918, Otto Hahn and Lise Meitner discovered the longer lived isotope with a half-life of 32,000 years, and the element's name was changed to protactinium.`,
+            p2: `Chemically and physically the element behaves as hybrid of thorium and uranium (as expected from its place between in the actinoids row), however protactinium has a much short half-life than both elements and is therefore both intensively radioactive and scarce in comparison, in fact it only really occurs in nature radiogenically.`,
+            p3: `Owing to the element's scarcity, the element has no major uses outside of scientific research: uranium and thorium are much cheaper, easier to obtain, safer alternatives for every application.`
+        },
+        {
+            name: "Uranium",
+            symbol: "U",
+            mass: "(238)",
+            z: 92,
+            halfLife: "4.5 billion years",
+            state: "Solid",
+            p1: `Discovered in 1789 by Martin Heinrich Klaproth, who performed reactions on an unknown precipitate to produce what he called 'uranium' after the recently discovered planet Uranus. Although he actually produced uranium oxide, Eugène-Melchior Péligot would produce true uranium for the first time in 1841. At that time radioactivity was unknown and therefore the element was not particularly interesting.`,
+            p2: `Following the discovery of radioactivity by Henri Becquerel and the advent of nuclear physics in the 20th century, the use of uranium for nuclear fission reactions would define the element.`,
+            p3: `In controlled fission reactions, the rate of fission is strictly controlled and kept low in order to radiate energy over a long period of time, we take advantage of this and use it as a source of energy in nuclear powerplants. In uncontrolled fission reactions, all of the uranium fuel can fission at once, with all of the energy released in an instant: a gigantic explosion. These are the two main applications of uranium.`
+        },
+        {
+            name: "Neptunium",
+            symbol: "Np",
+            mass: "(237)",
+            z: 93,
+            halfLife: "2.1 million years",
+            state: "Solid",
+            p1: `Discovered in 1939 by Edwin McMillan and Philip H. Abelson, when McMillan bombarded a uranium sample with helium nuclei and noticed an unknown radioactive decay signature in the aftermath. At first this was seen as simply the result of a uranium fission event, but as time went on this explanation became less and less plausible, and Abelson conducted chemical tests on the sample, and realised then that a new element was present, with very similar properties to uranium. Since this element slots in next to uranium in the table, the name 'neptunium' was chosen (since Neptune is next farthest planet from the Sun after Uranus).`,
+            p2: `In terms of radioactivity, the element is much more radioactive than uranium, but still not so radioactive as to be an disaster risk or be usable in RTGs. The half-life is also much shorter than the age of the Earth, and thus all neptunium available on Earth must be synthetic and radiogenic.`,
+            p3: `Neptunium has no major commercial uses, although it is fissionable and could theoretically be used in nuclear reactors (and weapons).`
+        },
+        {
+            name: "Plutonium",
+            symbol: "Pu",
+            mass: "(244)",
+            z: 94,
+            halfLife: "80 million years",
+            state: "Solid",
+            p1: `Discovered in 1940 by Glenn T. Seaborg, Edwin McMillan, Joseph W. Kennedy, and Arthur Wahl, who bombarded a uranium sample with helium nuclei to produce an isotope of neptunium, which decayed into plutonium. Just as McMillan had named element 93 'neptunium' after Neptune (following uranium/Uranus), he continued in this vein and named element 94 'plutonium', after - then considered a planet - Pluto.`,
+            p2: `Within a couple of months, the chemical properties were quickly analysed and determined to be typical of an actinoid; the radioactivity of the element was then considered and it was determined that, like uranium, it could fission.`,
+            p3: `Plutonium was the fissile fuel of the first ever nuclear bomb (the Trinity test), and plutonium is still used in nuclear warheads today. Isotopes of plutonium are also useful for radioisotope thermoelectric generators (RTGs), such as those used on space probes and on the Mars rover Curiosity.`
+        },
+        {
+            name: "Americium",
+            symbol: "Am",
+            mass: "(243)",
+            z: 95,
+            halfLife: "7400 years",
+            state: "Solid",
+            p1: `Discovered and isolated in 1944 by Glenn T. Seaborg, Leon O. Morgan, Ralph A. James, and Albert Ghiorso, who bombarded a sample of plutonium with helium nuclei and identified the new element through chemical analyses. The isolation of the element proved to be so difficult that the Berkley team gave it the name 'delirium', and later the more serious name 'americium' was selected: this name was inspired by the lanthanoid above it in the table, europium (hence, a europium-americium group).`,
+            p2: `Chemically, americium exhibits typical actinoid chemistry. It is a fissionable material like its neighbours, however it is prohibitively expensive and has never been used in nuclear reactors.`,
+            p3: `While not used in reactors, it is very widely used in household smoke detectors: the alpha particles of americium's radioactive decay are emitted above the vent of the smoke detector and are detected at the other edge of the device - smoke can fill the device through the vent and inhibit the journey of the alpha particles, triggering the alarm.`
+        },
+        {
+            name: "Curium",
+            symbol: "Cm",
+            mass: "(247)",
+            z: 96,
+            halfLife: "16 million years",
+            state: "Solid",
+            p1: `Discovered in 1944 by Glenn T. Seaborg, Ralph A. James, and Albert Ghiorso, who bombarded the - then recently discovered - element plutonium with helium nuclei, then seperated results from the plutonium through chemical analyses. Like americium (which would be discovered later) this turned out to be a dismal process, and the element was temporarily perjoratively named 'pandemonium' before eventually being named 'curium' after the Curies, who pioneered much of the early science of radioactivity and discovered polonium and radium.`,
+            p2: `Like americium, there are isotopes of curium that are theoretically sound as fissile material for use in nuclear reactors, but it has never been used as such.`,
+            p3: `Many of curium's isotopes are extremely radioactive, so radioactive that the ionisation of air particles around a curium sample allows it to faintly glow in the dark. High radioactivity produces lots of heat, making it ideal for power generation in RTGs, which is the most common use of curium.`
+        },
+        {
+            name: "Berkelium",
+            symbol: "Bk",
+            mass: "(247)",
+            z: 97,
+            halfLife: "1400 years",
+            state: "Solid",
+            p1: `Discovered in 1949 by Glenn T. Seaborg, Albert Ghiorso, Stanley G. Thompson, and Kenneth Street Jr. They bombarded a sample of americium with helium nuclei, and as with the element's closest neighbours on the actinoid row, the hardest part was seperating the product from the starting material. After an extensive process the element was finally isolated and named 'berkelium' after the place of discovery (Berkeley), mirroring the lanthanoid above being named 'terbium' after its own place of discovery.`,
+            p2: `Unlike its neighbour elements in the row, berkelium is not expected to perform well as a fissile fuel, it is also not particularly dangerous by its radioactivity, despite the very short half-life: this is because it decays be emitting low-energy electrons, instead of with something more ionising, like alpha particles.`,
+            p3: `The only real application of berkelium was being used to help synthesise and discover heavier elements by being a bombardment target in experiments.`
+        },
+        {
+            name: "Californium",
+            symbol: "Cf",
+            mass: "(251)",
+            z: 98,
+            halfLife: "900 years",
+            state: "Solid",
+            p1: `Discovered in 1950 by Glenn T. Seaborg, Stanley G. Thompson, Albert Ghiorso, and Kenneth Street Jr, who bombarded a curium target with helium nuclei to produce a few thousand atoms of californium. The element was of course named for the place of discovery: Berkeley, California.`,
+            p2: `Californium is a soft actinoid, able to be cut with a knife, and it will oxidise and tarnish readily. In terms of its radioactivity, californium is extremely radioactive with a short half-life, and decays producing alpha particles and free neutrons, making the element potentially very harmful.`,
+            p3: `Since californium produces free neutrons during its decay, it can be used as a 'neutron startup source' to begin chain reactions, since typical fissile fuels must absorb neutrons to begin their fission, but do not often spontaneously produce their own free neutrons. This forms the main application of californium-252, which is typically used to start nuclear power station reactors, in a manner similar to a spark being required to ignite flammable fuels.`
+        },
+        {
+            name: "Einsteinium",
+            symbol: "Es",
+            mass: "(252)",
+            z: 99,
+            halfLife: "470 days",
+            state: "Solid",
+            p1: `Discovered in 1952 in the aftermath of the Ivy Mike test, the detonation of the world's first fusion bomb. When Albert Ghiorso and colleagues examined the fallout of the test, they observed that two new elements had been forged in the thermonuclear blast: einsteinium and fermium - both named after two of humanity's most influential scientists, Albert Einstein and Enrico Fermi.`,
+            p2: `Einsteinium is extremely radioactive, such that forming a solid structure of the element is only possible in the short term, as it is always destroyed by its own intense high energy radiation.`,
+            p3: `Aside from research efforts like producing yet heavier elements, there are no real applications for einsteinium, and even if there was, the use of einsteinium would still be incredibly impractical due to the rarity of the entirely synthetic, 470 day half-life element, as well as the dangerously high radioactivity.`
+        },
+        {
+            name: "Fermium",
+            symbol: "Fm",
+            mass: "(257)",
+            z: 100,
+            halfLife: "100 days",
+            state: "Solid",
+            p1: `Discovered in 1952 in the aftermath of the Ivy Mike test, the detonation of the world's first fusion bomb. When Albert Ghiorso and colleagues examined the fallout of the test, they observed that two new elements had been forged in the thermonuclear blast: einsteinium and fermium - both named after two of humanity's most influential scientists, Albert Einstein and Enrico Fermi.`,
+            p2: `Fermium is intensively radioactive, undergoing alpha decay and spontaneous fission with a half life of 100 days, it is not practical to use for any purpose.`,
+            p3: `Owing to the element's extreme radioactivity, it has no applications outside of basic research, nor would any possible applications ever be practical with the element's short half-life meaning it would have be replaced too often to be economically viable.`
+        },
+        {
+            name: "Mendelevium",
+            symbol: "Md",
+            mass: "(258)",
+            z: 101,
+            halfLife: "52 days",
+            state: "Solid",
+            p1: `Discovered in 1955 by Glenn T. Seaborg, Gregory R. Choppin, Bernard G. Harvey, and Stanley G. Thompson, who bombarded a target of einsteinium (then a new element) with helium nuclei, producing only seventeen atoms of mendelevium.`,
+            p2: `As can be expected of the element, based on its place in the periodic table, it is extremely radioactive, and some isotopes decay primarily through spontaneous fission (releasing plenty of energy in the process).`,
+            p3: `Those who took part in the discovery decided to name the element after the man who invented the concept of the periodic table: Dmitri Mendeleev, although - given the ongoing Cold War at the time - this decision was not without nationalistic criticism, and Seaborg had to request permission from his American government before submitting the naming proposal.`
+        },
+        {
+            name: "Nobelium",
+            symbol: "No",
+            mass: "(259)",
+            z: 102,
+            halfLife: "58 minutes",
+            state: "Solid",
+            p1: `Discovered in 1966 by the Soviet Union's Joint Institute for Nuclear Research, who bombarded a uranium target using neon ions, and the resulting product shortly afterward decayed with signature indicating element 102. An American team later confirmed this discovery by replicating the methodology.`,
+            p2: `Whilst the element was first discovered in 1966 by the Soviet Union, an earlier false discovery was reported by the Nobel Institute in Sweden, in 1957, and suggested the name 'nobelium'. This was quite contraversial, but the name was ultimately kept when element 102 was discovered for real a decade later.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
+        {
+            name: "Lawrencium",
+            symbol: "Lr",
+            mass: "(266)",
+            z: 103,
+            halfLife: "10 hours",
+            state: "Solid",
+            p1: `Independently codiscovered from 1961-71 by the American Lawrence Berkeley National Laboratory and the Soviet Joint Institute for Nuclear Research. In both discoveries, an isotope of lawrencium was created that shortly afterward decayed, providing signature necessary to prove the creation of element 103.`,
+            p2: `It was ultimately named 'lawrencium' in honour of Ernest Orlando Lawrence, for whom the LBNL itself was also named. The LBNL was later renamed to the Lawrence Livermore National Laboratory, and gave its own name to the element livermorium.`,
+            p3: `Like the rest of the superheavy synthesised elements, with a very short half-life, the element has no practical use outside of being studied, though the synthesis of such heavy elements remains an example of the power of modern science.`
+        },
     ]
 ];
