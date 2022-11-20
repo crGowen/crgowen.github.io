@@ -1,14 +1,13 @@
 .iptContainer {
-    --iptWidth: calc(var(--baseWidth) - 1 - var(--pageEntryPadding) * 2);
     display: block;
-    width: calc(var(--iptWidth) * 1rem);
+    width: calc(var(--pageAppWidth) * 1rem);
     height: auto;
 }
 
 .iptInfo {
     font-family: 'Saira Condensed', sans-serif;
     display: inline-block;
-    width: calc(var(--iptWidth) * 0.30rem - 0.25rem);
+    width: calc(var(--pageAppWidth) * 0.30rem - 0.25rem);
     background-color: white;
     height: 30rem;
     vertical-align: top;
@@ -22,7 +21,7 @@
 }
 
 .iptLeftPane {
-    --iptTableWidth: calc(var(--iptWidth) * 0.70rem - 1rem);
+    --iptTableWidth: calc(var(--pageAppWidth) * 0.70rem - 1rem);
     margin: 0 0.5rem;
     display: inline-block;
     width: var(--iptTableWidth);
@@ -81,7 +80,7 @@
     user-select: none;
     background-color: white;
     border-radius: 0.6rem;
-    transition: 0.15s;
+    transition: 0.08s;
     border-color: black;
 }
 
@@ -107,6 +106,7 @@
     line-height: var(--elemDimensions);
     border-style: solid;
     border-width: 0.125rem;
+    transition: 0.08s;
     border-color: transparent;
     user-select: none;
 }
@@ -161,6 +161,15 @@
 
 .radio:hover {
     background-color: greenyellow;
+}
+
+.iptPlaceholder {
+    display: block;
+    font-weight: normal;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-top: 6rem;
 }
 
 .iptElemName {

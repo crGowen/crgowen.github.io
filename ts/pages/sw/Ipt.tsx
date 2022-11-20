@@ -2,21 +2,8 @@ import Page, { PageEntry } from "../../Page";
 import {elements, Elem, ElemInfo, Spacer, RowSubstitution} from "../../data/iptElems";
 import { useState, useEffect } from "react";
 
-const defaultSelection: ElemInfo = elements[0][0] as ElemInfo;
-
-/*{
-    name: "",
-    symbol: "",
-    mass: 0,
-    z: 0,
-    state: "Solid",
-    p1: "",
-    p2: "",
-    p3: ""
-};*/
-
 export default function Ipt() {
-    const [currentSelection, setCurrentSelection] = useState<ElemInfo>(defaultSelection);
+    const [currentSelection, setCurrentSelection] = useState<ElemInfo | null>(null);
 
     useEffect(() => {
         const clickHandler = (evt: MouseEvent) => {
@@ -34,7 +21,7 @@ export default function Ipt() {
         window.addEventListener("click", clickHandler);
 
         return () => window.removeEventListener("click", clickHandler);
-    });
+    }, []);
 
     return (
         <Page width="wide">
@@ -115,7 +102,7 @@ function Legend(){
 function InfoPane(props: {info: ElemInfo | null}) {
 
     return <div className="iptInfo">
-        {props?.info !== null ? content() : null}
+        {props?.info !== null ? content() : placeholder()}
     </div>;
 
     function content() {
@@ -133,6 +120,10 @@ function InfoPane(props: {info: ElemInfo | null}) {
             <div className="iptParagraph">{p3}</div>
         </>
     }
+
+    function placeholder() {
+        return <div className="iptPlaceholder">Click an element to view details</div>
+    }
 }
 
 function findElementBySymbol(symbol: string) {
@@ -142,5 +133,5 @@ function findElementBySymbol(symbol: string) {
         if (e !== undefined) result = e;
     });
 
-    return result ?? defaultSelection;
+    return result ?? null;
 }

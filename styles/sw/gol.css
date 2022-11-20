@@ -1,0 +1,53 @@
+.golContainer {
+    display: block;
+    width: calc(var(--pageAppWidth) * 1rem);
+    height: auto;
+    --edgeGap: 0.15rem;
+}
+
+.golGrid {
+    width: 100%;
+    height: 40rem;
+    background-color: #999;
+    padding: var(--edgeGap);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 0.2rem;
+}
+
+.golCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.golSq {
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 0.1rem;
+    background-color: snow;
+    cursor: pointer;
+    transition: 0.08s;
+    user-select: none;
+}
+
+.golSqBlocked {
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 0.1rem;
+    background-color: snow;
+    cursor: pointer;
+    user-select: none;
+    cursor: default;
+}
+
+.golSq:hover {
+    background-color: #6794e0;
+}
+
+.sqActive {
+    background-color: steelblue;
+}

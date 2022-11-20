@@ -7,6 +7,7 @@ import About from "./pages/About";
 
 // software subpages
 import Ipt from "./pages/sw/Ipt";
+import Gol from "./pages/sw/Gol";
 
 const routes: HashRoutes = {
     software: Software,
@@ -15,6 +16,7 @@ const routes: HashRoutes = {
     extra: Extra,
     about: About,
     ipt: Ipt,
+    gol: Gol,
     defaultPage: PageNotFound
 };
 

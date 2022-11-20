@@ -29,9 +29,62 @@ body {
     --navBarHeight: 3rem;
     --logoFontSize: 1.4;
     --baseWidth: calc( var(--logoWidth) + var(--logoPadding) + var(--navLinkWidth) * var(--nNavLinks) );
+
+    --pageEntryPadding: 0.6;
+    --pageAppWidth: calc(var(--baseWidth) - 1 - var(--pageEntryPadding) * 2);
     
     /* colours, with American spelling because I've just accepted it at this point */
     --accentColor: #4682b4;
     --whiteColor: #f2f2f2;
     --blackColor: #353535;
+}
+
+.appBtnRow {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.appBtn {
+    display: block;
+    height: 3rem;
+    width: 8rem;
+    padding: 0.5rem 0.25rem;
+    line-height: 3rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border-width: 0.16rem;
+    border-color: black;
+    border-style: solid;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    transition: 0.14s;
+    user-select: none;
+}
+
+.appBtn:hover {
+    background-color: black;
+    color:snow;
+}
+
+.appInactiveBtn {
+    display: block;
+    height: 3rem;
+    width: 8rem;
+    padding: 0.5rem 0.25rem;
+    line-height: 3rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border-width: 0.16rem;
+    border-color: black;
+    border-style: solid;
+    background-color: transparent;
+    color: black;
+    user-select: none;
+    opacity: 0.25;
+    cursor: default;
 }

@@ -2,4 +2,5 @@
 @import url("/fonts/Raleway-Light.ttf");
 @import url("page.css");
 @import url("navbar.css");
-@import url("ipt.css");
+@import url("sw/ipt.css");
+@import url("sw/gol.css");
