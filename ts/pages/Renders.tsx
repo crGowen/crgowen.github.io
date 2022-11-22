@@ -1,7 +1,7 @@
 import Page, { PageList } from "../Page";
-import candle from '../../img/candle.png';
-import knf from '../../img/knf.png';
-import saphsword from '../../img/saphsword.png';
+import candle from '../../img/renders/candle.png';
+import knf from '../../img/renders/knf.png';
+import saphsword from '../../img/renders/saphsword.png';
 
 const items = [
     {

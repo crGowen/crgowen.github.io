@@ -27,11 +27,11 @@ export default function Page(props: PageProps){
     );
 }
 
-export function PageList(props: { items: {jsx: JSX.Element; link?: string}[] }) {
+export function PageList(props: { items: {jsx: JSX.Element; link?: string, openInNewTab?: boolean}[] }) {
     return (
         <>
-            {props.items.map(( {jsx, link}, index) => (
-                <PageEntry key={`PageEntry${index}`} link={link}>
+            {props.items.map(( {jsx, link, openInNewTab}, index) => (
+                <PageEntry key={`PageEntry${index}`} link={link} openInNewTab={openInNewTab}>
                     {jsx}
                 </PageEntry>
             ))}
@@ -39,7 +39,7 @@ export function PageList(props: { items: {jsx: JSX.Element; link?: string}[] }) 
     );
 }
 
-export function PageEntry(props: { children: ReactNode, link?: string }) {
+export function PageEntry(props: { children: ReactNode, link?: string, openInNewTab?: boolean }) {
     const { link } = props;
 
     const linkAppend = link ? "pageEntryLink" : "";
@@ -50,5 +50,10 @@ export function PageEntry(props: { children: ReactNode, link?: string }) {
         </div>
     );
 
-    return link ? <a href={link}>{entry}</a> : entry;
+    const newTabProps = props.openInNewTab ? {
+        target:"_blank",
+        rel: "noopener noreferrer"
+    } : {};
+
+    return link ? <a href={link} {...newTabProps}>{entry}</a> : entry;
 }

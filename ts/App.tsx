@@ -8,6 +8,11 @@ import About from "./pages/About";
 // software subpages
 import Ipt from "./pages/sw/Ipt";
 import Gol from "./pages/sw/Gol";
+import Stenor from "./pages/sw/Stenor";
+
+//blog subpages
+import Architecture from "./pages/blogs/Architecture";
+import MemSaving from "./pages/blogs/MemSaving";
 
 const routes: HashRoutes = {
     software: Software,
@@ -17,6 +22,9 @@ const routes: HashRoutes = {
     about: About,
     ipt: Ipt,
     gol: Gol,
+    stenor: Stenor,
+    architecture: Architecture,
+    memsaving: MemSaving,
     defaultPage: PageNotFound
 };
 

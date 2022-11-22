@@ -10,11 +10,6 @@ const items = [
             The hidden data can then be decoded and extracted by Stenor.`
     },
     {
-        title: "Chess",
-        link: "#chess",
-        description: `Online version of chess with an AI to play against. You can also play local multiplayer or watch the AI play against itself.`
-    },
-    {
         title: "Conway's Game of Life",
         link: "#gol",
         description: `Online version of John Horton Conway's Game of Life, a cellular automaton game where
@@ -26,7 +21,11 @@ const items = [
         description: `Periodic table that deals more with the history of chemistry and its elements than the chemistry itself.
             Click on elements to get a short brief summary of how we discovered it, how the element behaves, and what we use it for.`
         
-    }
+    },
+    {
+        title: "Chess (Work in Progress)",
+        description: `WIP and not yet available!`
+    },
 
 ];
 

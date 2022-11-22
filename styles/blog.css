@@ -1,0 +1,31 @@
+.blogHeader {
+    color: black;
+    font-weight: normal;
+    font-size: 1.8rem;
+    padding-bottom: 0.7rem;
+    padding-top: 0.3rem;
+}
+
+.blogSubheader {
+    color: black;
+    font-weight: normal;
+    font-size: 1.4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+}
+
+.blogParagraph {
+    color: black;
+    font-weight: normal;
+    font-size: 0.9rem;
+    padding: 0 0.3rem;
+    padding-bottom: 0.6rem;
+}
+
+.fullWidthImg {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+}
+
