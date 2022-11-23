@@ -14,7 +14,7 @@ const items = [
             and it makes a significant difference to performance: I would argue in fact, that it should be one of the primary considerations for a programmer making a variable choice.`
     },
     {
-        title: "C Library: Implementation of Djikstra's Algorithm",
+        title: "C++ Library: Implementation of Djikstra's Algorithm",
         link: "https://github.com/crGowen/djkistra-implementation/releases/latest",
         description: `Generalised library for using Djikstra's Algorithm on node graphs.
         Provides functionality for building a graph and finding the shortest route between two nodes:- add nodes, connect them, then run
@@ -22,7 +22,7 @@ const items = [
         openInNewTab: true
     },
     {
-        title: "C Library: Genetic Algorithm",
+        title: "C++ Library: Genetic Algorithm",
         link: "https://github.com/crGowen/genetic-algorithm-implementation/releases/latest",
         description: `Generalised library for solving complicated optimisation problems via genetic algorithm. Provides functionality
         for declaring a solution fitness evaluation and then (with user specified parameters)
