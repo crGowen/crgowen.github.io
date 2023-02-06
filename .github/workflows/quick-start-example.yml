@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Create github_pages.tar artifact
-        run: tar -czvf ./github_pages.tar ./dist
+        run: tar -cvf ./github_pages.tar ./dist
       - name: Upload GitHub Pages artifact
         uses: actions/upload-artifact@main
         with:
