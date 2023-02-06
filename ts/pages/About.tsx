@@ -10,7 +10,7 @@ const items = [
         title: `About this website`,
         description: `This site is intended to be a place to dump and display a variety of my personal projects,
         ranging from software and programming, to 3D renders, and occasionally even a blog or tutorial post.
-        Mostly I just take whatever projects I'm happy with and throw them up on here.`
+        Mostly I just take whatever projects I am happy with and throw them up on here.`
     },
     {
         title: `Credits`,
