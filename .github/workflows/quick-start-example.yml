@@ -21,5 +21,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+        run: ls ${{ github.workspace }}
