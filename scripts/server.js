@@ -14,10 +14,12 @@ const PORT = 3000;
 
 // Server for testing during development
 
-app.use(express.static(`.${cleanedArg}`));
+const argCorrectedDir = `../.${cleanedArg}`;
+
+app.use(express.static(path.resolve(__dirname, argCorrectedDir)));
 
 app.get('*', (req, res) => {
-   const file = path.resolve(__dirname, `.${cleanedArg}/404.html`);
+   const file = path.resolve(__dirname, `${argCorrectedDir}/404.html`);
    res.sendFile(file);
 });
 

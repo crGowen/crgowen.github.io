@@ -4,12 +4,12 @@
   "description": "source code for crgowen.github.io",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js",
-    "start-prod": "node ./server.js dist",
+    "start": "node ./scripts/server.js",
+    "start-prod": "node ./scripts/server.js dist",
     "dev": "tsc && webpack --mode development --config webpack.config.js",
-    "preprod": "node ./pre-prod.js",
-    "prod": "tsc && webpack --mode production --config webpack.config.js",
-    "postprod": "node ./post-prod.js"
+    "prebuild": "node ./scripts/prebuild.js",
+    "build": "tsc && webpack --mode production --config webpack.config.js",
+    "postbuild": "node ./scripts/postbuild.js"
   },
   "author": "Carl Ryan Gowen",
   "license": "ISC",
