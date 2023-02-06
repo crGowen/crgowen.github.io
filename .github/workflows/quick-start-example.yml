@@ -7,6 +7,10 @@ on:
 jobs:
   Pages:
 
+    permissions:
+      pages: write
+      id-token: write
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +24,13 @@ jobs:
         run: npm i
       - name: Build
         run: npm run build
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
+      - name: Create github_pages.tar artifact
+        run: tar -czvf ./github_pages.tar ./dist
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: github-pages
+          path: "./github_pages.tar"
+          retention-days: "1"
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
