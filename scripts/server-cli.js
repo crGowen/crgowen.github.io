@@ -4,4 +4,4 @@ const server = require("./server.js");
 
 const arg = process.argv.slice(2)[0];
 
-server(arg, true);
+server(arg, true, 3000);

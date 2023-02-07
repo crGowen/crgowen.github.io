@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require('express');
 
-module.exports = function server(dir, logging = false){
+module.exports = function server(dir, logging = false, port = null){
       const cleanedArg = dir ? "/" + dir : "";
 
       const msg = cleanedArg.length ? `Server starting for directory: .${cleanedArg}` : "Server starting for normal directory";
@@ -19,7 +19,7 @@ module.exports = function server(dir, logging = false){
          res.sendFile(file);
       });
 
-      const server = app.listen();
+      const server = port ? app.listen(port) : app.listen();
 
       if (logging) console.log(`Listening on PORT ${server.address().port}`);
 
