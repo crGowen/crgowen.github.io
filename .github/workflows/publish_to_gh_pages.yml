@@ -42,9 +42,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: website-build
+          path: website-build
       - name: Create github_pages.tar artifact
         run: |
-          ls
           cd ./website-build
           tar -cvf ../github_pages.tar ./
       - name: Upload GitHub Pages artifact
