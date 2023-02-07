@@ -26,6 +26,7 @@ jobs:
           path: dist
           retention-days: "1"
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -47,7 +48,7 @@ jobs:
   
   
   deploy:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
 
     permissions:
