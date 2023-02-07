@@ -1,26 +1,27 @@
 const path = require("path");
 const express = require('express');
-const process = require("process");
 
-const arg = process.argv.slice(2)[0];
-const cleanedArg = arg ? "/" + arg : "";
+module.exports = function server(dir, logging = false){
+      const cleanedArg = dir ? "/" + dir : "";
 
-const msg = cleanedArg.length ? `Server starting for directory: .${cleanedArg}` : "Server starting for normal directory";
-console.log(msg);
+      const msg = cleanedArg.length ? `Server starting for directory: .${cleanedArg}` : "Server starting for normal directory";
+      if (logging) console.log(msg);
 
-const app = express();
+      const app = express();
 
-const PORT = 3000;
+      // Server for testing during development
+      const argCorrectedDir = `../.${cleanedArg}`;
 
-// Server for testing during development
+      app.use(express.static(path.resolve(__dirname, argCorrectedDir)));
 
-const argCorrectedDir = `../.${cleanedArg}`;
+      app.get('*', (req, res) => {
+         const file = path.resolve(__dirname, `${argCorrectedDir}/404.html`);
+         res.sendFile(file);
+      });
 
-app.use(express.static(path.resolve(__dirname, argCorrectedDir)));
+      const server = app.listen();
 
-app.get('*', (req, res) => {
-   const file = path.resolve(__dirname, `${argCorrectedDir}/404.html`);
-   res.sendFile(file);
-});
+      if (logging) console.log(`Listening on PORT ${server.address().port}`);
 
-app.listen(PORT)
+      return server;
+   };
