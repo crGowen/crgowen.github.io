@@ -39,9 +39,9 @@ jobs:
     
     steps:
       - name: Get build artifact
-          uses: actions/download-artifact@v3
-          with:
-            name: website-build
+        uses: actions/download-artifact@v3
+        with:
+          name: website-build
       - name: Create github_pages.tar artifact
         run: |
           cd ./dist
