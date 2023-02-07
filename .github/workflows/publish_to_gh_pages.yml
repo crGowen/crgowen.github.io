@@ -7,6 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages  
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,33 +23,13 @@ jobs:
         run: npm i
       - name: Build
         run: npm run build
+      - name: Install Playwright Dependencies
+        run: npx playwright install-deps
       - name: Run Playwright tests
         run: npm test
-      - name: Artifact build output
-        uses: actions/upload-artifact@main
-        with:
-          name: website-build
-          path: dist
-          retention-days: "1"
-          
-  
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages    
-    steps:
-      - name: Get build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: website-build
-          path: website-build
       - name: Create github_pages.tar artifact
         run: |
-          cd ./website-build
+          cd ./dist
           tar -cvf ../github_pages.tar ./
       - name: Upload GitHub Pages artifact
         uses: actions/upload-artifact@main
