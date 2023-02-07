@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const useCommon = {
-    headless: false,
+    headless: true,
     ignoreHTTPSErrors: true
 };
 

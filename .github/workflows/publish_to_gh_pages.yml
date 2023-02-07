@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,45 +18,24 @@ jobs:
         run: npm i
       - name: Build
         run: npm run build
+      - name: Run Playwright tests
+        run: npm test
       - name: Artifact build output
         uses: actions/upload-artifact@main
         with:
           name: website-build
           path: dist
           retention-days: "1"
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Use Node 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - name: Install node_modules
-        run: npm i
-      - name: Get build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: website-build
-          path: dist
-      - name: Run Playwright tests
-        run: npm test
-  
+          
   
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
-
     permissions:
       pages: write
       id-token: write
-
     environment:
-      name: github-pages
-    
+      name: github-pages    
     steps:
       - name: Get build artifact
         uses: actions/download-artifact@v3
