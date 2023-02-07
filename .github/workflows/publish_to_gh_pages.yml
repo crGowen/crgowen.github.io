@@ -44,7 +44,7 @@ jobs:
           name: website-build
       - name: Create github_pages.tar artifact
         run: |
-          cd ./dist
+          cd ./website-build
           tar -cvf ../github_pages.tar ./
       - name: Upload GitHub Pages artifact
         uses: actions/upload-artifact@main
