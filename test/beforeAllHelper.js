@@ -3,6 +3,9 @@ const process = require("process");
 
 module.exports = () => {
     const useGithubPagesSite = process.env.USE_GH_PAGES_SITE;
+    console.log("USE GH PAGES = ");
+    console.log(useGithubPagesSite);
+    console.log(useGithubPagesSite === true);
 
     let app = null;
     let url = "https://crgowen.github.io";
