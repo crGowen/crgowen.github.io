@@ -15,6 +15,7 @@ module.exports = () => {
 
     console.log("USING: ");
     console.log(url);
+    console.log(useGithubPagesSite === true);
 
     return [app, url];
 }
