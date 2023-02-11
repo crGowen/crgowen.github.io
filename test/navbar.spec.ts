@@ -2,8 +2,6 @@ import { test, expect, Page } from '@playwright/test';
 import process from "process";
 import server from "../scripts/server.js";
 
-console.log(process.env.USE_GH_PAGES_SITE);
-
 test.describe("Navigation", () => {
     let app: any = null;
     let port: number | undefined = undefined;
