@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 7 * * *'
 
+env:
+  USE_GH_PAGES_SITE: true
+
 jobs:
   test:
     runs-on: ubuntu-latest

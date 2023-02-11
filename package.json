@@ -10,7 +10,7 @@
     "prebuild": "node ./scripts/prebuild.js",
     "build": "tsc && webpack --mode production --config webpack.config.js",
     "postbuild": "node ./scripts/postbuild.js",
-    "test": "playwright test --workers=1 --retries=0 --reporter=list test/"
+    "test": "playwright test --workers=3 --retries=1 --reporter=list test/"
   },
   "author": "Carl Ryan Gowen",
   "license": "ISC",
