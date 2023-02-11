@@ -18,9 +18,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Install node_modules
-        run: npm i
-      - name: Build
-        run: npm run build
+        run: npm i --production
       - name: Install Playwright Dependencies
         run: npx playwright install-deps
       - name: Run Playwright tests

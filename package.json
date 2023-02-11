@@ -10,21 +10,23 @@
     "prebuild": "node ./scripts/prebuild.js",
     "build": "tsc && webpack --mode production --config webpack.config.js",
     "postbuild": "node ./scripts/postbuild.js",
-    "test": "playwright test --workers=3 --retries=1 --reporter=list test/"
+    "test": "playwright test --workers=2 --retries=1 --reporter=list test/"
   },
   "author": "Carl Ryan Gowen",
   "license": "ISC",
   "private": true,
   "dependencies": {
     "@playwright/test": "^1.30.0",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
-    "express": "^4.18.1",
-    "fs-extra": "^10.1.0",
-    "playwright": "^1.30.0",
+    "express": "^4.18.2",
+    "playwright": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "fs-extra": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^4.7.4",
-    "webpack-cli": "^4.10.0"
+    "typescript": "^4.9.5",
+    "webpack-cli": "^5.0.1"
   }
 }
