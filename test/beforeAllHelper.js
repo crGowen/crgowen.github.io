@@ -2,10 +2,7 @@ const server = require("../scripts/server.js");
 const process = require("process");
 
 module.exports = () => {
-    const useGithubPagesSite = process.env.USE_GH_PAGES_SITE;
-    console.log("USE GH PAGES = ");
-    console.log(useGithubPagesSite);
-    console.log(useGithubPagesSite === true);
+    const useGithubPagesSite = process.env.USE_GH_PAGES_SITE === "enable";
 
     let app = null;
     let url = "https://crgowen.github.io";
@@ -15,6 +12,9 @@ module.exports = () => {
         const port = app.address().port;
         url = `http://localhost:${port}`;
     };
+
+    console.log("USING: ");
+    console.log(url);
 
     return [app, url];
 }
