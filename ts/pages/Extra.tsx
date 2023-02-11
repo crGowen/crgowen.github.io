@@ -15,7 +15,7 @@ const items = [
     },
     {
         title: "C++ Library: Implementation of Djikstra's Algorithm",
-        link: "https://github.com/crGowen/djkistra-implementation/releases/latest",
+        link: "https://github.com/crGowen/djikstras-algorithm",
         description: `Generalised library for using Djikstra's Algorithm on node graphs.
         Provides functionality for building a graph and finding the shortest route between two nodes:- add nodes, connect them, then run
         Djikstra's Algorithm on the network. Usage example provided with release.`,
@@ -23,7 +23,7 @@ const items = [
     },
     {
         title: "C++ Library: Genetic Algorithm",
-        link: "https://github.com/crGowen/genetic-algorithm-implementation/releases/latest",
+        link: "https://github.com/crGowen/genetic-algorithm",
         description: `Generalised library for solving complicated optimisation problems via genetic algorithm. Provides functionality
         for declaring a solution fitness evaluation and then (with user specified parameters)
         running a genetic algorithm to optimise a solution population for the fitness function. Usage example provided with release.`,

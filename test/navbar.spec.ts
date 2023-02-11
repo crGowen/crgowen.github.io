@@ -1,22 +1,13 @@
 import { test, expect, Page } from '@playwright/test';
-import process from "process";
-import server from "../scripts/server.js";
+import beforeAllHelper from "./beforeAllHelper.js";
 
 test.describe("Navigation", () => {
     let app: any = null;
-    let port: number | undefined = undefined;
-    let url = "https://crgowen.github.io";
+    let url: string;
     let page: Page;
 
     test.beforeAll(async ({ browser }) => {
-        const useGithubPagesSite = process.env.USE_GH_PAGES_SITE;
-
-        if (!useGithubPagesSite) {
-            app = server("dist");
-            port = app.address().port;
-            url = `http://localhost:${port}`;
-        }
-
+        [app, url] = beforeAllHelper();
         page = await browser.newPage();
     });
 
@@ -49,7 +40,7 @@ test.describe("Navigation", () => {
     ];
 
     navLinks.forEach(
-        async (link) => test(`Check that '${link}' link works`, async () => {
+        async (link) => test(`Test '${link}' navbar link`, async () => {
             await testLinkVisibleAndWorks(link, page);
         })
     );
