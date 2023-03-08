@@ -20,7 +20,7 @@ export default function useHashRouting(routes: HashRoutes) {
             removeEventListener("hashchange", handleHashChange);
         };
 
-    }, []);
+    }, [setHash]);
 
     return routes[hash] ?? routes.defaultPage;
 }
