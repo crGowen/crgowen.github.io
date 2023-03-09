@@ -35,7 +35,7 @@ test.describe("Navigation", () => {
     const navLinks =  [
         "software",
         "renders",
-        "extra",
+        "blog",
         "about"
     ];
 

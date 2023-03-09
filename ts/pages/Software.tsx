@@ -23,10 +23,21 @@ const items = [
         
     },
     {
-        title: "Chess (Work in Progress)",
-        description: `WIP and not yet available!`
+        title: "C++ Library: Implementation of Djikstra's Algorithm",
+        link: "https://github.com/crGowen/djikstras-algorithm",
+        description: `Generalised library for using Djikstra's Algorithm on node graphs.
+        Provides functionality for building a graph and finding the shortest route between two nodes:- add nodes, connect them, then run
+        Djikstra's Algorithm on the network. Usage example provided with release.`,
+        openInNewTab: true
     },
-
+    {
+        title: "C Library: Genetic Algorithm",
+        link: "https://github.com/crGowen/genetic-algorithm",
+        description: `Generalised library for solving complicated optimisation problems via genetic algorithm. Provides functionality
+        for declaring a solution fitness evaluation and then (with user specified parameters)
+        running a genetic algorithm to optimise a solution population for the fitness function. Usage example provided with release.`,
+        openInNewTab: true
+    }
 ];
 
 const itemsJSX = items.map( x => ({
@@ -41,7 +52,8 @@ const itemsJSX = items.map( x => ({
             fontSize: '0.9rem'
         }}>{x.description}</p>
     </>),
-    link: x.link
+    link: x.link,
+    openInNewTab: x.openInNewTab
 }));
 
 export default function Software() {

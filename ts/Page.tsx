@@ -9,7 +9,7 @@ type PageProps = {
 const links=[
     "software",
     "renders",
-    "extra",
+    "blog",
     "about"
 ];
 

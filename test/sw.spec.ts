@@ -89,4 +89,45 @@ test.describe("Software page", () => {
         const leadText = await page.isVisible(`text=A relatively common element, lead has been`);
         expect(leadText, `Lead text not visible`).toBe(true);
     });
+
+    const repoEntries =  [
+        {
+            text: "C++ Library: Implementation of Djikstra's Algorithm",
+            owner: "crGowen",
+            title: "djikstras-algorithm"
+        },
+        {
+            text: "C Library: Genetic Algorithm",
+            owner: "crGowen",
+            title: "genetic-algorithm"
+        }
+    ];
+
+    repoEntries.forEach(
+        async ({text, owner, title}) => test(`'${text}'`, async () => {
+            await testGitHubRepoLinkEntry(text, owner, title, page);
+        })
+    );
 });
+
+async function testGitHubRepoLinkEntry(linkText, owner, title, page) {
+    const linkSpecifier = `text="${linkText}"`;
+    const linkVisible = await page.isVisible(linkSpecifier);
+    expect(linkVisible, `${linkSpecifier} not visible`).toBe(true);
+
+    const repoPagePromise = page.waitForEvent('popup');
+
+    await page.click(linkSpecifier);
+
+    const repoPage = await repoPagePromise;
+    await repoPage.waitForLoadState();
+
+    const expectedPageTitle = `GitHub - ${owner}/${title}`;
+    expect(await repoPage.title(), `Title not ${expectedPageTitle}`).toBe(expectedPageTitle);
+    
+    const repoOwnerVisible = await repoPage.isVisible(`text="${owner}"`);
+    expect(repoOwnerVisible, `${owner} not visible`).toBe(true);
+
+    const repoTitleVisible = await repoPage.isVisible(`text="${title}"`);
+    expect(repoTitleVisible, `${title} not visible`).toBe(true);
+}

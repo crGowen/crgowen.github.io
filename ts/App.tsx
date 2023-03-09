@@ -2,7 +2,7 @@ import useHashRouting, { HashRoutes } from "./common/useHashRouting";
 import Software from "./pages/Software"; 
 import Renders from "./pages/Renders";
 import PageNotFound from "./pages/PageNotFound";
-import Extra from "./pages/Extra";
+import Blog from "./pages/Blog";
 import About from "./pages/About";
 
 // software subpages
@@ -18,7 +18,7 @@ const routes: HashRoutes = {
     software: Software,
     index: Software,
     renders: Renders,
-    extra: Extra,
+    blog: Blog,
     about: About,
     ipt: Ipt,
     gol: Gol,
