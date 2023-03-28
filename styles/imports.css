@@ -1,7 +1,17 @@
-@import url("/fonts/SairaCondensed-Regular.ttf");
-@import url("/fonts/Raleway-Light.ttf");
+/*pages*/
 @import url("page.css");
 @import url("navbar.css");
 @import url("blog.css");
 @import url("sw/ipt.css");
 @import url("sw/gol.css");
+
+/*fonts*/
+@font-face {
+    font-family: "Saira Condensed";
+    src: url("../fonts/SairaCondensed-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway-Light.ttf");
+}

@@ -94,7 +94,7 @@
 }
 
 .iptSq {
-    --elemDimensions: calc( var(--iptTableWidth) / 18 - 0.55rem);
+    --elemDimensions: calc( var(--iptTableWidth) / 18 - 0.60rem);
     display: inline-block;
     width: var(--elemDimensions);
     height: var(--elemDimensions);
