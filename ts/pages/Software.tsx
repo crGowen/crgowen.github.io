@@ -27,7 +27,7 @@ const items = [
         link: "https://github.com/crGowen/djikstras-algorithm",
         description: `Generalised library for using Djikstra's Algorithm on node graphs.
         Provides functionality for building a graph and finding the shortest route between two nodes:- add nodes, connect them, then run
-        Djikstra's Algorithm on the network. Usage example provided with release.`,
+        Djikstra's Algorithm on the network. Usage example provided.`,
         openInNewTab: true
     },
     {
@@ -35,7 +35,7 @@ const items = [
         link: "https://github.com/crGowen/genetic-algorithm",
         description: `Generalised library for solving complicated optimisation problems via genetic algorithm. Provides functionality
         for declaring a solution fitness evaluation and then (with user specified parameters)
-        running a genetic algorithm to optimise a solution population for the fitness function. Usage example provided with release.`,
+        running a genetic algorithm to optimise a solution population for the fitness function. Usage example provided.`,
         openInNewTab: true
     }
 ];
