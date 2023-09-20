@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Ipt from "./pages/sw/Ipt";
 import Gol from "./pages/sw/Gol";
 import Stenor from "./pages/sw/Stenor";
+import Chess from "./pages/sw/Chess";
 
 //blog subpages
 import Architecture from "./pages/blogs/Architecture";
@@ -25,6 +26,7 @@ const routes: HashRoutes = {
     stenor: Stenor,
     architecture: Architecture,
     memsaving: MemSaving,
+    chess: Chess,
     defaultPage: PageNotFound
 };
 

@@ -30,7 +30,7 @@ export default function Gol() {
         fontWeight: "normal",
         fontSize: '0.9rem',
         marginBottom: '0.3rem'
-        };
+    };
 
     return (
         <Page width="wide">
@@ -96,7 +96,7 @@ function GolCol (props: {col: boolean[], x: number, inputBlock: boolean}) {
 function GolSq (props: { pos: {x:number, y:number}, active: boolean,  inputBlock: boolean }) {
     const {x, y} = props.pos;
     const id = `golsq-${x.toString()},${y.toString()}`
-    const activeAppend = props.active ? " sqActive" : "";
+    const activeAppend = props.active ? " golSqActive" : "";
     const inputBlockedAppend = props.inputBlock ? "Blocked" : "";
     return <div id={id} className={`golSq${inputBlockedAppend}${activeAppend}`}></div>
 }

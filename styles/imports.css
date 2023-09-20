@@ -4,6 +4,7 @@
 @import url("blog.css");
 @import url("sw/ipt.css");
 @import url("sw/gol.css");
+@import url("sw/chess.css");
 
 /*fonts*/
 @font-face {

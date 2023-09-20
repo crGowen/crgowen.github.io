@@ -2,6 +2,11 @@ import Page, { PageList } from "../Page";
 
 const items = [
     {
+        title: "Chess",
+        link: '#chess',
+        description: `Chess. Work in Progress`
+    },
+    {
         title: "Stenor",
         link: '#stenor',
         description: `Short for "Steganographer", Stenor is a hobby project on digital steganography,

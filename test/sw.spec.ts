@@ -61,7 +61,7 @@ test.describe("Software page", () => {
         await expect(golSq, `GOL Sq styled inactive to start`).toHaveClass("golSq");
         await golSq.click();
 
-        await expect(golSq, `GOL Sq styled active after click`).toHaveClass("golSq sqActive");
+        await expect(golSq, `GOL Sq styled active after click`).toHaveClass("golSq golSqActive");
 
         await page.click(`text="Clear"`);
 

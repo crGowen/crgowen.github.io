@@ -1,39 +1,38 @@
-.golContainer {
+.chessContainer {
     display: block;
     width: calc(var(--pageAppWidth) * 1rem);
     height: auto;
     --edgeGap: 0.15rem;
 }
 
-.golGrid {
+.chessBoard {
     width: 100%;
     height: 40rem;
     background-color: #999;
     padding: var(--edgeGap);
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     border-radius: 0.2rem;
 }
 
-.golCol {
+.chessFile {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-.golSq {
+.chessSq {
     display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 0.1rem;
+    width: 4.8rem;
+    height: 4.8rem;
     background-color: snow;
     cursor: pointer;
     transition: 0.08s;
     user-select: none;
 }
 
-.golSqBlocked {
+.chessSqBlocked {
     display: inline-block;
     width: 0.9rem;
     height: 0.9rem;
@@ -44,10 +43,10 @@
     cursor: default;
 }
 
-.golSq:hover {
+.chessSq:hover {
     background-color: #6794e0;
 }
 
-.golSqActive {
-    background-color: steelblue;
+.darkSq {
+    background-color: black;
 }
