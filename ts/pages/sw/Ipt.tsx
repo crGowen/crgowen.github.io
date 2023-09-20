@@ -1,5 +1,5 @@
 import Page, { PageEntry } from "../../Page";
-import {elements, Elem, ElemInfo, Spacer, RowSubstitution} from "../../internals/ipt";
+import {elements, Elem, ElemInfo, Spacer, RowSubstitution} from "../../internals/ipt/elements";
 import { useState, useEffect } from "react";
 
 export default function Ipt() {
